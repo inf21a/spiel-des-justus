@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  api:
+    container_name: api
+    build:
+      context: ../
+      dockerfile: docker/api.Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=80
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ../
+      dockerfile: docker/nginx.Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - api
