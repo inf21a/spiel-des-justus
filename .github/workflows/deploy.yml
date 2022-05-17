@@ -13,9 +13,13 @@ jobs:
 
       - name: Build images
         run: docker-compose build
+        working-directory: docker
       - name: Stop old containers
         run: docker-compose down
+        working-directory: docker
       - name: Start new containers
         run: docker-compose up -d
+        working-directory: docker
       - name: Show first container logs
         run: docker-compose logs
+        working-directory: docker
