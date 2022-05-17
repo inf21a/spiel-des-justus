@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  api:
+    container_name: api
+    restart: unless-stopped
+    build:
+      context: ../
+      dockerfile: docker/api.Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=80
+
+  nginx:
+    container_name: nginx
+    restart: unless-stopped
+    build:
+      context: ../
+      dockerfile: docker/nginx.Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - api
