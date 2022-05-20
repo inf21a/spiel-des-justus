@@ -1,6 +1,11 @@
-import { Server, Origins } from "boardgame.io/server";
+import { Origins, Server } from "boardgame.io/server";
 import { JustusGame } from "./Game";
 
-const server = Server({ games: [JustusGame], origins: [Origins.LOCALHOST] });
+const prod = process.env.NODE_ENV == "production";
 
-server.run(process.env.PORT ? Number(process.env.PORT) : 8000);
+const server = Server({
+  games: [JustusGame],
+  origins: prod ? [] : [Origins.LOCALHOST],
+});
+
+server.run(prod ? Number(process.env.PORT) : 3001);
