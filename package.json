@@ -12,6 +12,7 @@
   "dependencies": {
     "boardgame.io": "^0.49.12",
     "esm": "^3.2.25",
+    "phaser": "3.55.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
