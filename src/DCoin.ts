@@ -28,6 +28,8 @@ export default class DCoin extends Phaser.Scene {
     }
 
     create() {
+
+
         this.cameras.main.setBounds(-1000, -1000, 3024, 3024);
         this.cameras.main.setZoom(1, 1);
         this.cameras.main.centerOn(0, 0);
@@ -80,9 +82,11 @@ export default class DCoin extends Phaser.Scene {
             pos++;
 
             if(pos == 5){
+                this.scale.startFullscreen();
                 pos = 1;
             }
         })
+
 
 
     }

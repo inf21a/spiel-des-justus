@@ -15,15 +15,18 @@ export const JustusGame: Game<JustusGameState> = {
 
 };
 
-let diceText;
 
 const scene = new Phaser.Game({
         type: Phaser.AUTO,
-        width: 1530,
-        height: 720,
-        backgroundColor: '#304858',
+        width: 1920,
+        height: 1080,
+        backgroundColor: '#0d2b3e',
         pixelArt: true,
-        scene: [DCoin]
+        scene: [DCoin],
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH,
+        },
     }
 )
 
