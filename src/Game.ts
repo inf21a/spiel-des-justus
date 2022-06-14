@@ -12,17 +12,16 @@ export interface JustusGameState {
 export const JustusGame: Game<JustusGameState> = {
     setup: () => ({
         /*
-         * 0: nothing
-         * 1: event
-         * 2: polar question
-         * 3: choice question
-         * 4: open question
-         * 5: group question
+         * 0: start
+         * 1: nothing
+         * 2: solo questiom
+         * 3: group question
+         * 4: event
          * 99: end
          */
         board: [
-            0, 0, 1, 2, 0, 0, 3, 0, 2, 0, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 2, 0, 0, 0,
-            1, 2, 0, 0, 2, 3, 0, 0, 2, 0, 3, 0, 0, 1, 0, 0, 0, 2, 4, 1, 0, 99,
+            0, 1, 2, 1, 2, 4, 2, 3, 2, 1, 2, 3, 4, 2, 1, 2, 4, 1, 2, 2, 1, 4, 2, 3, 1,
+            2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4, 99
         ],
 
         players: {},
