@@ -6,6 +6,7 @@ export interface JustusGameState {
     rolledNumber: number;
     diceRolled: boolean;
     currentPolarQuestion?: { question: string, answer: boolean }
+    currentChoiceQuestion?: { question: string, choices: string[4], answer: number }
 }
 
 export const JustusGame: Game<JustusGameState> = {
@@ -31,7 +32,7 @@ export const JustusGame: Game<JustusGameState> = {
     minPlayers: 2,
     maxPlayers: 10,
     moves: {
-        start:(G, ctx)=>{
+        start: (G, ctx) => {
             ctx.events?.setStage("dice")
         }
     },
@@ -65,6 +66,19 @@ export const JustusGame: Game<JustusGameState> = {
                     answer: (G, ctx, answer: boolean) => {
                         console.log(G.currentPolarQuestion?.question);
                         if (answer == G.currentPolarQuestion?.answer) {
+                            G.players[ctx.currentPlayer].score += 10;
+                            ctx.events?.endTurn();
+                        } else {
+                            ctx.events?.endTurn();
+                        }
+                    }
+                }
+            },
+            answerChoiceQuestion: {
+                moves: {
+                    answer: (G, ctx, answer: number) => {
+                        console.log(G.currentChoiceQuestion?.question);
+                        if (answer == G.currentChoiceQuestion?.answer) {
                             G.players[ctx.currentPlayer].score += 10;
                             ctx.events?.endTurn();
                         } else {
