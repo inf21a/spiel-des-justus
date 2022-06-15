@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import { Client } from "boardgame.io/react";
-import {Local, SocketIO} from "boardgame.io/multiplayer";
+import { SocketIO } from "boardgame.io/multiplayer";
 
 import { JustusGame as Game } from "./Game";
 import Board from "./Board";
@@ -12,7 +12,13 @@ import "./index.css";
 const App = Client({
   game: Game,
   board: Board,
-  multiplayer: Local(),
+  multiplayer: SocketIO(
+    import.meta.env.DEV
+      ? {
+          server: "localhost:3001",
+        }
+      : {}
+  ),
 });
 
 ReactDOM.render(

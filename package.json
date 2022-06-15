@@ -6,14 +6,13 @@
     "start": "vite",
     "build": "tsc && vite build",
     "build:server": "tsc -p tsconfig.server.json",
-    "start:server": "node -r esm dist/server/server.js",
-    "dev": "tsc -p tsconfig.server.json && concurrently 'vite' 'tsc -w -p tsconfig.server.json' 'nodemon -r esm dist/server/server.js'",
+    "start:server": "node dist/server/server.js",
+    "dev": "tsc -p tsconfig.server.json && concurrently 'vite' 'tsc -w -p tsconfig.server.json' 'nodemon dist/server/server.js'",
     "format": "prettier -w ./src/",
     "format:check": "prettier --check ./src/"
   },
   "dependencies": {
     "boardgame.io": "^0.49.12",
-    "esm": "^3.2.25",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
