@@ -1,5 +1,7 @@
 import type { Game } from "boardgame.io";
 
+import questions from "./assets/questions.json";
+
 export interface JustusGameState {
   board: number[];
   players: { [key: string]: { position: number; score: number } };
@@ -11,10 +13,11 @@ export interface JustusGameState {
     choices: string[4];
     answer: number;
   };
+  polarQuestions: { question: string; answer: boolean }[];
 }
 
 export const JustusGame: Game<JustusGameState> = {
-  setup: () => ({
+  setup: (ctx) => ({
     /*
      * 0: nothing
      * 1: event
@@ -28,9 +31,11 @@ export const JustusGame: Game<JustusGameState> = {
       0, 0, 1, 2, 0, 0, 3, 0, 2, 0, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 2, 0, 0, 0,
       1, 2, 0, 0, 2, 3, 0, 0, 2, 0, 3, 0, 0, 1, 0, 0, 0, 2, 4, 1, 0, 99,
     ],
+
     players: {},
     rolledNumber: 0,
     diceRolled: false,
+    polarQuestions: ctx.random!.Shuffle(questions.polar),
   }),
   minPlayers: 2,
   maxPlayers: 10,
@@ -56,8 +61,23 @@ export const JustusGame: Game<JustusGameState> = {
               G.diceRolled = true;
               const field = G.board[G.players[ctx.currentPlayer].position];
               switch (field) {
+                case 0:
+                  break;
+                case 1:
+                  break;
+                case 2:
+                  G.currentPolarQuestion = G.polarQuestions.pop();
+                  console.log(G.currentPolarQuestion?.question);
+                  ctx.events?.setStage("answerPolarQuestion");
+                  break;
+                case 3:
+                  break;
+                case 4:
+                  break;
+                case 5:
+                  break;
                 default:
-                  ctx.events!.setStage("answerPolarQuestion");
+                  break;
               }
             }
           },
@@ -66,7 +86,6 @@ export const JustusGame: Game<JustusGameState> = {
       answerPolarQuestion: {
         moves: {
           answer: (G, ctx, answer: boolean) => {
-            console.log(G.currentPolarQuestion?.question);
             if (answer == G.currentPolarQuestion?.answer) {
               G.players[ctx.currentPlayer].score += 10;
               ctx.events?.endTurn();
