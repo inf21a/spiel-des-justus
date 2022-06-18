@@ -1,3 +1,2 @@
-body {
-  margin: 0;
-}
+@tailwind base;
+@tailwind utilities;
