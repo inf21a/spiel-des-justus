@@ -1,0 +1,83 @@
+.tile {
+    position: absolute;
+    background-color: blue;
+    width: 4%;
+    height: 4%;
+}
+
+.player {
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    border-radius: 100%;
+    transition: "all 5s";
+}
+
+#f1 {
+    top: 84.8%;
+    left: 75.7%;
+}
+
+#f2 {
+    top: 80%;
+    left: 75.7%;
+}
+
+#f3 {
+    top: 75.7%;
+    left: 74.7%;
+}
+
+#f4 {
+    top: 75%;
+    left: 67.5%;  
+}
+
+#f5 {
+    top: 74.6%;
+    left: 60%;
+}
+
+#f6 {
+    top: 70.2%;
+    left: 59%;
+}
+
+#f7 {
+    top: 65.4%;
+    left: 59%;
+}
+
+#f8 {
+    top: 61%;
+    left: 60%;
+}
+
+#f9 {
+    top: 60%;
+    left: 67%;
+}
+
+#p1 {
+    background-color: red;
+}
+
+#p2 {
+    background-color: green;
+}
+
+#p3 {
+    background-color: blueviolet;
+}
+
+#p4 {
+    background-color: burlywood;
+}
+
+#p5 {
+    background-color: darkcyan;
+}
+
+#p6 {
+    background-color: darkgoldenrod;
+}
