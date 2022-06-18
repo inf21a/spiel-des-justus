@@ -5,11 +5,11 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 COPY tsconfig* index.html vite.config.ts tailwind.config.js postcss.config.js ./
+COPY assets assets
 COPY src src
 RUN yarn build
 
 FROM nginx:alpine AS runner
 
-COPY assets .
 COPY --from=builder /app/dist/client /usr/share/nginx/html
 COPY docker/nginx.conf /etc/nginx/nginx.conf
