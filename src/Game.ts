@@ -1,5 +1,113 @@
 import type { Game } from "boardgame.io";
 
-export interface JustusGameState {}
+import questions from "./assets/questions.json";
 
-export const JustusGame: Game<JustusGameState> = {};
+export interface JustusGameState {
+  board: number[];
+  players: { [key: string]: { position: number; score: number } };
+  rolledNumber: number;
+  diceRolled: boolean;
+  currentPolarQuestion?: { question: string; answer: boolean };
+  currentChoiceQuestion?: {
+    question: string;
+    choices: string[4];
+    answer: number;
+  };
+  polarQuestions: { question: string; answer: boolean }[];
+}
+
+export const JustusGame: Game<JustusGameState> = {
+  setup: (ctx) => ({
+    /*
+     * 0: nothing
+     * 1: event
+     * 2: polar question
+     * 3: choice question
+     * 4: open question
+     * 5: group question
+     * 99: end
+     */
+    board: [
+      0, 0, 1, 2, 0, 0, 3, 0, 2, 0, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 2, 0, 0, 0,
+      1, 2, 0, 0, 2, 3, 0, 0, 2, 0, 3, 0, 0, 1, 0, 0, 0, 2, 4, 1, 0, 99,
+    ],
+
+    players: {},
+    rolledNumber: 0,
+    diceRolled: false,
+    polarQuestions: ctx.random!.Shuffle(questions.polar),
+  }),
+  minPlayers: 2,
+  maxPlayers: 10,
+  moves: {
+    start: (G, ctx) => {
+      ctx.events?.setStage("dice");
+    },
+  },
+  turn: {
+    stages: {
+      dice: {
+        moves: {
+          rollDice: (G, ctx) => {
+            if (!G.diceRolled) {
+              G.rolledNumber = ctx.random!.D6();
+              G.players[ctx.currentPlayer]
+                ? (G.players[ctx.currentPlayer].position =
+                    G.players[ctx.currentPlayer].position + G.rolledNumber)
+                : (G.players[ctx.currentPlayer] = {
+                    position: G.rolledNumber,
+                    score: 0,
+                  });
+              G.diceRolled = true;
+              const field = G.board[G.players[ctx.currentPlayer].position];
+              switch (field) {
+                case 0:
+                  break;
+                case 1:
+                  break;
+                case 2:
+                  G.currentPolarQuestion = G.polarQuestions.pop();
+                  console.log(G.currentPolarQuestion?.question);
+                  ctx.events?.setStage("answerPolarQuestion");
+                  break;
+                case 3:
+                  break;
+                case 4:
+                  break;
+                case 5:
+                  break;
+                default:
+                  break;
+              }
+            }
+          },
+        },
+      },
+      answerPolarQuestion: {
+        moves: {
+          answer: (G, ctx, answer: boolean) => {
+            if (answer == G.currentPolarQuestion?.answer) {
+              G.players[ctx.currentPlayer].score += 10;
+              ctx.events?.endTurn();
+            } else {
+              ctx.events?.endTurn();
+            }
+          },
+        },
+      },
+      answerChoiceQuestion: {
+        moves: {
+          answer: (G, ctx, answer: number) => {
+            console.log(G.currentChoiceQuestion?.question);
+            if (answer == G.currentChoiceQuestion?.answer) {
+              G.players[ctx.currentPlayer].score += 10;
+              ctx.events?.endTurn();
+            } else {
+              ctx.events?.endTurn();
+            }
+          },
+        },
+      },
+    },
+  },
+};
