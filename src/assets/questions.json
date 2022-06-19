@@ -1,0 +1,1017 @@
+{
+  "polar": [
+    {
+      "question": " 'Explore neben Exploit' ist eine These im Digitalen Zeitalter",
+      "answer": true
+    },
+    {
+      "question": "Das A in VUCA steht für Ambivalence",
+      "answer": false
+    },
+    {
+      "question": "Eine der Qualitäten von Management by Objectives ist 'resultatsbezogen'",
+      "answer": true
+    },
+    {
+      "question": "Der Reservationspreis ist die Differenz zwischen Marktpreis und Zahlungswilligkeit eines Kunden",
+      "answer": false
+    },
+    {
+      "question": "'New Leadership' wird durch steile Hierarchien ausgezeichnet.",
+      "answer": false
+    },
+    {
+      "question": "Der patriarchalische Führungsstil gehört zu den eindimensionalen Führungsstilen",
+      "answer": true
+    },
+    {
+      "question": "Die VUCA-Umwelt beschreibt die Geschäftswelt der 1920er Jahre",
+      "answer": false
+    },
+    {
+      "question": "Eindimensionale Führungsansätze sind situationsinvariant",
+      "answer": true
+    },
+    {
+      "question": "Nachfrage ist der Teil der Bedürfnisse, den der Mensch mit den ihm zur Verfügung stehenden Mitteln befriedigen will und kann.",
+      "answer": false
+    },
+    {
+      "question": "Die Konsumentenrente beschreibt die Differenz zwischen Reservationspreis und Gleichgewichtspreis.",
+      "answer": true
+    },
+    {
+      "question": "Einen Betrieb nennt man auch Entwicklungswirtschaft",
+      "answer": false
+    },
+    {
+      "question": "Ein Betrieb stellt eine Produktionswirtschaft dar",
+      "answer": true
+    },
+    {
+      "question": "Der Absatzmarkt wird zur Beschaffung von Rohstoffen verwendet ",
+      "answer": false
+    },
+    {
+      "question": "Arbeiten nach Maximumprinzip bedeutet, aus gegebenem Aufwand den maximalen Ertrag herauszuholen.",
+      "answer": true
+    },
+    {
+      "question": "Arbeiten nach Minimumprinzip bedeutet, mit minimalem Aufwand maximalen Ertrag zu erwirtschaften.",
+      "answer": false
+    },
+    {
+      "question": "Der Homo Oeconomicus hat laut Theorie unbegrenzte Bedürfnisse",
+      "answer": true
+    },
+    {
+      "question": "Der Homo Oeconomicus hat laut Theorie unbegrenzte finanzielle Mittel",
+      "answer": false
+    },
+    {
+      "question": "Das ökonomische Prinzip ist definiert als die Entgegenstellung von unbegrenzten Gütern mit begrenzten Bedürfnissen. ",
+      "answer": false
+    },
+    {
+      "question": "Die Gewinnschwelle ist dann erreicht, wenn die Summe der variablen Kosten und der fixen Kosten gleich dem Produkt aus Verkaufspreis und Verkaufsmenge ist. ",
+      "answer": true
+    },
+    {
+      "question": "Der Verhaltensansatz fokussiert sich auf ein bewusstes Agieren der Führungskraft",
+      "answer": true
+    },
+    {
+      "question": "Der Eigenschaftsansatz korrespondiert mit dem humanistischen Menschenbild.",
+      "answer": false
+    },
+    {
+      "question": "Staatliche Güter sind für jeden nutzbar",
+      "answer": true
+    },
+    {
+      "question": "Das Ziel der Penetrationsstrategie ist es, so schnell wie möglich einen großen Marktanteil einzunehmen.",
+      "answer": true
+    },
+    {
+      "question": "Die Abschöpfungsstrategie funktioniert am besten bei der Markteinführung von wenig begehrten Produkten",
+      "answer": false
+    },
+    {
+      "question": "Orte können als Produkt bezeichnet werden.",
+      "answer": true
+    },
+    {
+      "question": "Organisationen können nicht als Produkt bezeichnet werden.",
+      "answer": true
+    },
+    {
+      "question": "Im “Actual Product” werden auch Image, Markenname und Features einbezogen",
+      "answer": true
+    },
+    {
+      "question": "Das “Augmented Product” enthält keine zusätzlichen Consumer-Services",
+      "answer": false
+    },
+    {
+      "question": "Produkt-, Distributions-, Preis- und Kommunikationspolitik sind die Marketinginstrumente der 4 P's im Marketingmix.",
+      "answer": true
+    },
+    {
+      "question": "Die 4 P's des Marketingmix decken die nicht kontrollierbaren Faktoren im Marketing ab.",
+      "answer": false
+    },
+    {
+      "question": "Eine typische Markenfarbe, die man mit der Marke verbindet, ist ein Beispiel für “Brand Association”.",
+      "answer": true
+    },
+    {
+      "question": "“Brand Quality” ist ein Bestandteil einer Marke.",
+      "answer": false
+    },
+    {
+      "question": "Nestle ist eine sogenannte Einzelmarke",
+      "answer": false
+    },
+    {
+      "question": "Die Einteilung in Sinus-Milieus erfolgt entlang der sozialen Lage und der Grundorientierung der Menschen.",
+      "answer": true
+    },
+    {
+      "question": "Tradition“, „Modernisierung/Individualisierung“ und „Neuorientierung“ sind Unterpunkte der Milieu-Einteilung.",
+      "answer": true
+    },
+    {
+      "question": "Im Sinus-Milieu haben “Performer” eine „niedrigere“ soziale Lage als \"Hedonisten\"",
+      "answer": false
+    },
+    {
+      "question": "Die “Prekären” halten im Vergleich zur “Expeditive” eher an Traditionen fest",
+      "answer": true
+    },
+    {
+      "question": "Die Distributionspolitik ist kein Teil der übergeordneten Absatzpolitik",
+      "answer": false
+    },
+    {
+      "question": "Absatzwege bezeichnen die Art, wie Unternehmen an ihre Kunden gelangen",
+      "answer": true
+    },
+    {
+      "question": "Die PEST/PESTEL/etc-Analysen decken in ihrer Analyse kontrollierbare Faktoren ab",
+      "answer": false
+    },
+    {
+      "question": "Das O in der SWOT-Analyse steht für Optimism",
+      "answer": false
+    },
+    {
+      "question": "HARIBO steht für “Harry Riegel Bonn”",
+      "answer": false
+    },
+    {
+      "question": "Die LONGPESTLE-Analyse ist eine Analyseart, die es tatsächlich gibt",
+      "answer": true
+    },
+    {
+      "question": "Ca. ¾ aller Projekte werden im Zeitrahmen fertiggestellt.",
+      "answer": false
+    },
+    {
+      "question": "Wenn mehr Ressourcen als Nachfrage verfügbar sind, tendiert die Nachfrage zu steigen.",
+      "answer": true
+    },
+    {
+      "question": "Beim Konzertaufbau ist man am effizientesten, wenn jeder einzeln so viel trägt wie möglich.",
+      "answer": false
+    },
+    {
+      "question": "Trump ist sehr gut darin, Casinos zu leiten.",
+      "answer": false
+    },
+    {
+      "question": "Der Ablauf der Aktivitäten und Berechnung der Zeiten machen einen Netzplan bereits vollständig.",
+      "answer": true
+    },
+    {
+      "question": "Die Rückwärtsrechnung (Netzplantechnik) gibt Auskunft über die Projektdauer (also  den frühesten Endtermin)",
+      "answer": false
+    },
+    {
+      "question": "Der FEZ des letzten Vorgangs ist gleichzeitig der SEZ.",
+      "answer": true
+    },
+    {
+      "question": "Die Netzplantechnik liefert nur eine annähernde Zeitanalyse.",
+      "answer": false
+    },
+    {
+      "question": "Mehrfach durchgeführte Aktivitäten sind keine Projekte.",
+      "answer": true
+    },
+    {
+      "question": "Die Netzplantechnik ist eine Art ein Projekt nach der Durchführung richtig zu Dokumentieren.",
+      "answer": false
+    },
+    {
+      "question": "Ein erfolgreicher Projektmanager muss jeden Teilaspekt des Projektes so gut kennen, dass er das Projekt alleine machen könnte.",
+      "answer": false
+    },
+    {
+      "question": "Martin möchte als Schulprojekt ein riesiges Baumhaus im Garten seiner Eltern bauen. Sein Vater ist davon nicht begeistert und versucht ihn davon abzuhalten. Martins Vater ist ein Stakeholder.",
+      "answer": true
+    },
+    {
+      "question": "Ein erfolgreicher Projektmanager muss mindestens einen Abschluss als Scrum Master vorweisen.",
+      "answer": false
+    }
+  ],
+  "choice": [
+    {
+      "question": "Welches der untenstehenden Attribute gilt NICHT als erstrebenswertes Kriterium für Management by Objectives?",
+      "options": [
+        "quantifizierbar",
+        "anspruchsvoll",
+        "überprüfbar",
+        "akzeptiert"
+      ]
+    },
+    {
+      "question": "Welches dieser Attribute ist in der Corporate Social Responsibility NICHT enthalten?",
+      "options": [
+        "Globalisierung",
+        "Wirtschaftlichkeit",
+        "Ökologie",
+        "Soziales"
+      ]
+    },
+    {
+      "question": "Woher kommt laut der “Great Man Theory” die Fähigkeit zu führen?",
+      "options": [
+        "Angeboren",
+        "Muss erlernt werden",
+        "Durchsetzen gegen andere Führungskräfte",
+        "Geführte verleihen sie dem Führer"
+      ]
+    },
+    {
+      "question": "Welche der folgenden Wirtschaftsparteien ist NICHT Teil des erweiterten Wirtschaftskreislaufs?",
+      "options": [
+        "Private Investoren",
+        "Haushalt",
+        "Kapitalsammelstellen",
+        "Unternehmen"
+      ]
+    },
+    {
+      "question": "Welcher dieser Führungsstile ist mehrdimensional?",
+      "options": [
+        "New Leadership",
+        "Kooperativ",
+        "Autokratisch",
+        "Bürokratisch"
+      ]
+    },
+    {
+      "question": "Welches Menschenbild wird auch tayloristisches Menschenbild genannt?",
+      "options": ["Mechanisches", "Organisches", "Reflexives", "Robotisches"]
+    },
+    {
+      "question": "Was ist immer ein Merkmal der New Leadership?",
+      "options": [
+        "Flache Hierarchien",
+        "Homeoffice",
+        "Internationale Teams",
+        "Geringe Unternehmensgröße"
+      ]
+    },
+    {
+      "question": "Welches dieser Produkt-Releases könnte Teil einer Skimming/Abschöpfungsstrategie sein?",
+      "options": [
+        "Blu-ray Players werden zunächst mit hohem Preis vermarktet",
+        "Lexus sichert sich mit niedrigen Preisen einen hohen Marktanteil",
+        "Aldis Hausmarke vermarktet eine neue Soße als die günstigste auf dem Markt",
+        "Ein neuer Eimer hat als USP, dass er so viel Wasser abschöpft wie möglich"
+      ]
+    },
+    {
+      "question": "Welches dieser Bedürfnisse hat in der Pyramide nach Maslow die geringste Wichtigkeit?",
+      "options": [
+        "Selbstverwirklichung",
+        "Zugehörigkeit",
+        "Sicherheit",
+        "Selbstwertgefühl"
+      ]
+    },
+    {
+      "question": "Welches dieser Bedürfnisse hat in der Pyramide nach Maslow die höchste Wichtigkeit?",
+      "options": [
+        "Sicherheit",
+        "Zugehörigkeit",
+        "Selbstwertgefühl",
+        "Selbstverwirklichung"
+      ]
+    },
+    {
+      "question": "Was ist eine absehbare Folge von fehlender Gewinnerzielungsabsicht?",
+      "options": [
+        "Verluste können nicht von der Steuer abgesetzt werden.",
+        "Der Staat kann die Tätigkeit unterbinden.",
+        "Gewinne werden nicht besteuert.",
+        "Mitarbeiter können Klage erheben"
+      ]
+    },
+    {
+      "question": "Welches dieser Produkte ist ein Komplementärgut?",
+      "options": ["Blu-ray", "Snickers", "Kugelschreiber", "Haarschnitt"]
+    },
+    {
+      "question": "Welches dieser Produkte ist ein materielles Gut?",
+      "options": ["DVD", "NFT", "Spotify", "Office 365"]
+    },
+    {
+      "question": "Welcher Führungsansatz stützt sich auf die Great Man Theory?",
+      "options": [
+        "Eigenschaftsansatz",
+        "Verhaltensansatz",
+        "New Leadership Ansatz",
+        "Management by Objectives"
+      ]
+    },
+    {
+      "question": "Als was zählt der Staat?",
+      "options": [
+        "Öffentlicher Haushalt",
+        "Privater Haushalt",
+        "Öffentlicher Betrieb",
+        "Privater Betrieb"
+      ]
+    },
+    {
+      "question": "Wie nennt man eine Tätigkeit, die ohne Gewinnerzielungsabsicht ausgeführt wird?",
+      "options": [
+        "Liebhaberei",
+        "Dienstleistung",
+        "Desinvestition",
+        "Fremdkongruenz"
+      ]
+    },
+    {
+      "question": "Wann spricht man von einem bilateralen Monopol?",
+      "options": [
+        "Ein Anbieter – Ein Nachfrager",
+        "Mehrere Anbieter – Ein Nachfrager",
+        "Ein Anbieter – Mehrere Nachfrager",
+        "Mehrere Anbieter –Mehrere Nachfrager"
+      ]
+    },
+    {
+      "question": "“Segmentierung” ist Preisdifferenzierung welchen Grades?",
+      "options": [
+        "Dritten Grades",
+        "Ersten Grades",
+        "Zweiten Grades",
+        "Vierten Grades"
+      ]
+    },
+    {
+      "question": "Was wird als “Core Product” bezeichnet?",
+      "options": [
+        "Was der Käufer tatsächlich kauft",
+        "Was der Käufer sich für sein Produkt wünscht",
+        "Das Produkt und alle seine Special Features",
+        "Produkt inklusive Vermarktung"
+      ]
+    },
+    {
+      "question": "Was bedeutet Marketing eigentlich?",
+      "options": [
+        "Marktorientierte Unternehmensführung",
+        "Marktorientierter Verkauf",
+        "Marktorientierte Werbung",
+        "Markorientiertes Produktdesign"
+      ]
+    },
+    {
+      "question": "Wodurch wird man zu einer sogenannten Kultmarke?",
+      "options": [
+        "emotionale Bindung der Kunden zur Marke erreichen",
+        "Monopol im Markt haben",
+        "Marktführer für mindestens 10 Jahre",
+        "Die beliebteste Marke im Markt sein"
+      ]
+    },
+    {
+      "question": "Was ist keine Markenart?",
+      "options": ["Prozessmarke", "Geruchsmarke", "Tastmarke", "Farbmarke"]
+    },
+    {
+      "question": "Auf was trifft das Markenverhalten in der Marken-Kunden-Beziehung?",
+      "options": [
+        "Markenerlebnis",
+        "Markenerwartungen",
+        "Markenassoziationen",
+        "Markenbekanntheit"
+      ]
+    },
+    {
+      "question": "Wann war der \"Pillen Knick\" in der demografischen Bevölkerungspyramide Deutschlands?",
+      "options": ["1960", "1990", "2000", "2010"]
+    },
+    {
+      "question": "Was gehört nicht zu den 4Ps?",
+      "options": ["People", "Price", "Place", "Product"]
+    },
+    {
+      "question": "Welche Fragestellungen stehen in der Distributionspolitik im Vordergrund?",
+      "options": [
+        "Bestimmung einer Marketingsstrategie",
+        "Wahl des richtigen Absatzweges",
+        "Bestimmung des passenden Absatzorganes",
+        "Wahl zwischen direkten und indirekten Absatzwegen"
+      ]
+    },
+    {
+      "question": "Was sind keine Absatzorgane?",
+      "options": [
+        "Marketingabteilung",
+        "Außendienstmitarbeiter",
+        "Einzelhandel",
+        "Großhandel"
+      ]
+    },
+    {
+      "question": "Was gehört nicht zur Corporate Identity?",
+      "options": [
+        "Corporate Guidelines",
+        "Corporate Design",
+        "Corporate Communication",
+        "Corporate Behaviour"
+      ]
+    },
+    {
+      "question": "Welche Frage stellt man sich nicht bei der Namensfindung?",
+      "options": [
+        "Wie hoch ist der Umsatz?",
+        "Was macht das Produkt?",
+        "Was bekommt der Kunde?",
+        "Was ist der Kernnutzen des Produkts?"
+      ]
+    },
+    {
+      "question": "Welcher Faktor wird nicht in der PEST-Analyse berücksicht?",
+      "options": [
+        "Unternehmensfaktoren",
+        "Politische Faktoren",
+        "Technische Faktoren",
+        "Sozio-kulturelle Faktoren"
+      ]
+    },
+    {
+      "question": "Was muss man bei der Namensfindung nicht berücksichtigen?",
+      "options": [
+        "Lustig klingend",
+        "Domainverfügbarkeit",
+        "Leicht aussprechbar",
+        "Keine negativen Konnotationen"
+      ]
+    },
+    {
+      "question": "Was sind die Sinus-Mileus?",
+      "options": [
+        "Ein Instrument für das strategische Marketing, für Media und Kommunikation",
+        "Ein Instrument der Distributionspolitik",
+        "Eine Analysetechnik",
+        "Ein Methode der Logo-Erstellung"
+      ]
+    },
+    {
+      "question": "Was trifft nicht auf Personas zu?",
+      "options": [
+        "Personas sind real exisitierende Menschen, die ausgewählt werden, um eine Benutzergruppe zu symbolisieren",
+        "Personas sind fiktive Charaktäre, die geschaffen wurden, um verschiedene Benutzer darzustellen",
+        "Personas sind hilfreich, um Ziele und Wünsche von Käufern zu betrachten, um Entscheidungen bzgl. Produkten zu treffen",
+        "Eine Persona ist eine Darstellung der Ziele und des Verhaltens einer hypothetischen Gruppe von Benutzern"
+      ]
+    },
+    {
+      "question": "Was ist kein Vorteil bei der Wahl eines Direktvertriebs?",
+      "options": [
+        "Eigene Vertriebsmitarbeiter binden viel Kapital",
+        "Eigene Entscheidung, wie stark Produkt promoted wird",
+        "Verkäufer hat direkten Kontakt mit Zielkunden",
+        "Die Gewinnspanne ist oft höher"
+      ]
+    },
+    {
+      "question": "Die Anzahl von was ist KEIN Faktor, der die Projektomplexitaet beeinflusst?",
+      "options": ["Ziele", "Aufgaben", "Abhaengigkeiten", "Ressourcen"]
+    },
+    {
+      "question": "Wie heißt das Balkendiagrammtool der Projektplanung auch?",
+      "options": ["Gantt-Chart", "Pert-Chart", "Time-Schedule", "Task-List"]
+    },
+    {
+      "question": "Welche Unterlage existiert normalerweise nicht?",
+      "options": [
+        "Leistungsbrief",
+        "Pflichtenheft",
+        "Projekttagebuch",
+        "Interne Referenz Spezifikation"
+      ]
+    },
+    {
+      "question": "Was ist nicht nötig für die Erstellung eines Netzplanes?",
+      "options": [
+        "Aufgabenverteilung",
+        "Projektstrukturplan",
+        "Zeitplanung",
+        "Vorgangsliste"
+      ]
+    },
+    {
+      "question": "Welche Information steht findet man nicht in einem  Netzplan Netzplanknoten?",
+      "options": ["Beauftragter", "Bezeichnung", "Dauer", "Nummer"]
+    },
+    {
+      "question": "Welche ist keine Darstellungsart für Netzpläne?",
+      "options": [
+        "Ereignis-Pfeil-Darstellung",
+        "Vorgangs-Pfeil-Darstellung",
+        "Ereignis-Knoten-Darstellung",
+        "Vorgangs-Knoten-Darstellung"
+      ]
+    },
+    {
+      "question": "Welche Information liefert die Netzplantechnik?",
+      "options": ["Zeitpuffer", "Budget", "Teamleitung", "Arbeitsaufteilung"]
+    },
+    {
+      "question": "Welche ist keine Netzplanart?",
+      "options": ["ERG", "CPM", "PERT", "MPM"]
+    },
+    {
+      "question": "Wofür ist die Netzplantechnik nicht geeignet?",
+      "options": [
+        "Ortsplanung",
+        "Strukturplan",
+        "Kostenplan",
+        "Einsatzmittelplan"
+      ]
+    },
+    {
+      "question": "Wie werden GANTT-Charts im Allgemeinen bezeichnet?",
+      "options": ["Balkenplan", "Tabellenplan", "Zeilenplan", "Ablaufplan"]
+    },
+    {
+      "question": "Was gehört nicht zu Projektmanagement?",
+      "options": [
+        "Führungsintelligenz",
+        "Führungsaufbau",
+        "Führungstechnik",
+        "Führungsaufgaben"
+      ]
+    },
+    {
+      "question": "The Golden Rule of Project Management is three words. Welches Wort gehört nicht dazu? ",
+      "options": ["Calculate", "Plan", "Organize", "Control"]
+    },
+    {
+      "question": "Was steht in einem Lastenheft? ",
+      "options": [
+        "Forderungen des Auftraggebers",
+        "Möglichkeiten des Auftragnehmers",
+        "Verfügbare Ressourcen für den Auftragnehmer",
+        "Es gibt kein Lastenheft"
+      ]
+    },
+    {
+      "question": "Ein Projekt ist immer..",
+      "options": [
+        "Zeitlich limitiert",
+        "Teuer",
+        "Abhängig von Personal",
+        "Erfolgreich"
+      ]
+    },
+    {
+      "question": "Enis P. möchte einen Bunker in seinem Garten bauen. Wer ist kein Stakeholder? ",
+      "options": [
+        "Seine Ex-Freundin",
+        "Der Vermieter des Grundstücks",
+        "Sein Nachbar Herbert",
+        "Die Gemeinde"
+      ]
+    },
+    {
+      "question": "Sie sind Projektmanager eines Großprojektes. Sie merken einer Ihrer Mitarbeiter macht effektiv nichts, um das Projekt weiterzubringen. Wie reagieren sie am besten?",
+      "options": [
+        "Mitarbeiter unter vier Augen konfrontieren",
+        "Mitarbeiter im Weekly vor allen konfrontieren",
+        "Mit Projektbeteiligten über den Mitarbeiter lästern",
+        "Beim Abteilungsleiter die Kündigung fordern"
+      ]
+    },
+    {
+      "question": "Welche Produkte gehören nicht dem Konzern Nestlé?",
+      "options": ["Golden Toast", "KitKat", "Vittel", "Mövenpick"]
+    }
+  ],
+  "open": [
+    {
+      "question": "Nenne 4 Führungsansätze (Kommaseparierte Angabe)",
+      "options": [
+        "Verhaltensansatz",
+        "Situationsansatz",
+        "Eigenschaftsansatz",
+        "Management by Objectives",
+        "New Leadership"
+      ],
+      "amount": 4
+    },
+    {
+      "question": "Nenne 4 Machtansätze: Macht durch... (Kommaseparierte Angabe)",
+      "options": [
+        "Geld",
+        "Wissen",
+        "Charisma",
+        "Überzeugung",
+        "Legitimation",
+        "Unterdrückung",
+        "Gewalt"
+      ],
+      "amount": 4
+    },
+    {
+      "question": "Nenne 4 Eigenschaften des Homo Oeconomicus (Kommaseparierte Angabe)",
+      "options": [
+        "Unbegrenzte Bedürfnisse",
+        " völlig zweckrationales Handeln",
+        "vollkommene Markttransparenz und Voraussicht",
+        "sofortige Reaktion auf Datenänderungen",
+        "Gewinnmaximierung",
+        "Nutzenmaximierung",
+        "ständige Beachtung des Minimal-/ Maximalprinzips"
+      ],
+      "amount": 4
+    },
+    {
+      "question": "Wie berechnet man den Break-Even Point bzw. Die Gewinnschwelle?",
+      "answer": "Verkaufspreis x Menge = Fixkosten + (Menge x variable Kosten)"
+    },
+    {
+      "question": "Welche drei Begriffe stecken hinter der Triple Bottom Line? (Kommaseparierte Angabe)",
+      "options": ["People", "Planet", "Profit"],
+      "amount": 3
+    },
+    {
+      "question": "Nenne zwei der Definitionen von Führungserfolg (Kommaseparierte Angabe)",
+      "options": [
+        "Führungseffizienz",
+        "Wirtschaftlichkeit der Zielerreichung",
+        "Relation personalinduzierter Einsatzgrößen zu zielbezogenen Outputgrößen"
+      ],
+      "amount": 2
+    },
+    {
+      "question": "Wie lässt sich \"Gewinn\" berechnen?",
+      "answer": "Differenz zwischen Aufwand und Ertrag"
+    },
+    {
+      "question": "Wie nennt man den optimal marktwirtschaftlich handelnden Menschen?",
+      "answer": "Homo Oeconomicus"
+    },
+    {
+      "question": "Wie lässt sich das Team-Management in Bezug auf Aufgaben- und Mitarbeiterorientierung einordnen? (Kommaseparierte Angabe)",
+      "options": ["Hohe Aufgabenorientierung", "hohe Mitarbeiterorientierung"],
+      "amount": 2
+    },
+    {
+      "question": "Nenne 3 Menschenbilder und Persönlichkeitstheorien (Kommaseparierte Angabe)",
+      "options": [
+        "Rational-ökonomisch",
+        "soziales Wesen",
+        "selbstverwirklichender Mensch",
+        "Komplexer Mensch"
+      ],
+      "amount": 3
+    },
+    {
+      "question": "Was ist ein Produkt?",
+      "answer": "Ein Produkt ist jedes Objekt, das auf einem Markt zur Beachtung oder Wahl, zum Kauf, zur Benutzung oder zum Verbrauch oder Verzehr angeboten wird und geeignet ist, damit Wünsche oder Bedürfnisse zu befriedigen."
+    },
+    {
+      "question": "Nenne 3 Dinge, die als Produkt bezeichnet werden können? (Kommaseparierte Angabe)",
+      "options": [
+        "physische Objekte",
+        "Dienstleistungen",
+        "Orte",
+        "Organisationen",
+        "Ideen"
+      ],
+      "amount": 3
+    },
+    {
+      "question": "Was sind die drei Stufen eines Produkts? (Kommaseparierte Angabe)",
+      "options": ["Core Prodcut", "Actual Product", "Augmented Product"],
+      "amount": 3
+    },
+    {
+      "question": "Zähle die 4 P's des Marketingmix auf. (Kommaseparierte Angabe)",
+      "options": ["Place", "Product", "Promotion", "Price"],
+      "amount": 4
+    },
+    {
+      "question": "Wofür steht USP?",
+      "options": ["Unique Selling Proposition", "Unique Selling Point"],
+      "amount": 2
+    },
+    {
+      "question": "Was gibt das Markensteuerrad nach Esch an? (Kommaseparierte Angabe)",
+      "options": [
+        "Nutzen",
+        "Erlebnisse",
+        "Eigenschaften",
+        "Kommunikationsstil"
+      ],
+      "amount": 4
+    },
+    {
+      "question": "Nenne drei von den Anforderungen, die es an den USP gibt (Kommaseparierte Angabe)",
+      "options": [
+        "Verteidigungsfähigkeit",
+        "Zielgruppenorientierung",
+        "Wirtschaftlichkeit",
+        "Preis",
+        "Qualität"
+      ],
+      "amount": 3
+    },
+    {
+      "question": "Was ist das Ziel der Effektivitätsdimension des KKVs (Komparativer Konkurrenzvorteil)? (Kommaseparierte Angabe)",
+      "options": [
+        "Realisierung eines relativen Kundenvorteils",
+        "Das Angebot muss für den Nachfrager bedeutsam sein und auch so von diesem wahrgenommen werden"
+      ],
+      "amount": 1
+    },
+    {
+      "question": "Wie nennt man es marketingtechnisch, wenn ein Kunde sich ein deutlich sichtbares Tattoo von der Marke stechen lässt?",
+      "answer": "Brand Lover Marketing"
+    },
+    {
+      "question": "Nenne drei Faktoren, nach denen man Zielgruppen einteilen kann. (Kommaseparierte Angabe)",
+      "options": [
+        "Alter",
+        "Geschlecht",
+        "sexuelle Orientierung",
+        "Religion",
+        "Einkommen",
+        "Familienstand",
+        "Geburtenrate",
+        "Todesrate",
+        "Familiengröße",
+        "Erbe",
+        "Ausbildung",
+        "Krankengeschichte"
+      ],
+      "amount": 3
+    },
+    {
+      "question": "Was bedeutet der Begriff sozio-demographisch?",
+      "answer": "Beschreibt eine Gruppe, die durch ihre sozialen und demographischen Eigenschaften definiert ist. Es betrachtet das Leben der Einzelnen und deren Eigenschaften"
+    },
+    {
+      "question": "Nenne drei Sinus-Milieus in Deutschland (Kommaseparierte Angabe)",
+      "options": [
+        "Konservativ-Etablierte",
+        "Traditionelle",
+        "Prekäre",
+        "Bürgerliche Mitte",
+        "Sozialökologisch",
+        "Adaptiv-pragmatisch",
+        "Hedonisten",
+        "Expeditive",
+        "Performer",
+        "Liberal-intellektuelle"
+      ],
+      "amount": 3
+    },
+    {
+      "question": "Welches milieu-spezifische Gesundheitsmindset teilen Traditionelle, die bürgerliche Mitte und die Prekären?",
+      "answer": "sportdistanziert"
+    },
+    {
+      "question": "Was bezeichnet der Begriff Distributionspolitik?",
+      "answer": "Alle einzelwirtschaftlichen Maßnahmen, welche die Distribution von Gütern und Dienstleistungen betreffen"
+    },
+    {
+      "question": "Zähle drei Faktoren auf, die Einfluss auf die Wahl des Absatzkanals haben (Kommaseparierte Angabe)",
+      "options": [
+        "Produktbezogene",
+        "kundenbezogene",
+        "konkurrenzbezogene",
+        "unternehmensbezogene",
+        "umweltbezogene",
+        "absatzmittlerbezogene"
+      ],
+      "amount": 3
+    },
+    {
+      "question": "Was ist das Ziel der SWOT-Analyse?",
+      "answer": "Systematische Gegenüberstellung der unternehmensexternen Chancen und Risiken und der unternehmensinternen Stärken und Schwächen"
+    },
+    {
+      "question": "Für was steht SAP? (Kommaseparierte Angabe)",
+      "options": ["Systeme", "Anwendungen", "Produkte"],
+      "amount": 3
+    },
+    {
+      "question": "Zähle die vier Faktoren auf, die einen Slogan gut machen (Kommaseparierte Angabe)",
+      "options": [
+        "einprägsam",
+        "Nutzen des Produktes",
+        "Hebt die Marke von den anderen ab",
+        "Gutes Gefühl gegenüber der Marke"
+      ],
+      "amount": 4
+    },
+    {
+      "question": "Bedeutung des S im Akronym SMART? (Zielsetzungen)",
+      "answer": "Specific"
+    },
+    {
+      "question": "Bedeutung des M im Akronym SMART? (Zielsetzungen)",
+      "answer": "Measurable"
+    },
+    {
+      "question": "Bedeutung des A im Akronym SMART? (Zielsetzungen)",
+      "answer": "Relevant"
+    },
+    {
+      "question": "Bedeutung des R im Akronym SMART? (Zielsetzungen)",
+      "answer": "Timebound"
+    },
+    {
+      "question": "Bedeutung des T im Akronym SMART? (Zielsetzungen)",
+      "answer": "Specific"
+    },
+    {
+      "question": "Wofür steht SAZ?",
+      "answer": "Späteste Anfangszeit"
+    },
+    {
+      "question": "Was ist für die Ermittlung der FEZ, FAZ, SEZ, SAZ bei der Netzplantechnik von fundamentaler Bedeutung? (nicht einzelne Zeiten!, Kommaseparierte Angabe)",
+      "options": ["Vorwärtsrechnung", "Rückwärtsrechnung"],
+      "amount": 2
+    },
+    {
+      "question": "Formel für den frühesten Endzeitpunktes (FEZ) eines Vorganges. (Netzplantechnik)",
+      "answer": "FEZ = FAZ + Vorgangsdauer"
+    },
+    {
+      "question": "Was berechnet die folgende Formel: \n FAZ (Nachfolger) - FEZ (Vorgänger)",
+      "answer": "Freier Puffer"
+    },
+    {
+      "question": "Formel Gesamtpuffer",
+      "answer": "SAZ - FAZ"
+    },
+    {
+      "question": "Wofür steht PSP?",
+      "answer": "Projektstrukturplan"
+    },
+    {
+      "question": "Wofür steht FEZ?",
+      "answer": "Früheste Endzeit"
+    },
+    {
+      "question": "Durch welche 3 Wörter wird das magische Projektmanagement Dreieck beschrieben? (Kommaseparierte Angabe)",
+      "options": ["Zeit", "Kosten", "Qualitaet"],
+      "amount": 3
+    },
+    {
+      "question": "Nenne die 3 'P's der Triple Bottom Line. (Kommaseparierte Angabe)",
+      "options": ["People", "Planet", "Profit"],
+      "amount": 3
+    },
+    {
+      "question": "Die Gesamtheit welcher Aktivitaeten beschreibt der Begriff Projektmanagement? (Kommaseparierte Angabe)",
+      "options": ["Planung", "Leistung", "Kontrolle"],
+      "amount": 3
+    }
+  ],
+  "group": [
+    {
+      "group": [
+        {
+          "question": "AT&T hat 2016 in der größten Acquisition des Jahres Time Warner aufgekauft. Wie viel hat AT&T bezahlt? ",
+          "answer": "USD 85.4 Billion "
+        },
+        {
+          "question": "Welchen Umsatz machte der Einzelhandel innerhalb Deutschlands in 2020 ",
+          "answer": "577 Milliarden Euro "
+        },
+        {
+          "question": "Wie viel Prozent der geplanten Kosten konsumiert ein Projekt im Durchschnitt? ",
+          "answer": "189%"
+        },
+        {
+          "question": "“Project Management is causing a/an ___ undertaking to happen” ",
+          "answer": "planned"
+        },
+        {
+          "question": "“Projektmanagement ist wie ___ […] – Zeit, Kosten und Qualität“ ~ G. Reiss ",
+          "answer": "Jonglieren"
+        },
+        {
+          "question": "„Projektmanager zu sein ist wie ein/e ___ zu sein […]“ ~ Greg Cimmarrusti ",
+          "answer": "Künstler"
+        },
+        {
+          "question": "Wie viele Projekte scheitern im Verhältnis. Hinweis: Quelle ist die BVBC GEHALTSANALYSE vom Jahr 2014.  ",
+          "answer": "1:6"
+        },
+        {
+          "question": "Welche Organisation war hauptverantwortlich für den Bargeldumtausch im Jahr 2002 ",
+          "answer": "EZB - Europäische Zentral Bank "
+        },
+        {
+          "question": "Wie viel Geld hat Lidl verloren bei dem missglückten Versuch SAP in Ihre Systeme zu integrieren? ",
+          "answer": "500 Millionen Euro"
+        },
+        {
+          "question": "Das Problem zu erkennen ist wichtiger als die ___ zu erkennen, [...] ~ Albert Einstein ",
+          "answer": "Lösung"
+        },
+        {
+          "question": "Es ist nicht genug zu wissen, man muss es auch ___ . Es ist nicht genug zu wollen, man muss es auch tun. ~ Johann Wolfgang Goethe ",
+          "answer": "anwenden"
+        },
+        {
+          "question": "Ein … wird dir alles sagen, wenn du ihn danach fragst – aber nicht mehr. ",
+          "answer": "Anwender"
+        },
+        {
+          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein rot umrandeter Schlüssel. Der schwarze rand um das Rot ist wie ein Wappen geformt. ",
+          "answer": "Becks"
+        },
+        {
+          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine gelbe Krone.",
+          "answer": "Corona"
+        },
+        {
+          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein Anker, verwoben mit einem Herz. Das Herz ist rot. ",
+          "answer": "Astra"
+        },
+        {
+          "question": "Zu welcher Marke gehört dieses Logo? Eine rote Mühle. Mit dem Wort Malz in einem Flügel. ",
+          "answer": "Mühlen Kölsch"
+        },
+        {
+          "question": "Zu welcher Biermarke gehört dieser beschriebene Bildausschnitt aus einer Werbekampagne, die damals das Fernsehen dominierte: 4 Menschen stehen während einem Sonnenuntergang am Strand mit Bier in der Hand. Im Hintergrund brennt ein Lagerfeuer. In der Ferne steht ein Leuchtturm.",
+          "answer": "Jever"
+        },
+        {
+          "question": "Zu welcher Marke gehört der beschriebene Bildausschnitt aus einer Werbekampagne: Eine reizende junge Dame in einem gelben Bikini mit wohlgeformten Rundungen joggt lässig am Strand entlang. Neben Ihr rennt ein Mops. ",
+          "answer": "Almased"
+        },
+        {
+          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine Krone mit einem kleinen Eisernen Kreuz in der Mitte steht auf dem Wort HTB. Dabei bildet das T den Übergang zwischen Krone und dem geschriebenen. ",
+          "answer": "Tegernseer"
+        },
+        {
+          "question": "Produkte befriedigen einen Bedarf – Marken befriedigen ___ ",
+          "answer": "Bedürfnisse"
+        },
+        {
+          "question": "Eine Kooperation zwischen dem russischen Gasunternehmen Gazprom und seinem Partnerunternehmen aus Nigeria würde in den USA nicht gut ankommen, denn das Unternehmen nannte sich selbst ___ ",
+          "answer": "Nigaz"
+        },
+        {
+          "question": "Viagra wurde in China unter dem Produktnamen Wànàikě veröffentlicht – was für schmunzeln sorgte, denn es heißt ungefähr ___. ",
+          "answer": "Mann, der mit 1000 Frauen schlafen kann"
+        },
+        {
+          "question": "Neben Bürokratisch, Demokratisch, und Autokratisch gibt es auch den Begriff \"Pornokratisch\", was so viel bedeutet wie ____ ",
+          "answer": "Mätressenherrschaft"
+        },
+        {
+          "question": "\"Ein ___, das ist die Kunst, einen Kuchen so zu teilen, dass jeder meint, er habe das größte Stück bekommen\" - Ludwig Erhardt ",
+          "answer": "Kompromiss"
+        },
+        {
+          "question": "Das Logo welcher Motorradmarke spielt auf den Blick in einen Pistolenlauf an? ",
+          "answer": "Husqvarna"
+        },
+        {
+          "question": "\"Planning is bringing the ___ into the ___ […]\" ~ Alan Lakein (Kommaseparierte Angabe)",
+          "answer": "present, future"
+        },
+        {
+          "question": "\"PROJECT MANAGER is aperson who thinks nine ___ can deliver a/an ___ in One month\" (Kommaseparierte Angabe)",
+          "answer": "women, baby"
+        }
+      ]
+    }
+  ]
+}

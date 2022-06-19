@@ -12,6 +12,7 @@ FROM node:alpine AS runner
 WORKDIR /app
 
 COPY package.json .
+COPY assets .
 COPY --from=builder /app/node_modules ./node_modules
 RUN yarn install --production
 
