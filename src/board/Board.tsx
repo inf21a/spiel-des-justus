@@ -33,9 +33,11 @@ const Board = (props: BoardProps) => {
         />
         <button
           onClick={() => {
-              props.moves.rollDice();
-              console.log(props.G.players[props.ctx.currentPlayer].position);
-            setp1S(Constants.TILES[props.G.players[props.ctx.currentPlayer].position]);
+            props.moves.rollDice();
+            console.log(props.G.players[props.ctx.currentPlayer].position);
+            setp1S(
+              Constants.TILES[props.G.players[props.ctx.currentPlayer].position]
+            );
           }}
         >
           Test
