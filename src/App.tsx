@@ -10,20 +10,20 @@ import Board from "./board/Board";
 import "./index.css";
 
 const App = Client({
-    game: Game,
-    board: Board,
-    multiplayer: SocketIO(
-        import.meta.env.DEV
-            ? {
-                  server: "localhost:3001",
-              }
-            : {}
-    ),
+  game: Game,
+  board: Board,
+  multiplayer: SocketIO(
+    import.meta.env.DEV
+      ? {
+          server: "localhost:3001",
+        }
+      : {}
+  ),
 });
 
 ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById("root")!
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")!
 );
