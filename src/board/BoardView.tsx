@@ -71,7 +71,7 @@ const BoardView = (props: BoardViewProps) => {
       <div id="f49" className="tile"></div>
       <div
         id="p1"
-        className="player"
+        className="justus"
         style={{
           top: props.p1S.top,
           left: props.p1S.left,
@@ -82,35 +82,35 @@ const BoardView = (props: BoardViewProps) => {
       </div>
       <div
         id="p2"
-        className="player"
+        className="justus"
         style={{ top: props.p2S.top, left: props.p2S.left }}
       >
         <img src={Avatar2} />
       </div>
       <div
         id="p3"
-        className="player"
+        className="justus"
         style={{ top: props.p3S.top, left: props.p3S.left }}
       >
         <img src={Avatar3} />
       </div>
       <div
         id="p4"
-        className="player"
+        className="justus"
         style={{ top: props.p4S.top, left: props.p4S.left }}
       >
         <img src={Avatar4} />
       </div>
       <div
         id="p5"
-        className="player"
+        className="justus"
         style={{ top: props.p5S.top, left: props.p5S.left }}
       >
         <img src={Avatar5} />
       </div>
       <div
         id="p6"
-        className="player"
+        className="justus"
         style={{ top: props.p6S.top, left: props.p6S.left }}
       >
         <img src={Avatar6} />

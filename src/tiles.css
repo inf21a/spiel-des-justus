@@ -5,14 +5,13 @@
   height: 0.2%;
 }
 
-.player {
+.justus {
   position: absolute;
   width: 2%;
   height: 2%;
   border-radius: 100%;
   transition: "all 5s";
 }
-
 #f1 {
   top: 86.7%;
   left: 77.6%;

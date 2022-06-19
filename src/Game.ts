@@ -19,17 +19,16 @@ export interface JustusGameState {
 export const JustusGame: Game<JustusGameState> = {
   setup: (ctx) => ({
     /*
-     * 0: nothing
-     * 1: event
-     * 2: polar question
-     * 3: choice question
-     * 4: open question
-     * 5: group question
-     * 99: end
-     */
+       * 0: start
+       * 1: nothing
+       * 2: solo questiom
+       * 3: group question
+       * 4: event
+       * 99: end
+    */
     board: [
-      0, 0, 1, 2, 0, 0, 3, 0, 2, 0, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 2, 0, 0, 0,
-      1, 2, 0, 0, 2, 3, 0, 0, 2, 0, 3, 0, 0, 1, 0, 0, 0, 2, 4, 1, 0, 99,
+      0, 1, 2, 1, 2, 4, 2, 3, 2, 1, 2, 3, 4, 2, 1, 2, 4, 1, 2, 2, 1, 4, 2, 3, 1,
+      2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4, 99
     ],
 
     players: {},
@@ -40,49 +39,42 @@ export const JustusGame: Game<JustusGameState> = {
   minPlayers: 2,
   maxPlayers: 10,
   moves: {
-    start: (G, ctx) => {
-      ctx.events?.setStage("dice");
-    },
+      rollDice: (G, ctx) => {
+        if (!G.diceRolled) {
+          G.rolledNumber = ctx.random!.D6();
+          G.players[ctx.currentPlayer]
+              ? (G.players[ctx.currentPlayer].position =
+                  G.players[ctx.currentPlayer].position + G.rolledNumber)
+              : (G.players[ctx.currentPlayer] = {
+                position: G.rolledNumber,
+                score: 0,
+              });
+          G.diceRolled = true;
+          const field = G.board[G.players[ctx.currentPlayer].position];
+          switch (field) {
+            case 0:
+              break;
+            case 1:
+              break;
+            case 2:
+              G.currentPolarQuestion = G.polarQuestions.pop();
+              console.log(G.currentPolarQuestion?.question);
+              ctx.events?.setStage("answerPolarQuestion");
+              break;
+            case 3:
+              break;
+            case 4:
+              break;
+            case 5:
+              break;
+            default:
+              break;
+          }
+        }
+      },
   },
   turn: {
     stages: {
-      dice: {
-        moves: {
-          rollDice: (G, ctx) => {
-            if (!G.diceRolled) {
-              G.rolledNumber = ctx.random!.D6();
-              G.players[ctx.currentPlayer]
-                ? (G.players[ctx.currentPlayer].position =
-                    G.players[ctx.currentPlayer].position + G.rolledNumber)
-                : (G.players[ctx.currentPlayer] = {
-                    position: G.rolledNumber,
-                    score: 0,
-                  });
-              G.diceRolled = true;
-              const field = G.board[G.players[ctx.currentPlayer].position];
-              switch (field) {
-                case 0:
-                  break;
-                case 1:
-                  break;
-                case 2:
-                  G.currentPolarQuestion = G.polarQuestions.pop();
-                  console.log(G.currentPolarQuestion?.question);
-                  ctx.events?.setStage("answerPolarQuestion");
-                  break;
-                case 3:
-                  break;
-                case 4:
-                  break;
-                case 5:
-                  break;
-                default:
-                  break;
-              }
-            }
-          },
-        },
-      },
       answerPolarQuestion: {
         moves: {
           answer: (G, ctx, answer: boolean) => {
