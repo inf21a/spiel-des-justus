@@ -2,7 +2,7 @@ name: Check formatting
 
 on:
   push:
-    branches: [main]
+    branches: [main, prettier_test]
   pull_request:
     branches: [main]
 
@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn global add prettier
       - name: Check formatting
-        run: yarn format:check
+        run: prettier --check ./src/*
