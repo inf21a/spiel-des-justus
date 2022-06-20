@@ -34,11 +34,11 @@ const Board = (props: BoardProps) => {
         <button
           onClick={() => {
               props.moves.rollDice();
-              console.log(props.G.players[props.ctx.currentPlayer].position);
-            setp1S(Constants.TILES[props.G.players[props.ctx.currentPlayer].position]);
+              console.log(props.ctx.currentPlayer, props.G);
+            setp1S(Constants.TILES[props.G.playerState[props.ctx.currentPlayer].position]);
           }}
         >
-          Test
+            {props.G.playerState[props.ctx.currentPlayer]?props.G.playerState[props.ctx.currentPlayer].position:"Bitte würfeln"}
         </button>
       </div>
       <div className="w-2/5 border-l-2">
