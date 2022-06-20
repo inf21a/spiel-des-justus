@@ -15,12 +15,14 @@ const JustusClient = Client({
   multiplayer: Local(),
 });
 
-const App = () =>{
-    return <div>
-        <JustusClient playerID={"0"}/>
-        <JustusClient playerID={"1"}/>
+const App = () => {
+  return (
+    <div>
+      <JustusClient playerID={"0"} />
+      <JustusClient playerID={"1"} />
     </div>
-}
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>

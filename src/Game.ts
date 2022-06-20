@@ -1,4 +1,4 @@
-import type {Game} from "boardgame.io";
+import type { Game } from "boardgame.io";
 
 import questions from "./assets/questions.json";
 import events from "./assets/events.json";

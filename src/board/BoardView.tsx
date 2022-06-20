@@ -18,7 +18,7 @@ interface BoardViewProps {
 
 const BoardView = (props: BoardViewProps) => {
   return (
-    <div className="border-yellow-300 w-2/3 my-32 border-yellow-500 border-8 rounded-3xl relative">
+    <div className="w-2/3 my-32 border-yellow-500 border-8 rounded-3xl relative">
       <img className="rounded-2xl" src={Spielbrett} alt="Spielbrett" />
       <div id="f1" className="tile"></div>
       <div id="f2" className="tile"></div>
