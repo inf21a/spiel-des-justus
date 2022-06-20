@@ -1,3 +1,6 @@
+import { BoardProps } from "boardgame.io/react";
+import type { JustusGameState } from "../Game";
+
 import { Icon } from "@iconify/react";
 import Avatar1 from "/assets/avatar1.svg";
 import Avatar2 from "/assets/avatar2.svg";
@@ -13,7 +16,7 @@ import EreignisKarte from "/assets/Karten/EreignisKarte.svg";
 import EreignisStapel from "/assets/Karten/EreignisStapel.svg";
 import Coin from "/assets/coin.svg";
 
-const Controls = () => {
+const Controls = ({ props }: any) => {
   return (
     <div className="h-full w-full flex flex-col">
       <div className="mt-12 flex mr-8 justify-end">
@@ -28,7 +31,12 @@ const Controls = () => {
         <img className="w-20" src={Avatar1} />
         <div className="font-bold text-2xl">Justus1</div>
         <div className="flex items-center mt-12">
-          <div className="bg-violet-500 rounded-lg py-1.5 px-4 text-white font-bold">
+          <div
+            className="bg-violet-500 rounded-lg py-1.5 px-4 text-white font-bold cursor-pointer"
+            onClick={() => {
+              props.moves.rollDice();
+            }}
+          >
             Roll the dice
           </div>
           <div className="ml-4 font-bold">2</div>

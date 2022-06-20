@@ -75,7 +75,7 @@ const BoardView = (props: BoardViewProps) => {
         style={{
           top: props.p1S.top,
           left: props.p1S.left,
-          transition: "all 5s",
+          transition: "all 2s",
         }}
       >
         <img src={Avatar1} />
@@ -83,35 +83,55 @@ const BoardView = (props: BoardViewProps) => {
       <div
         id="p2"
         className="justus"
-        style={{ top: props.p2S.top, left: props.p2S.left }}
+        style={{
+          top: props.p2S.top,
+          left: props.p2S.left,
+          transition: "all 2s",
+        }}
       >
         <img src={Avatar2} />
       </div>
       <div
         id="p3"
         className="justus"
-        style={{ top: props.p3S.top, left: props.p3S.left }}
+        style={{
+          top: props.p3S.top,
+          left: props.p3S.left,
+          transition: "all 2s",
+        }}
       >
         <img src={Avatar3} />
       </div>
       <div
         id="p4"
         className="justus"
-        style={{ top: props.p4S.top, left: props.p4S.left }}
+        style={{
+          top: props.p4S.top,
+          left: props.p4S.left,
+          transition: "all 2s",
+        }}
       >
         <img src={Avatar4} />
       </div>
       <div
         id="p5"
         className="justus"
-        style={{ top: props.p5S.top, left: props.p5S.left }}
+        style={{
+          top: props.p5S.top,
+          left: props.p5S.left,
+          transition: "all 2s",
+        }}
       >
         <img src={Avatar5} />
       </div>
       <div
         id="p6"
         className="justus"
-        style={{ top: props.p6S.top, left: props.p6S.left }}
+        style={{
+          top: props.p6S.top,
+          left: props.p6S.left,
+          transition: "all 2s",
+        }}
       >
         <img src={Avatar6} />
       </div>

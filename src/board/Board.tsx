@@ -45,8 +45,8 @@ const Board = (props: BoardProps<JustusGameState>) => {
             : "Bitte würfeln"}
         </button>
       </div>
-      <div className="w-2/5 border-l-2">
-        <Controls />
+      <div id="cock" className="w-2/5 border-l-2">
+        <Controls props={props} />
       </div>
     </div>
   );
