@@ -2,7 +2,7 @@ name: Check formatting
 
 on:
   push:
-    branches: [main, prettier_test]
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Install prettier
         run: yarn global add prettier
       - name: Check formatting
         run: prettier --check ./src/*
