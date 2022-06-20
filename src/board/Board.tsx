@@ -1,16 +1,19 @@
 import { BoardProps } from "boardgame.io/react";
 import { useState, useEffect } from "react";
-import "../tiles.css";
-import BoardView from "./BoardView";
+
+import type { JustusGameState } from "../Game";
 import * as Constants from "../Constants";
 import Controls from "./Controls";
+import BoardView from "./BoardView";
+
+import "../tiles.css";
 
 export interface PState {
   top: string;
   left: string;
 }
 
-const Board = (props: BoardProps) => {
+const Board = (props: BoardProps<JustusGameState>) => {
   const [p1S, setp1S] = useState<PState>(Constants.TILES[0]);
   const [p2S, setp2S] = useState<PState>(Constants.TILES[0]);
   const [p3S, setp3S] = useState<PState>(Constants.TILES[0]);
