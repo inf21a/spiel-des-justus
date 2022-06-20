@@ -5,8 +5,12 @@ import type { JustusGameState } from "../Game";
 import * as Constants from "../Constants";
 import Controls from "./Controls";
 import BoardView from "./BoardView";
+import questions from "../assets/questions.json";
 
 import "../tiles.css";
+import { PolarQuestion } from "../QuestionCards/PolarQuestion";
+import { OpenQuestion } from "../QuestionCards/OpenQuestion";
+import { ChoiceQuestion } from "../QuestionCards/ChoiceQuestion";
 
 export interface PState {
   top: string;
@@ -34,20 +38,34 @@ const Board = (props: BoardProps<JustusGameState>) => {
           p5S={p5S}
           p6S={p6S}
         />
-        <button
-          onClick={() => {
-            props.moves.rollDice();
-            console.log(props.ctx.currentPlayer, props.G);
-          }}
-        >
-          {props.G.playerState[props.ctx.currentPlayer]
-            ? props.G.playerState[props.ctx.currentPlayer].position
-            : "Bitte würfeln"}
-        </button>
       </div>
-      <div id="cock" className="w-2/5 border-l-2">
-        <Controls props={props} />
+      <div className="w-2/5 border-l-2">
+        <Controls rollDice={props.moves.rollDice} />
       </div>
+      {props.G.showPolarQuestion && (
+        <PolarQuestion
+          answer={props.moves.answer}
+          random={props.ctx.random}
+        ></PolarQuestion>
+      )}
+      {props.G.showChoiceQuestion && (
+        <ChoiceQuestion
+          answer={props.moves.answer}
+          random={props.ctx.random}
+        ></ChoiceQuestion>
+      )}
+      {props.G.showOpenQuestion && (
+        <OpenQuestion
+          answer={props.moves.answer}
+          random={props.ctx.random}
+        ></OpenQuestion>
+      )}
+     {props.G.showGroupQuestion && (
+        <OpenQuestion
+          answer={props.moves.answer}
+          random={props.ctx.random}
+        ></OpenQuestion>
+      )}
     </div>
   );
 };

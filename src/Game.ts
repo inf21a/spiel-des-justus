@@ -1,20 +1,19 @@
 import type { Game } from "boardgame.io";
 
-import questions from "./assets/questions.json";
+import { stringSimilarity } from "string-similarity-js";
 import events from "./assets/events.json";
 
 export interface JustusGameState {
   board: number[];
   playerState: { [key: string]: { position: number; score: number } };
   rolledNumber: number;
-  currentPolarQuestion?: { question: string; answer: boolean };
-  currentChoiceQuestion?: {
-    question: string;
-    choices: string[4];
-    answer: number;
-  };
-  polarQuestions: { question: string; answer: boolean }[];
-  events: { message: string; type: string; amount: number }[];
+
+  showPolarQuestion: boolean;
+  showChoiceQuestion: boolean;
+  showOpenQuestion: boolean;
+  showGroupQuestion: boolean;
+
+  events: { message: string; type?: string; amount: number }[];
 }
 
 export const JustusGame: Game<JustusGameState> = {
@@ -41,7 +40,12 @@ export const JustusGame: Game<JustusGameState> = {
       5: { position: 0, score: 0 },
     },
     rolledNumber: 0,
-    polarQuestions: ctx.random!.Shuffle(questions.polar),
+
+    showPolarQuestion: false,
+    showChoiceQuestion: false,
+    showOpenQuestion: false,
+    showGroupQuestion: false,
+
     events: ctx.random!.Shuffle(events),
   }),
   minPlayers: 2,
@@ -61,48 +65,143 @@ export const JustusGame: Game<JustusGameState> = {
         case 0:
           break;
         case 1:
+          ctx.events?.endTurn();
           break;
-        case 2:
-          G.currentPolarQuestion = G.polarQuestions.pop();
-          console.log(G.currentPolarQuestion?.question);
-          ctx.events?.setStage("answerPolarQuestion");
-          break;
+        //TODO GROUPQUESTIONS
         case 3:
+          G.showGroupQuestion = true;
+          ctx.events?.setStage("openQuestion");
           break;
         case 4:
+          ctx.events?.endTurn();
           break;
         case 5:
+          ctx.events?.endTurn();
           break;
-        default:
-          G.currentPolarQuestion = G.polarQuestions.pop();
-          console.log(G.currentPolarQuestion?.question);
-          ctx.events?.setStage("answerPolarQuestion");
+
+        //TODO WIN!
+        case 99:
+          ctx.events?.endTurn();
+          break;
+
+        // Solo Question (Case 2)
+        case 2:
+          let rand = ctx.random!.D6();
+          console.log("RANDOM " + rand);
+          switch (rand) {
+            case 1:
+            case 2:
+              G.showPolarQuestion = true;
+              ctx.events?.setStage("polarQuestion");
+              break;
+            case 3:
+            case 4:
+              G.showChoiceQuestion = true;
+              ctx.events?.setStage("choiceQuestion");
+              break;
+            case 5:
+            case 6:
+            default:
+              G.showOpenQuestion = true;
+              ctx.events?.setStage("openQuestion");
+          }
           break;
       }
     },
   },
   turn: {
     stages: {
-      answerPolarQuestion: {
+      polarQuestion: {
         moves: {
-          answer: (G, ctx, answer: boolean) => {
-            if (answer == G.currentPolarQuestion?.answer) {
+          answer: (G, ctx, question, submittedAnswer: boolean) => {
+            if (submittedAnswer == question.answer) {
               G.playerState[ctx.currentPlayer].score += 10;
+              G.showPolarQuestion = false;
               ctx.events?.endTurn();
             } else {
+              G.showPolarQuestion = false;
               ctx.events?.endTurn();
             }
           },
         },
       },
-      answerChoiceQuestion: {
+      choiceQuestion: {
         moves: {
-          answer: (G, ctx, answer: number) => {
-            console.log(G.currentChoiceQuestion?.question);
-            if (answer == G.currentChoiceQuestion?.answer) {
+          answer: (G, ctx, question, submittedAnswer: string) => {
+            if (submittedAnswer == question.answer) {
               G.playerState[ctx.currentPlayer].score += 10;
+              G.showChoiceQuestion = false;
               ctx.events?.endTurn();
             } else {
+              G.showChoiceQuestion = false;
+              ctx.events?.endTurn();
+            }
+          },
+        },
+      },
+      openQuestion: {
+        moves: {
+          answer: (G, ctx, question, submittedAnswer: string) => {
+            let answers: string[] = submittedAnswer.split(",");
+            let result: number = 0;
+            let counter: number = 0;
+
+            for (let answer in answers) {
+              let similarity = 0;
+              for (let option in question.options) {
+                let current = stringSimilarity(
+                  answer.toLowerCase(),
+                  option.toLowerCase()
+                );
+                if (similarity < current) similarity = current;
+              }
+              result += similarity;
+
+              if (++counter == question.amount) {
+                break;
+              }
+            }
+
+            if (result >= question.amount * 0.9) {
+              G.playerState[ctx.currentPlayer].score += 10;
+              G.showOpenQuestion = false;
+              ctx.events?.endTurn();
+            } else {
+              G.showOpenQuestion = false;
+              ctx.events?.endTurn();
+            }
+          },
+        },
+      },
+      groupQuestion: {
+        moves: {
+          answer: (G, ctx, question, submittedAnswer: string) => {
+            let answers: string[] = submittedAnswer.split(",");
+            let result: number = 0;
+            let counter: number = 0;
+
+            for (let answer in answers) {
+              let similarity = 0;
+              for (let option in question.options) {
+                let current = stringSimilarity(
+                  answer.toLowerCase(),
+                  option.toLowerCase()
+                );
+                if (similarity < current) similarity = current;
+              }
+              result += similarity;
+
+              if (++counter == question.amount) {
+                break;
+              }
+            }
+
+            if (result >= question.amount * 0.9) {
+              G.playerState[ctx.currentPlayer].score += 10;
+              G.showOpenQuestion = false;
+              ctx.events?.endTurn();
+            } else {
+              G.showOpenQuestion = false;
               ctx.events?.endTurn();
             }
           },

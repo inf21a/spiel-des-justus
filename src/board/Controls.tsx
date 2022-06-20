@@ -16,7 +16,7 @@ import EreignisKarte from "/assets/Karten/EreignisKarte.svg";
 import EreignisStapel from "/assets/Karten/EreignisStapel.svg";
 import Coin from "/assets/coin.svg";
 
-const Controls = ({ props }: any) => {
+const Controls = (props: { rollDice: () => void }) => {
   return (
     <div className="h-full w-full flex flex-col">
       <div className="mt-12 flex mr-8 justify-end">
@@ -34,7 +34,7 @@ const Controls = ({ props }: any) => {
           <div
             className="bg-violet-500 rounded-lg py-1.5 px-4 text-white font-bold cursor-pointer"
             onClick={() => {
-              props.moves.rollDice();
+              props.rollDice();
             }}
           >
             Roll the dice
