@@ -11,13 +11,12 @@ export interface PState {
 }
 
 const Board = (props: BoardProps) => {
-    const p1S = Constants.TILES[props.G.playerState[0].position]
-    const p2S = Constants.TILES[props.G.playerState[1].position]
-    const p3S = Constants.TILES[props.G.playerState[2].position]
-    const p4S = Constants.TILES[props.G.playerState[3].position]
-    const p5S = Constants.TILES[props.G.playerState[4].position]
-    const p6S = Constants.TILES[props.G.playerState[5].position]
-
+  const p1S = Constants.TILES[props.G.playerState[0].position];
+  const p2S = Constants.TILES[props.G.playerState[1].position];
+  const p3S = Constants.TILES[props.G.playerState[2].position];
+  const p4S = Constants.TILES[props.G.playerState[3].position];
+  const p5S = Constants.TILES[props.G.playerState[4].position];
+  const p6S = Constants.TILES[props.G.playerState[5].position];
 
   useEffect(() => {}, []);
 
@@ -34,11 +33,13 @@ const Board = (props: BoardProps) => {
         />
         <button
           onClick={() => {
-              props.moves.rollDice();
-              console.log(props.ctx.currentPlayer, props.G);
+            props.moves.rollDice();
+            console.log(props.ctx.currentPlayer, props.G);
           }}
         >
-            {props.G.playerState[props.ctx.currentPlayer]?props.G.playerState[props.ctx.currentPlayer].position:"Bitte würfeln"}
+          {props.G.playerState[props.ctx.currentPlayer]
+            ? props.G.playerState[props.ctx.currentPlayer].position
+            : "Bitte würfeln"}
         </button>
       </div>
       <div className="w-2/5 border-l-2">
