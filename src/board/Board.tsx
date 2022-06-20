@@ -1,9 +1,12 @@
 import { BoardProps } from "boardgame.io/react";
 import { useState, useEffect } from "react";
-import "../tiles.css";
-import BoardView from "./BoardView";
+
+import type { JustusGameState } from "../Game";
 import * as Constants from "../Constants";
 import Controls from "./Controls";
+import BoardView from "./BoardView";
+
+import "../tiles.css";
 
 export interface PState {
   top: string;
