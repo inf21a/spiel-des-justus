@@ -32,13 +32,20 @@ export const JustusGame: Game<JustusGameState> = {
             2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4, 99
         ],
 
-        playerState: {},
+        playerState: {
+            0: {position: 0, score: 0},
+            1: {position: 0, score: 0},
+            2: {position: 0, score: 0},
+            3: {position: 0, score: 0},
+            4: {position: 0, score: 0},
+            5: {position: 0, score: 0},
+        },
         rolledNumber: 0,
         polarQuestions: ctx.random!.Shuffle(questions.polar),
         events: ctx.random!.Shuffle(events)
     }),
     minPlayers: 2,
-    maxPlayers: 10,
+    maxPlayers: 6,
     moves: {
         rollDice: (G, ctx) => {
             G.rolledNumber = ctx.random!.D6();
@@ -49,7 +56,7 @@ export const JustusGame: Game<JustusGameState> = {
                     position: G.rolledNumber,
                     score: 0,
                 });
-            const field = 6;//G.board[G.playerState[ctx.currentPlayer].position];
+            const field = G.board[G.playerState[ctx.currentPlayer].position];
             switch (field) {
                 case 0:
                     break;
