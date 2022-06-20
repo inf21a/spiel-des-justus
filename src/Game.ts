@@ -49,7 +49,7 @@ export const JustusGame: Game<JustusGameState> = {
                     position: G.rolledNumber,
                     score: 0,
                 });
-            const field = G.board[G.playerState[ctx.currentPlayer].position];
+            const field = 6;//G.board[G.playerState[ctx.currentPlayer].position];
             switch (field) {
                 case 0:
                     break;
@@ -67,6 +67,9 @@ export const JustusGame: Game<JustusGameState> = {
                 case 5:
                     break;
                 default:
+                    G.currentPolarQuestion = G.polarQuestions.pop();
+                    console.log(G.currentPolarQuestion?.question);
+                    ctx.events?.setStage("answerPolarQuestion");
                     break;
 
             }
