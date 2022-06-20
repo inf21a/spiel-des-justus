@@ -14,7 +14,7 @@ export interface JustusGameState {
     answer: number;
   };
   polarQuestions: { question: string; answer: boolean }[];
-  events: { message: string; type?: string; amount: number }[];
+  events: { message: string; type: string; amount: number }[];
 }
 
 export const JustusGame: Game<JustusGameState> = {
