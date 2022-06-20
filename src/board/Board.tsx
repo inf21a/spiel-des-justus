@@ -1,5 +1,5 @@
 import { BoardProps } from "boardgame.io/react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import type { JustusGameState } from "../Game";
 import * as Constants from "../Constants";
@@ -13,7 +13,7 @@ export interface PState {
   left: string;
 }
 
-const Board = (props: BoardProps) => {
+const Board = (props: BoardProps<JustusGameState>) => {
   const p1S = Constants.TILES[props.G.playerState[0].position];
   const p2S = Constants.TILES[props.G.playerState[1].position];
   const p3S = Constants.TILES[props.G.playerState[2].position];
