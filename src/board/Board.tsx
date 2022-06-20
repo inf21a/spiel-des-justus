@@ -13,13 +13,13 @@ export interface PState {
   left: string;
 }
 
-const Board = (props: BoardProps<JustusGameState>) => {
-  const [p1S, setp1S] = useState<PState>(Constants.TILES[0]);
-  const [p2S, setp2S] = useState<PState>(Constants.TILES[0]);
-  const [p3S, setp3S] = useState<PState>(Constants.TILES[0]);
-  const [p4S, setp4S] = useState<PState>(Constants.TILES[0]);
-  const [p5S, setp5S] = useState<PState>(Constants.TILES[0]);
-  const [p6S, setp6S] = useState<PState>(Constants.TILES[0]);
+const Board = (props: BoardProps) => {
+    const p1S = Constants.TILES[props.G.playerState[0].position]
+    const p2S = Constants.TILES[props.G.playerState[1].position]
+    const p3S = Constants.TILES[props.G.playerState[2].position]
+    const p4S = Constants.TILES[props.G.playerState[3].position]
+    const p5S = Constants.TILES[props.G.playerState[4].position]
+    const p6S = Constants.TILES[props.G.playerState[5].position]
 
   useEffect(() => {}, []);
 
@@ -36,13 +36,11 @@ const Board = (props: BoardProps<JustusGameState>) => {
         />
         <button
           onClick={() => {
-            props.moves.rollDice();
-            console.log(props.G.players[props.ctx.currentPlayer]);
-            setp1S(Constants.TILES[props.G.players["0"].position]);
-            setp2S(Constants.TILES[props.G.players["1"].position]);
+              props.moves.rollDice();
+              console.log(props.ctx.currentPlayer, props.G);
           }}
         >
-          Test
+            {props.G.playerState[props.ctx.currentPlayer]?props.G.playerState[props.ctx.currentPlayer].position:"Bitte würfeln"}
         </button>
       </div>
       <div className="w-2/5 border-l-2">
