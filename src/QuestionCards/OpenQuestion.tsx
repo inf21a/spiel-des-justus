@@ -13,7 +13,7 @@ export const OpenQuestion = (props: {
     if (event.code === "Enter") {
       props.answer(
         question,
-        document.getElementById("one-answer-input")!.innerHTML
+        "test"
       );
     }
   };
@@ -30,9 +30,9 @@ export const OpenQuestion = (props: {
             id={"one-answer-input"}
             name={"one-answer"}
             placeholder={"Hier Antwort eingeben"}
-            onKeyDown={keypressHandler}
           />
         </div>
+        <button onClick={()=>props.answer(question,"test")}>cloooooose</button>
       </div>
     </div>
   );

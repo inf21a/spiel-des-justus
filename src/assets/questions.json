@@ -933,111 +933,138 @@
   "group": [
     {
       "question": "AT&T hat 2016 in der größten Acquisition des Jahres Time Warner aufgekauft. Wie viel hat AT&T bezahlt? ",
-      "answer": "USD 85.4 Billion "
+      "options": ["USD 85.4 Billion "],
+      "amount": 1
     },
     {
       "question": "Welchen Umsatz machte der Einzelhandel innerhalb Deutschlands in 2020 ",
-      "answer": "577 Milliarden Euro "
+      "options": ["577 Milliarden Euro"],
+      "amount": 1
     },
     {
       "question": "Wie viel Prozent der geplanten Kosten konsumiert ein Projekt im Durchschnitt? ",
-      "answer": "189%"
+      "options": ["189%"],
+      "amount": 1
     },
     {
       "question": "“Project Management is causing a/an ___ undertaking to happen” ",
-      "answer": "planned"
+      "options": ["planned"],
+      "amount": 1
     },
     {
       "question": "“Projektmanagement ist wie ___ […] – Zeit, Kosten und Qualität“ ~ G. Reiss ",
-      "answer": "Jonglieren"
+      "options": ["Jonglieren"],
+      "amount": 1
     },
     {
       "question": "„Projektmanager zu sein ist wie ein/e ___ zu sein […]“ ~ Greg Cimmarrusti ",
-      "answer": "Künstler"
+      "options": ["Künstler"],
+      "amount": 1
     },
     {
       "question": "Wie viele Projekte scheitern im Verhältnis. Hinweis: Quelle ist die BVBC GEHALTSANALYSE vom Jahr 2014.  ",
-      "answer": "1:6"
+      "options": ["1:6"],
+      "amount": 1
     },
     {
       "question": "Welche Organisation war hauptverantwortlich für den Bargeldumtausch im Jahr 2002 ",
-      "answer": "EZB - Europäische Zentral Bank "
+      "options": ["EZB - Europäische Zentral Bank"],
+      "amount": 1
     },
     {
       "question": "Wie viel Geld hat Lidl verloren bei dem missglückten Versuch SAP in Ihre Systeme zu integrieren? ",
-      "answer": "500 Millionen Euro"
+      "options": ["500 Millionen Euro"],
+      "amount": 1
     },
     {
       "question": "Das Problem zu erkennen ist wichtiger als die ___ zu erkennen, [...] ~ Albert Einstein ",
-      "answer": "Lösung"
+      "options": ["Lösung"],
+      "amount": 1
     },
     {
       "question": "Es ist nicht genug zu wissen, man muss es auch ___ . Es ist nicht genug zu wollen, man muss es auch tun. ~ Johann Wolfgang Goethe ",
-      "answer": "anwenden"
+      "options": ["anwenden"],
+      "amount": 1
     },
     {
       "question": "Ein … wird dir alles sagen, wenn du ihn danach fragst – aber nicht mehr. ",
-      "answer": "Anwender"
+      "options": ["Anwender"],
+      "amount": 1
     },
     {
       "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein rot umrandeter Schlüssel. Der schwarze rand um das Rot ist wie ein Wappen geformt. ",
-      "answer": "Becks"
+      "options": ["Becks"],
+      "amount": 1
     },
     {
       "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine gelbe Krone.",
-      "answer": "Corona"
+      "options": ["Corona"],
+      "amount": 1
     },
     {
       "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein Anker, verwoben mit einem Herz. Das Herz ist rot. ",
-      "answer": "Astra"
+      "options": ["Astra"],
+      "amount": 1
     },
     {
       "question": "Zu welcher Marke gehört dieses Logo? Eine rote Mühle. Mit dem Wort Malz in einem Flügel. ",
-      "answer": "Mühlen Kölsch"
+      "options": ["Mühlen Kölsch"],
+      "amount": 1
     },
     {
       "question": "Zu welcher Biermarke gehört dieser beschriebene Bildausschnitt aus einer Werbekampagne, die damals das Fernsehen dominierte: 4 Menschen stehen während einem Sonnenuntergang am Strand mit Bier in der Hand. Im Hintergrund brennt ein Lagerfeuer. In der Ferne steht ein Leuchtturm.",
-      "answer": "Jever"
+      "options": ["Jever"],
+      "amount": 1
     },
     {
       "question": "Zu welcher Marke gehört der beschriebene Bildausschnitt aus einer Werbekampagne: Eine reizende junge Dame in einem gelben Bikini mit wohlgeformten Rundungen joggt lässig am Strand entlang. Neben Ihr rennt ein Mops. ",
-      "answer": "Almased"
+      "options": ["Almased"],
+      "amount": 1
     },
     {
       "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine Krone mit einem kleinen Eisernen Kreuz in der Mitte steht auf dem Wort HTB. Dabei bildet das T den Übergang zwischen Krone und dem geschriebenen. ",
-      "answer": "Tegernseer"
+      "options": ["Tegernseer"],
+      "amount": 1
     },
     {
       "question": "Produkte befriedigen einen Bedarf – Marken befriedigen ___ ",
-      "answer": "Bedürfnisse"
+      "options": ["Bedürfnisse"],
+      "amount": 1
     },
     {
       "question": "Eine Kooperation zwischen dem russischen Gasunternehmen Gazprom und seinem Partnerunternehmen aus Nigeria würde in den USA nicht gut ankommen, denn das Unternehmen nannte sich selbst ___ ",
-      "answer": "Nigaz"
+      "options": ["Nigaz"],
+      "amount": 1
     },
     {
       "question": "Viagra wurde in China unter dem Produktnamen Wànàikě veröffentlicht – was für schmunzeln sorgte, denn es heißt ungefähr ___. ",
-      "answer": "Mann, der mit 1000 Frauen schlafen kann"
+      "options": ["Mann, der mit 1000 Frauen schlafen kann"],
+      "amount": 1
     },
     {
       "question": "Neben Bürokratisch, Demokratisch, und Autokratisch gibt es auch den Begriff \"Pornokratisch\", was so viel bedeutet wie ____ ",
-      "answer": "Mätressenherrschaft"
+      "options": ["Mätressenherrschaft"],
+      "amount": 1
     },
     {
       "question": "\"Ein ___, das ist die Kunst, einen Kuchen so zu teilen, dass jeder meint, er habe das größte Stück bekommen\" - Ludwig Erhardt ",
-      "answer": "Kompromiss"
+      "options": ["Kompromiss"],
+      "amount": 1
     },
     {
       "question": "Das Logo welcher Motorradmarke spielt auf den Blick in einen Pistolenlauf an? ",
-      "answer": "Husqvarna"
+      "options": ["Husqvarna"],
+      "amount": 1
     },
     {
       "question": "\"Planning is bringing the ___ into the ___ […]\" ~ Alan Lakein (Kommaseparierte Angabe)",
-      "answer": "present, future"
+      "options": ["present, future"],
+      "amount": 1
     },
     {
       "question": "\"PROJECT MANAGER is a person who thinks nine ___ can deliver one ___ in one month\" (Kommaseparierte Angabe)",
-      "answer": "women, baby"
+      "options": ["women, baby"],
+      "amount": 1
     }
   ]
 }

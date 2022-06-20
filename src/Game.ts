@@ -67,9 +67,10 @@ export const JustusGame: Game<JustusGameState> = {
         case 1:
           ctx.events?.endTurn();
           break;
+        //TODO GROUPQUESTIONS
         case 3:
           G.showGroupQuestion = true;
-          ctx.events?.setStage("groupQuestion");
+          ctx.events?.setStage("openQuestion");
           break;
         case 4:
           ctx.events?.endTurn();
@@ -175,17 +176,32 @@ export const JustusGame: Game<JustusGameState> = {
       groupQuestion: {
         moves: {
           answer: (G, ctx, question, submittedAnswer: string) => {
-            let similarity = stringSimilarity(
-              submittedAnswer.toLowerCase(),
-              question.answer.toLowerCase()
-            );
+            let answers: string[] = submittedAnswer.split(",");
+            let result: number = 0;
+            let counter: number = 0;
 
-            if (similarity >= 0.9) {
+            for (let answer in answers) {
+              let similarity = 0;
+              for (let option in question.options) {
+                let current = stringSimilarity(
+                  answer.toLowerCase(),
+                  option.toLowerCase()
+                );
+                if (similarity < current) similarity = current;
+              }
+              result += similarity;
+
+              if (++counter == question.amount) {
+                break;
+              }
+            }
+
+            if (result >= question.amount * 0.9) {
               G.playerState[ctx.currentPlayer].score += 10;
-              G.showGroupQuestion = false;
+              G.showOpenQuestion = false;
               ctx.events?.endTurn();
             } else {
-              G.showGroupQuestion = false;
+              G.showOpenQuestion = false;
               ctx.events?.endTurn();
             }
           },
