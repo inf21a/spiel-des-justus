@@ -60,7 +60,7 @@ const Board = (props: BoardProps<JustusGameState>) => {
           random={props.ctx.random}
         ></OpenQuestion>
       )}
-     {props.G.showGroupQuestion && (
+      {props.G.showGroupQuestion && (
         <OpenQuestion
           answer={props.moves.answer}
           random={props.ctx.random}

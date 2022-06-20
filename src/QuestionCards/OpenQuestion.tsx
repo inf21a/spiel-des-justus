@@ -11,10 +11,7 @@ export const OpenQuestion = (props: {
 
   const keypressHandler: KeyboardEventHandler = (event) => {
     if (event.code === "Enter") {
-      props.answer(
-        question,
-        "test"
-      );
+      props.answer(question, "test");
     }
   };
   return (
@@ -32,7 +29,9 @@ export const OpenQuestion = (props: {
             placeholder={"Hier Antwort eingeben"}
           />
         </div>
-        <button onClick={()=>props.answer(question,"test")}>cloooooose</button>
+        <button onClick={() => props.answer(question, "test")}>
+          cloooooose
+        </button>
       </div>
     </div>
   );
