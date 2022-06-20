@@ -31,7 +31,16 @@ export const JustusGame: Game<JustusGameState> = {
       2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4, 99,
     ],
 
-    players: {},
+    players: {
+      "0": {
+        position: 0,
+        score: 0,
+      },
+      "1": {
+        position: 0,
+        score: 0,
+      },
+    },
     rolledNumber: 0,
     diceRolled: false,
     polarQuestions: ctx.random!.Shuffle(questions.polar),
@@ -55,6 +64,8 @@ export const JustusGame: Game<JustusGameState> = {
           case 0:
             break;
           case 1:
+            console.log("Landed on normal field!");
+            ctx.events?.endTurn();
             break;
           case 2:
             G.currentPolarQuestion = G.polarQuestions.pop();
@@ -62,8 +73,10 @@ export const JustusGame: Game<JustusGameState> = {
             ctx.events?.setStage("answerPolarQuestion");
             break;
           case 3:
+            console.log("Landed on multiple choice field!");
             break;
           case 4:
+            console.log("Landed on event field!");
             break;
           case 5:
             break;
@@ -74,6 +87,12 @@ export const JustusGame: Game<JustusGameState> = {
     },
   },
   turn: {
+    onBegin: (G, ctx) => {
+      G.diceRolled = false;
+    },
+
+    minMoves: 1,
+    maxMoves: 1,
     stages: {
       answerPolarQuestion: {
         moves: {
