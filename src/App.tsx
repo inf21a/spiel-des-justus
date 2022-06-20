@@ -18,8 +18,8 @@ const JustusClient = Client({
 const App = () => {
   return (
     <div>
-      <JustusClient playerID={"0"} />
-      <JustusClient playerID={"1"} />
+      {window.location.hash === "#0" && <JustusClient playerID={"0"} />}
+      {window.location.hash === "#1" && <JustusClient playerID={"1"} />}
     </div>
   );
 };

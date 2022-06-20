@@ -656,7 +656,10 @@
     },
     {
       "question": "Wie berechnet man den Break-Even Point bzw. Die Gewinnschwelle?",
-      "answer": "Verkaufspreis x Menge = Fixkosten + (Menge x variable Kosten)"
+      "options": [
+        "Verkaufspreis x Menge = Fixkosten + (Menge x variable Kosten)"
+      ],
+      "amount": 1
     },
     {
       "question": "Welche drei Begriffe stecken hinter der Triple Bottom Line? (Kommaseparierte Angabe)",
@@ -674,11 +677,13 @@
     },
     {
       "question": "Wie lässt sich \"Gewinn\" berechnen?",
-      "answer": "Differenz zwischen Aufwand und Ertrag"
+      "options": ["Differenz zwischen Aufwand und Ertrag"],
+      "amount": 1
     },
     {
       "question": "Wie nennt man den optimal marktwirtschaftlich handelnden Menschen?",
-      "answer": "Homo Oeconomicus"
+      "options": ["Homo Oeconomicus"],
+      "amount": 1
     },
     {
       "question": "Wie lässt sich das Team-Management in Bezug auf Aufgaben- und Mitarbeiterorientierung einordnen? (Kommaseparierte Angabe)",
@@ -697,7 +702,10 @@
     },
     {
       "question": "Was ist ein Produkt?",
-      "answer": "Ein Produkt ist jedes Objekt, das auf einem Markt zur Beachtung oder Wahl, zum Kauf, zur Benutzung oder zum Verbrauch oder Verzehr angeboten wird und geeignet ist, damit Wünsche oder Bedürfnisse zu befriedigen."
+      "options": [
+        "Ein Produkt ist jedes Objekt, das auf einem Markt zur Beachtung oder Wahl, zum Kauf, zur Benutzung oder zum Verbrauch oder Verzehr angeboten wird und geeignet ist, damit Wünsche oder Bedürfnisse zu befriedigen"
+      ],
+      "amount": 1
     },
     {
       "question": "Nenne 3 Dinge, die als Produkt bezeichnet werden können? (Kommaseparierte Angabe)",
@@ -723,7 +731,7 @@
     {
       "question": "Wofür steht USP?",
       "options": ["Unique Selling Proposition", "Unique Selling Point"],
-      "amount": 2
+      "amount": 1
     },
     {
       "question": "Was gibt das Markensteuerrad nach Esch an? (Kommaseparierte Angabe)",
@@ -756,7 +764,8 @@
     },
     {
       "question": "Wie nennt man es marketingtechnisch, wenn ein Kunde sich ein deutlich sichtbares Tattoo von der Marke stechen lässt?",
-      "answer": "Brand Lover Marketing"
+      "options": ["Brand Lover Marketing"],
+      "amount": 1
     },
     {
       "question": "Nenne drei Faktoren, nach denen man Zielgruppen einteilen kann. (Kommaseparierte Angabe)",
@@ -778,7 +787,10 @@
     },
     {
       "question": "Was bedeutet der Begriff sozio-demographisch?",
-      "answer": "Beschreibt eine Gruppe, die durch ihre sozialen und demographischen Eigenschaften definiert ist. Es betrachtet das Leben der Einzelnen und deren Eigenschaften"
+      "options": [
+        "Beschreibt eine Gruppe, die durch ihre sozialen und demographischen Eigenschaften definiert ist. Es betrachtet das Leben der Einzelnen und deren Eigenschaften"
+      ],
+      "amount": 1
     },
     {
       "question": "Nenne drei Sinus-Milieus in Deutschland (Kommaseparierte Angabe)",
@@ -798,11 +810,15 @@
     },
     {
       "question": "Welches milieu-spezifische Gesundheitsmindset teilen Traditionelle, die bürgerliche Mitte und die Prekären?",
-      "answer": "sportdistanziert"
+      "options": ["sportdistanziert"],
+      "amount": 1
     },
     {
       "question": "Was bezeichnet der Begriff Distributionspolitik?",
-      "answer": "Alle einzelwirtschaftlichen Maßnahmen, welche die Distribution von Gütern und Dienstleistungen betreffen"
+      "options": [
+        "Alle einzelwirtschaftlichen Maßnahmen, welche die Distribution von Gütern und Dienstleistungen betreffen"
+      ],
+      "amount": 1
     },
     {
       "question": "Zähle drei Faktoren auf, die Einfluss auf die Wahl des Absatzkanals haben (Kommaseparierte Angabe)",
@@ -818,7 +834,10 @@
     },
     {
       "question": "Was ist das Ziel der SWOT-Analyse?",
-      "answer": "Systematische Gegenüberstellung der unternehmensexternen Chancen und Risiken und der unternehmensinternen Stärken und Schwächen"
+      "options": [
+        "Systematische Gegenüberstellung der unternehmensexternen Chancen und Risiken und der unternehmensinternen Stärken und Schwächen"
+      ],
+      "amount": 1
     },
     {
       "question": "Für was steht SAP? (Kommaseparierte Angabe)",
@@ -837,27 +856,33 @@
     },
     {
       "question": "Bedeutung des S im Akronym SMART? (Zielsetzungen)",
-      "answer": "Specific"
+      "options": ["Specific"],
+      "amount": 1
     },
     {
       "question": "Bedeutung des M im Akronym SMART? (Zielsetzungen)",
-      "answer": "Measurable"
+      "options": ["Measurable"],
+      "amount": 1
     },
     {
       "question": "Bedeutung des A im Akronym SMART? (Zielsetzungen)",
-      "answer": "Relevant"
+      "options": ["Relevant"],
+      "amount": 1
     },
     {
       "question": "Bedeutung des R im Akronym SMART? (Zielsetzungen)",
-      "answer": "Timebound"
+      "options": ["Timebound"],
+      "amount": 1
     },
     {
       "question": "Bedeutung des T im Akronym SMART? (Zielsetzungen)",
-      "answer": "Specific"
+      "options": ["Specific"],
+      "amount": 1
     },
     {
       "question": "Wofür steht SAZ?",
-      "answer": "Späteste Anfangszeit"
+      "options": ["Späteste Anfangszeit"],
+      "amount": 1
     },
     {
       "question": "Was ist für die Ermittlung der FEZ, FAZ, SEZ, SAZ bei der Netzplantechnik von fundamentaler Bedeutung? (nicht einzelne Zeiten!, Kommaseparierte Angabe)",
@@ -866,23 +891,28 @@
     },
     {
       "question": "Formel für den frühesten Endzeitpunktes (FEZ) eines Vorganges. (Netzplantechnik)",
-      "answer": "FEZ = FAZ + Vorgangsdauer"
+      "options": ["FEZ = FAZ + Vorgangsdauer"],
+      "amount": 1
     },
     {
       "question": "Was berechnet die folgende Formel: \n FAZ (Nachfolger) - FEZ (Vorgänger)",
-      "answer": "Freier Puffer"
+      "options": ["Freier Puffer"],
+      "amount": 1
     },
     {
       "question": "Formel Gesamtpuffer",
-      "answer": "SAZ - FAZ"
+      "options": ["SAZ - FAZ"],
+      "amount": 1
     },
     {
       "question": "Wofür steht PSP?",
-      "answer": "Projektstrukturplan"
+      "options": ["Projektstrukturplan"],
+      "amount": 1
     },
     {
       "question": "Wofür steht FEZ?",
-      "answer": "Früheste Endzeit"
+      "options": ["Früheste Endzeit"],
+      "amount": 1
     },
     {
       "question": "Durch welche 3 Wörter wird das magische Projektmanagement Dreieck beschrieben? (Kommaseparierte Angabe)",
@@ -902,116 +932,112 @@
   ],
   "group": [
     {
-      "group": [
-        {
-          "question": "AT&T hat 2016 in der größten Acquisition des Jahres Time Warner aufgekauft. Wie viel hat AT&T bezahlt? ",
-          "answer": "USD 85.4 Billion "
-        },
-        {
-          "question": "Welchen Umsatz machte der Einzelhandel innerhalb Deutschlands in 2020 ",
-          "answer": "577 Milliarden Euro "
-        },
-        {
-          "question": "Wie viel Prozent der geplanten Kosten konsumiert ein Projekt im Durchschnitt? ",
-          "answer": "189%"
-        },
-        {
-          "question": "“Project Management is causing a/an ___ undertaking to happen” ",
-          "answer": "planned"
-        },
-        {
-          "question": "“Projektmanagement ist wie ___ […] – Zeit, Kosten und Qualität“ ~ G. Reiss ",
-          "answer": "Jonglieren"
-        },
-        {
-          "question": "„Projektmanager zu sein ist wie ein/e ___ zu sein […]“ ~ Greg Cimmarrusti ",
-          "answer": "Künstler"
-        },
-        {
-          "question": "Wie viele Projekte scheitern im Verhältnis. Hinweis: Quelle ist die BVBC GEHALTSANALYSE vom Jahr 2014.  ",
-          "answer": "1:6"
-        },
-        {
-          "question": "Welche Organisation war hauptverantwortlich für den Bargeldumtausch im Jahr 2002 ",
-          "answer": "EZB - Europäische Zentral Bank "
-        },
-        {
-          "question": "Wie viel Geld hat Lidl verloren bei dem missglückten Versuch SAP in Ihre Systeme zu integrieren? ",
-          "answer": "500 Millionen Euro"
-        },
-        {
-          "question": "Das Problem zu erkennen ist wichtiger als die ___ zu erkennen, [...] ~ Albert Einstein ",
-          "answer": "Lösung"
-        },
-        {
-          "question": "Es ist nicht genug zu wissen, man muss es auch ___ . Es ist nicht genug zu wollen, man muss es auch tun. ~ Johann Wolfgang Goethe ",
-          "answer": "anwenden"
-        },
-        {
-          "question": "Ein … wird dir alles sagen, wenn du ihn danach fragst – aber nicht mehr. ",
-          "answer": "Anwender"
-        },
-        {
-          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein rot umrandeter Schlüssel. Der schwarze rand um das Rot ist wie ein Wappen geformt. ",
-          "answer": "Becks"
-        },
-        {
-          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine gelbe Krone.",
-          "answer": "Corona"
-        },
-        {
-          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein Anker, verwoben mit einem Herz. Das Herz ist rot. ",
-          "answer": "Astra"
-        },
-        {
-          "question": "Zu welcher Marke gehört dieses Logo? Eine rote Mühle. Mit dem Wort Malz in einem Flügel. ",
-          "answer": "Mühlen Kölsch"
-        },
-        {
-          "question": "Zu welcher Biermarke gehört dieser beschriebene Bildausschnitt aus einer Werbekampagne, die damals das Fernsehen dominierte: 4 Menschen stehen während einem Sonnenuntergang am Strand mit Bier in der Hand. Im Hintergrund brennt ein Lagerfeuer. In der Ferne steht ein Leuchtturm.",
-          "answer": "Jever"
-        },
-        {
-          "question": "Zu welcher Marke gehört der beschriebene Bildausschnitt aus einer Werbekampagne: Eine reizende junge Dame in einem gelben Bikini mit wohlgeformten Rundungen joggt lässig am Strand entlang. Neben Ihr rennt ein Mops. ",
-          "answer": "Almased"
-        },
-        {
-          "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine Krone mit einem kleinen Eisernen Kreuz in der Mitte steht auf dem Wort HTB. Dabei bildet das T den Übergang zwischen Krone und dem geschriebenen. ",
-          "answer": "Tegernseer"
-        },
-        {
-          "question": "Produkte befriedigen einen Bedarf – Marken befriedigen ___ ",
-          "answer": "Bedürfnisse"
-        },
-        {
-          "question": "Eine Kooperation zwischen dem russischen Gasunternehmen Gazprom und seinem Partnerunternehmen aus Nigeria würde in den USA nicht gut ankommen, denn das Unternehmen nannte sich selbst ___ ",
-          "answer": "Nigaz"
-        },
-        {
-          "question": "Viagra wurde in China unter dem Produktnamen Wànàikě veröffentlicht – was für schmunzeln sorgte, denn es heißt ungefähr ___. ",
-          "answer": "Mann, der mit 1000 Frauen schlafen kann"
-        },
-        {
-          "question": "Neben Bürokratisch, Demokratisch, und Autokratisch gibt es auch den Begriff \"Pornokratisch\", was so viel bedeutet wie ____ ",
-          "answer": "Mätressenherrschaft"
-        },
-        {
-          "question": "\"Ein ___, das ist die Kunst, einen Kuchen so zu teilen, dass jeder meint, er habe das größte Stück bekommen\" - Ludwig Erhardt ",
-          "answer": "Kompromiss"
-        },
-        {
-          "question": "Das Logo welcher Motorradmarke spielt auf den Blick in einen Pistolenlauf an? ",
-          "answer": "Husqvarna"
-        },
-        {
-          "question": "\"Planning is bringing the ___ into the ___ […]\" ~ Alan Lakein (Kommaseparierte Angabe)",
-          "answer": "present, future"
-        },
-        {
-          "question": "\"PROJECT MANAGER is aperson who thinks nine ___ can deliver a/an ___ in One month\" (Kommaseparierte Angabe)",
-          "answer": "women, baby"
-        }
-      ]
+      "question": "AT&T hat 2016 in der größten Acquisition des Jahres Time Warner aufgekauft. Wie viel hat AT&T bezahlt? ",
+      "answer": "USD 85.4 Billion "
+    },
+    {
+      "question": "Welchen Umsatz machte der Einzelhandel innerhalb Deutschlands in 2020 ",
+      "answer": "577 Milliarden Euro "
+    },
+    {
+      "question": "Wie viel Prozent der geplanten Kosten konsumiert ein Projekt im Durchschnitt? ",
+      "answer": "189%"
+    },
+    {
+      "question": "“Project Management is causing a/an ___ undertaking to happen” ",
+      "answer": "planned"
+    },
+    {
+      "question": "“Projektmanagement ist wie ___ […] – Zeit, Kosten und Qualität“ ~ G. Reiss ",
+      "answer": "Jonglieren"
+    },
+    {
+      "question": "„Projektmanager zu sein ist wie ein/e ___ zu sein […]“ ~ Greg Cimmarrusti ",
+      "answer": "Künstler"
+    },
+    {
+      "question": "Wie viele Projekte scheitern im Verhältnis. Hinweis: Quelle ist die BVBC GEHALTSANALYSE vom Jahr 2014.  ",
+      "answer": "1:6"
+    },
+    {
+      "question": "Welche Organisation war hauptverantwortlich für den Bargeldumtausch im Jahr 2002 ",
+      "answer": "EZB - Europäische Zentral Bank "
+    },
+    {
+      "question": "Wie viel Geld hat Lidl verloren bei dem missglückten Versuch SAP in Ihre Systeme zu integrieren? ",
+      "answer": "500 Millionen Euro"
+    },
+    {
+      "question": "Das Problem zu erkennen ist wichtiger als die ___ zu erkennen, [...] ~ Albert Einstein ",
+      "answer": "Lösung"
+    },
+    {
+      "question": "Es ist nicht genug zu wissen, man muss es auch ___ . Es ist nicht genug zu wollen, man muss es auch tun. ~ Johann Wolfgang Goethe ",
+      "answer": "anwenden"
+    },
+    {
+      "question": "Ein … wird dir alles sagen, wenn du ihn danach fragst – aber nicht mehr. ",
+      "answer": "Anwender"
+    },
+    {
+      "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein rot umrandeter Schlüssel. Der schwarze rand um das Rot ist wie ein Wappen geformt. ",
+      "answer": "Becks"
+    },
+    {
+      "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine gelbe Krone.",
+      "answer": "Corona"
+    },
+    {
+      "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Ein Anker, verwoben mit einem Herz. Das Herz ist rot. ",
+      "answer": "Astra"
+    },
+    {
+      "question": "Zu welcher Marke gehört dieses Logo? Eine rote Mühle. Mit dem Wort Malz in einem Flügel. ",
+      "answer": "Mühlen Kölsch"
+    },
+    {
+      "question": "Zu welcher Biermarke gehört dieser beschriebene Bildausschnitt aus einer Werbekampagne, die damals das Fernsehen dominierte: 4 Menschen stehen während einem Sonnenuntergang am Strand mit Bier in der Hand. Im Hintergrund brennt ein Lagerfeuer. In der Ferne steht ein Leuchtturm.",
+      "answer": "Jever"
+    },
+    {
+      "question": "Zu welcher Marke gehört der beschriebene Bildausschnitt aus einer Werbekampagne: Eine reizende junge Dame in einem gelben Bikini mit wohlgeformten Rundungen joggt lässig am Strand entlang. Neben Ihr rennt ein Mops. ",
+      "answer": "Almased"
+    },
+    {
+      "question": "Zu welcher Biermarke gehört folgend beschriebenes Logo: Eine Krone mit einem kleinen Eisernen Kreuz in der Mitte steht auf dem Wort HTB. Dabei bildet das T den Übergang zwischen Krone und dem geschriebenen. ",
+      "answer": "Tegernseer"
+    },
+    {
+      "question": "Produkte befriedigen einen Bedarf – Marken befriedigen ___ ",
+      "answer": "Bedürfnisse"
+    },
+    {
+      "question": "Eine Kooperation zwischen dem russischen Gasunternehmen Gazprom und seinem Partnerunternehmen aus Nigeria würde in den USA nicht gut ankommen, denn das Unternehmen nannte sich selbst ___ ",
+      "answer": "Nigaz"
+    },
+    {
+      "question": "Viagra wurde in China unter dem Produktnamen Wànàikě veröffentlicht – was für schmunzeln sorgte, denn es heißt ungefähr ___. ",
+      "answer": "Mann, der mit 1000 Frauen schlafen kann"
+    },
+    {
+      "question": "Neben Bürokratisch, Demokratisch, und Autokratisch gibt es auch den Begriff \"Pornokratisch\", was so viel bedeutet wie ____ ",
+      "answer": "Mätressenherrschaft"
+    },
+    {
+      "question": "\"Ein ___, das ist die Kunst, einen Kuchen so zu teilen, dass jeder meint, er habe das größte Stück bekommen\" - Ludwig Erhardt ",
+      "answer": "Kompromiss"
+    },
+    {
+      "question": "Das Logo welcher Motorradmarke spielt auf den Blick in einen Pistolenlauf an? ",
+      "answer": "Husqvarna"
+    },
+    {
+      "question": "\"Planning is bringing the ___ into the ___ […]\" ~ Alan Lakein (Kommaseparierte Angabe)",
+      "answer": "present, future"
+    },
+    {
+      "question": "\"PROJECT MANAGER is a person who thinks nine ___ can deliver one ___ in one month\" (Kommaseparierte Angabe)",
+      "answer": "women, baby"
     }
   ]
 }

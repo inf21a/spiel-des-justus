@@ -1,22 +1,23 @@
-type Question = {
+interface Question {
   question: string;
-};
+}
 
 interface PolarQuestion extends Question {
   answer: boolean;
 }
 
-
 interface OpenQuestion extends Question {
-  answer: string;
+  options: string[];
+  amount: number;
 }
 
 interface ChoiceQuestion extends Question {
   options: string[];
+  answer?: string;
 }
 
 interface GroupQuestion extends Question {
-  options: string[];
+  answer: string;
 }
 
 type Events = Array<{
