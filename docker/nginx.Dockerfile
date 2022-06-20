@@ -5,6 +5,7 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 COPY tsconfig* index.html vite.config.ts tailwind.config.js postcss.config.js ./
+COPY assets assets
 COPY src src
 RUN yarn build
 

@@ -2,7 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
-    "outDir": "dist/server/"
+    "outDir": "dist/server/",
+    "module": "CommonJS"
   },
   "include": ["src/server.ts"]
 }
