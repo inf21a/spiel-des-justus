@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install prettier
+        run: yarn global add prettier
       - name: Check formatting
-        run: yarn format:check
+        run: prettier --check ./src/*

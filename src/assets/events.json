@@ -96,6 +96,7 @@
   },
   {
     "message": "Deine Studierenden-Band tritt auf einer Hochzeit auf. Die Örtlichkeiten sind jedoch nicht auf schlechtes Wetter ausgelegt. Schaden an den Instrumenten. -2 JT ",
+    "type": "money",
     "amount": -2
   },
   {
