@@ -45,6 +45,8 @@ export const game: Game<GameState> = {
   },
   minPlayers: 2,
   maxPlayers: 6,
+  endIf: (G, ctx) =>
+    G.players[parseInt(ctx.currentPlayer)].position >= G.board.length,
   moves: {
     rollDice: (G, ctx) => {
       G.rolled = ctx.random!.D6();
@@ -58,8 +60,8 @@ export const game: Game<GameState> = {
           break;
         //TODO GROUPQUESTIONS
         case 3:
-          G.showGroupQuestion = true;
-          ctx.events?.setStage("openQuestion");
+          //G.showGroupQuestion = true;
+          //ctx.events?.setStage("openQuestion");
           break;
         case 4:
           ctx.events?.endTurn();
@@ -90,9 +92,9 @@ export const game: Game<GameState> = {
               break;
             case 5:
             case 6:
-            default:
-              G.showOpenQuestion = true;
-              ctx.events?.setStage("openQuestion");
+            //default:
+            //  G.showOpenQuestion = true;
+            //  ctx.events?.setStage("openQuestion");
           }
           break;
       }
