@@ -16,10 +16,7 @@ function LobbyWrapper({
   children: Array<JSX.Element> | JSX.Element;
 }) {
   return (
-    <div
-      style={{ backgroundColor: "#ffedb6" }}
-      className="h-screen w-screen justify-center items-center flex"
-    >
+    <div className="h-screen w-screen justify-center items-center flex bg-justusbg">
       <div className="space-y-6">
         <div className="text-center text-4xl font-bold">Spiel des Justus</div>
         <div>{children}</div>
