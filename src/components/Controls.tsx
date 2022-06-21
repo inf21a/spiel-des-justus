@@ -35,14 +35,19 @@ export default function Controls(props: GameProps) {
             {props.matchData![parseInt(props.playerID!)].name}
           </div>
           <div className="flex items-center mt-12">
-            <div
-              className="bg-violet-500 rounded-lg py-1.5 px-4 text-white font-bold cursor-pointer"
+            <button
+              disabled={props.ctx.currentPlayer != props.playerID}
+              className={`rounded-lg py-1.5 px-4 text-white font-bold ${
+                props.ctx.currentPlayer == props.playerID
+                  ? "bg-violet-500"
+                  : "bg-gray-300"
+              }`}
               onClick={() => {
                 props.moves.rollDice();
               }}
             >
               Roll the dice
-            </div>
+            </button>
             <div className="ml-4 font-bold">{props.G.rolled}</div>
           </div>
           <div className="flex mt-12">
