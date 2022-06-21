@@ -1,6 +1,7 @@
 import type { Game } from "boardgame.io";
 import type { BoardProps } from "boardgame.io/react";
 import stringSimilarity from "string-similarity-js";
+import events from "../assets/events.json";
 
 export type GameState = {
   board: Array<number>;
@@ -10,6 +11,11 @@ export type GameState = {
   showChoiceQuestion: boolean;
   showOpenQuestion: boolean;
   showGroupQuestion: boolean;
+  winner: number;
+  events: Array<{ message: string; type: string; amount: number }>;
+  pausedPlayers: Array<number>;
+  showEvent: boolean;
+  currentEvent?: { message: string; type: string; amount: number };
 };
 
 export type GameProps = BoardProps<GameState>;
@@ -41,6 +47,10 @@ export const game: Game<GameState> = {
       showChoiceQuestion: false,
       showOpenQuestion: false,
       showGroupQuestion: false,
+      winner: -1,
+      events: ctx.random!.Shuffle(events),
+      pausedPlayers: [],
+      showEvent: false,
     };
   },
   minPlayers: 2,
@@ -60,10 +70,20 @@ export const game: Game<GameState> = {
           break;
         //TODO GROUPQUESTIONS
         case 3:
+          G.winner = parseInt(ctx.currentPlayer);
           //G.showGroupQuestion = true;
           //ctx.events?.setStage("openQuestion");
           break;
         case 4:
+          G.currentEvent = G.events.pop();
+          G.showEvent = true;
+          console.log(G.currentEvent);
+          if (G.currentEvent?.type === "pause") {
+            G.pausedPlayers.push(parseInt(ctx.currentPlayer));
+          } else if (G.currentEvent?.type === "money") {
+            G.players[parseInt(ctx.currentPlayer)].score +=
+              G.currentEvent.amount;
+          }
           ctx.events?.endTurn();
           break;
         case 5:
@@ -72,6 +92,7 @@ export const game: Game<GameState> = {
 
         //TODO WIN!
         case 99:
+          G.winner = parseInt(ctx.currentPlayer);
           ctx.events?.endTurn();
           break;
 
@@ -101,6 +122,20 @@ export const game: Game<GameState> = {
     },
   },
   turn: {
+    order: {
+      // Get the initial value of playOrderPos at the beginning of the phase.
+      first: (G, ctx) => 0,
+
+      // Get the next value of playOrderPos at the end of each turn.
+      next: (G, ctx) => {
+        let nextPos = (ctx.playOrderPos + 1) % ctx.numPlayers;
+        while (G.pausedPlayers.includes(nextPos)) {
+          G.pausedPlayers.splice(G.pausedPlayers.indexOf(nextPos), 1);
+          nextPos = (nextPos + 1) % ctx.numPlayers;
+        }
+        return nextPos;
+      },
+    },
     stages: {
       polarQuestion: {
         moves: {

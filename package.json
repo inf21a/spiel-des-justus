@@ -12,10 +12,12 @@
     "format:check": "prettier --check ./src/"
   },
   "dependencies": {
+    "@types/react-lottie": "^1.2.6",
     "boardgame.io": "^0.49.12",
     "fast-shuffle": "^4.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-lottie": "^1.2.3",
     "string-similarity-js": "^2.1.4"
   },
   "devDependencies": {

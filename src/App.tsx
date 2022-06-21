@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import { Lobby } from "boardgame.io/react";
+import { Lobby, Client } from "boardgame.io/react";
 
 import Board from "./components/Board";
 import GameLobby from "./components/GameLobby";
+import Loading from "./components/Loading";
+
 import { game } from "./Game";
 import "./index.css";
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       gameServer={server}
       lobbyServer={server}
       gameComponents={[{ game, board: Board }]}
+      clientFactory={(args) => Client({ ...args, loading: Loading })}
       renderer={(args) => {
         if (args.runningMatch)
           return (

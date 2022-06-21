@@ -34,22 +34,33 @@ function NameSelect(
   }
 ) {
   const [name, setName] = useState("");
+
+  function submit() {
+    props.handleEnterLobby(name);
+    props.setLobbyStage(LobbyStage.gameSelect);
+  }
+
   return (
-    <div className="text-center">
-      <input
-        type="input"
-        placeholder="Spielername"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
-      <button
-        onClick={() => {
-          props.handleEnterLobby(name);
-          props.setLobbyStage(LobbyStage.gameSelect);
-        }}
-      >
-        Okay
-      </button>
+    <div className="text-center space-y-8">
+      <p>
+        <input
+          type="input"
+          placeholder="Name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          className="text-2xl p-2"
+          onKeyDown={(ev) => ev.key == "Enter" && submit()}
+        />
+      </p>
+      <p>
+        <button
+          onClick={submit}
+          disabled={!name}
+          className="bg-green-500 p-4 text-xl disabled:bg-slate-200"
+        >
+          Zur Lobby
+        </button>
+      </p>
     </div>
   );
 }
@@ -59,8 +70,9 @@ function GameSelect(
     setLobbyStage: React.Dispatch<React.SetStateAction<LobbyStage>>;
   }
 ) {
-  const [matchID, setMatchID] = useState("");
-  const [playerID, setPlayerID] = useState("");
+  const [matchID, setMatchID] = useState<string>();
+  const [playerID, setPlayerID] = useState<string>();
+
   return (
     <div className="text-center">
       <ul>
@@ -68,46 +80,64 @@ function GameSelect(
           <div key={match.matchID}>
             <li>
               Match {i + 1} (
-              {match.players
-                .filter((player) => player.name)
-                .map((player) => player.name)
-                .join(", ")}
+              {match.players.filter((player) => player.name).length < 1
+                ? "Keine Spieler"
+                : match.players
+                    .filter((player) => player.name)
+                    .map((player) => player.name)
+                    .join(", ")}
               )
             </li>
-            <button
-              onClick={async () => {
-                const pID = match.players
-                  .filter((player) => player.name)
-                  .length.toString();
-                await props.handleJoinMatch("justus", match.matchID, pID);
-                setPlayerID(pID);
-                setMatchID(match.matchID);
-              }}
-            >
-              Beitreten
-            </button>
-            &nbsp;
-            <button onClick={() => props.handleLeaveMatch("justus", matchID)}>
-              Verlassen
-            </button>
-            &nbsp;
-            <button
-              onClick={() => {
-                props.handleStartMatch("justus", {
-                  matchID,
-                  numPlayers: 2,
-                  playerID,
-                });
-              }}
-            >
-              Start
-            </button>
+            {!matchID && (
+              <button
+                onClick={async () => {
+                  const seat = match.players.find((player) => !player.name);
+                  const pID = seat ? seat.id.toString() : undefined;
+                  if (pID)
+                    await props.handleJoinMatch("justus", match.matchID, pID);
+                  setPlayerID(pID);
+                  setMatchID(match.matchID);
+                }}
+              >
+                Beitreten
+              </button>
+            )}
+            {matchID == match.matchID && (
+              <button
+                onClick={() => {
+                  if (matchID) {
+                    props.handleLeaveMatch("justus", matchID);
+                    setMatchID(undefined);
+                  }
+                }}
+              >
+                Verlassen
+              </button>
+            )}
           </div>
         ))}
       </ul>
-      <button onClick={() => props.handleCreateMatch("justus", 2)}>
-        Match erstellen
-      </button>
+      {matchID ? (
+        <button
+          onClick={() =>
+            props.handleStartMatch("justus", {
+              matchID,
+              numPlayers: 2,
+              playerID,
+            })
+          }
+          className="bg-green-500 p-2 my-4"
+        >
+          Match starten
+        </button>
+      ) : (
+        <button
+          onClick={() => props.handleCreateMatch("justus", 2)}
+          className="bg-purple-500 p-2 my-4"
+        >
+          Neues Match
+        </button>
+      )}
     </div>
   );
 }
