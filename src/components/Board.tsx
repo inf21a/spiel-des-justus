@@ -5,7 +5,7 @@ import PopupList from "./PopupList";
 
 export default function Board(props: GameProps) {
   return (
-    <div className="flex bg-justusbg">
+    <div className="flex bg-yellow-50">
       <GameMap {...props} />
       <Controls {...props} />
       {props.ctx.currentPlayer == props.playerID && <PopupList {...props} />}
