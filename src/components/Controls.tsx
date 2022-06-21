@@ -19,7 +19,7 @@ const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
 export default function Controls(props: GameProps) {
   return (
-    <div className="w-1/3 border-l-2">
+    <div className="w-1/3 border-l-2 fixed top-0 right-0 h-full">
       <div className="h-full w-full flex flex-col">
         <div className="mt-12 flex mr-8 justify-end">
           <div className="bg-gray-300 p-2 rounded-2xl mr-3">
@@ -50,11 +50,12 @@ export default function Controls(props: GameProps) {
             </button>
             <div className="ml-4 font-bold">{props.G.rolled}</div>
           </div>
+          {/*
           <div className="flex mt-12">
             <img src={singleStack} />
             <img className="ml-5" src={groupStack} />
             <img className="ml-5" src={eventStack} />
-          </div>
+            </div> */}
           <div className="flex mt-16">
             {props
               .matchData!.filter(
