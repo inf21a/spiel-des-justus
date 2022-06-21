@@ -32,7 +32,8 @@ export default function Controls(props: GameProps) {
         <div className="flex items-center mt-12 flex-col">
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
           <div className="font-bold text-2xl">
-            {props.matchData![parseInt(props.playerID!)].name}
+            {props.playerID != null &&
+              props.matchData![parseInt(props.playerID!)].name}
           </div>
           <div className="flex items-center mt-12">
             <div

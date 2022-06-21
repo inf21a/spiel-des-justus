@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { Lobby } from "boardgame.io/react";
 
 import Board from "./components/Board";
+import GameLobby from "./components/GameLobby";
 import { game } from "./Game";
 import "./index.css";
 
@@ -17,6 +18,17 @@ ReactDOM.render(
       gameServer={server}
       lobbyServer={server}
       gameComponents={[{ game, board: Board }]}
+      renderer={(args) => {
+        if (args.runningMatch)
+          return (
+            <args.runningMatch.app
+              matchID={args.runningMatch.matchID}
+              playerID={args.runningMatch.playerID}
+              credentials={args.runningMatch.credentials}
+            />
+          );
+        return <GameLobby {...args} />;
+      }}
     />
   </React.StrictMode>,
   document.getElementById("root")!
