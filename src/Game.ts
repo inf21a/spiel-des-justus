@@ -60,6 +60,11 @@ export const game: Game<GameState> = {
   moves: {
     rollDice: (G, ctx) => {
       G.rolled = ctx.random!.D6();
+      if (
+        G.players[parseInt(ctx.currentPlayer)].position + G.rolled >
+        G.board.length
+      )
+        ctx.events?.endTurn();
       G.players[parseInt(ctx.currentPlayer)].position += G.rolled;
       const field = G.board[G.players[parseInt(ctx.currentPlayer)].position];
       switch (field) {
@@ -70,8 +75,6 @@ export const game: Game<GameState> = {
           break;
         //TODO GROUPQUESTIONS
         case 3:
-          G.gameEnd = true;
-          ctx.events?.endTurn();
           //G.showGroupQuestion = true;
           //ctx.events?.setStage("openQuestion");
           break;
