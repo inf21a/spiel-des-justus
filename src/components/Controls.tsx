@@ -32,9 +32,7 @@ export default function Controls(props: GameProps) {
         </div>
         <div
           className={`items-center mt-12 flex-col ${
-            props.G.winner !== -1 && props.G.winner != undefined
-              ? "hidden"
-              : "flex"
+            props.G.gameEnd ? "hidden" : "flex"
           }`}
         >
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
@@ -57,7 +55,7 @@ export default function Controls(props: GameProps) {
             </button>
             <div className="ml-4 font-bold">{props.G.rolled}</div>
           </div>
-          {/*
+          {/* Temporarily disabled because look is bad
           <div className="flex mt-12">
             <img src={singleStack} />
             <img className="ml-5" src={groupStack} />
@@ -82,9 +80,7 @@ export default function Controls(props: GameProps) {
               ))}
           </div>
         </div>
-        {props.G.winner !== -1 && props.G.winner != undefined && (
-          <WinPanel {...props} />
-        )}
+        {props.G.gameEnd && <WinPanel {...props} />}
       </div>
     </div>
   );
