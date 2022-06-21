@@ -32,7 +32,9 @@ export default function Controls(props: GameProps) {
         </div>
         <div
           className={`items-center mt-12 flex-col ${
-            props.G.winner !== -1 ? "hidden" : "flex"
+            props.G.winner !== -1 && props.G.winner != undefined
+              ? "hidden"
+              : "flex"
           }`}
         >
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
@@ -80,7 +82,9 @@ export default function Controls(props: GameProps) {
               ))}
           </div>
         </div>
-        <WinPanel {...props} />
+        {props.G.winner !== -1 && props.G.winner != undefined && (
+          <WinPanel {...props} />
+        )}
       </div>
     </div>
   );

@@ -22,11 +22,7 @@ export default function WinPanel(props: GameProps) {
   };
 
   return (
-    <div
-      className={`h-full flex-col items-center ${
-        props.G.winner !== -1 ? "flex" : "hidden"
-      }`}
-    >
+    <div className="h-full flex-col items-center flex">
       <Lottie
         options={defaultOptions}
         height={500}
