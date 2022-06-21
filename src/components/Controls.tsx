@@ -14,13 +14,14 @@ import avatar3 from "../../assets/avatar3.svg";
 import avatar4 from "../../assets/avatar4.svg";
 import avatar5 from "../../assets/avatar5.svg";
 import avatar6 from "../../assets/avatar6.svg";
+import WinPanel from "./WinPanel";
 
 const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
 export default function Controls(props: GameProps) {
   return (
     <div className="w-1/3 border-l-2 fixed top-0 right-0 h-full">
-      <div className="h-full w-full flex flex-col">
+      <div className="h-full w-full flex-col flex">
         <div className="mt-12 flex mr-8 justify-end">
           <div className="bg-gray-300 p-2 rounded-2xl mr-3">
             <Icon icon="clarity:volume-mute-line" color="white" height="36" />
@@ -29,7 +30,11 @@ export default function Controls(props: GameProps) {
             <Icon icon="iconoir:cancel" color="white" height="36" />
           </button>
         </div>
-        <div className="flex items-center mt-12 flex-col">
+        <div
+          className={`items-center mt-12 flex-col ${
+            props.G.winner !== -1 ? "hidden" : "flex"
+          }`}
+        >
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
           <div className="font-bold text-2xl">
             {props.matchData![parseInt(props.playerID!)].name}
@@ -75,6 +80,7 @@ export default function Controls(props: GameProps) {
               ))}
           </div>
         </div>
+        <WinPanel {...props} />
       </div>
     </div>
   );

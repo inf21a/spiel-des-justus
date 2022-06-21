@@ -11,6 +11,7 @@ export type GameState = {
   showChoiceQuestion: boolean;
   showOpenQuestion: boolean;
   showGroupQuestion: boolean;
+  winner: number;
   events: Array<{ message: string; type: string; amount: number }>;
   pausedPlayers: Array<number>;
   showEvent: boolean;
@@ -46,6 +47,7 @@ export const game: Game<GameState> = {
       showChoiceQuestion: false,
       showOpenQuestion: false,
       showGroupQuestion: false,
+      winner: -1,
       events: ctx.random!.Shuffle(events),
       pausedPlayers: [],
       showEvent: false,
@@ -68,6 +70,7 @@ export const game: Game<GameState> = {
           break;
         //TODO GROUPQUESTIONS
         case 3:
+          G.winner = parseInt(ctx.currentPlayer);
           //G.showGroupQuestion = true;
           //ctx.events?.setStage("openQuestion");
           break;
@@ -89,6 +92,7 @@ export const game: Game<GameState> = {
 
         //TODO WIN!
         case 99:
+          G.winner = parseInt(ctx.currentPlayer);
           ctx.events?.endTurn();
           break;
 
