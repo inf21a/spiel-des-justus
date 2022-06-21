@@ -35,14 +35,19 @@ export default function Controls(props: GameProps) {
             {props.matchData![parseInt(props.playerID!)].name}
           </div>
           <div className="flex items-center mt-12">
-            <div
-              className="bg-violet-500 rounded-lg py-1.5 px-4 text-white font-bold cursor-pointer"
+            <button
+              disabled={props.ctx.currentPlayer != props.playerID}
+              className={`rounded-lg py-1.5 px-4 text-white font-bold ${
+                props.ctx.currentPlayer == props.playerID
+                  ? "bg-violet-500"
+                  : "bg-gray-300"
+              }`}
               onClick={() => {
                 props.moves.rollDice();
               }}
             >
               Roll the dice
-            </div>
+            </button>
             <div className="ml-4 font-bold">{props.G.rolled}</div>
           </div>
           <div className="flex mt-12">
@@ -51,18 +56,22 @@ export default function Controls(props: GameProps) {
             <img className="ml-5" src={eventStack} />
           </div>
           <div className="flex mt-16">
-            {props.matchData!.map(({ id, name }) => (
-              <div className="flex flex-col items-center ml-8" key={id}>
-                <div className="flex">
-                  <img className="w-6" src={coin} />
-                  <div className="font-bold ml-2 text-gray-500">
-                    {props.G.players[id].score}
+            {props
+              .matchData!.filter(
+                ({ id, name }) => id.toString() !== props.playerID
+              )
+              .map(({ id, name }) => (
+                <div className="flex flex-col items-center ml-8" key={id}>
+                  <div className="flex">
+                    <img className="w-6" src={coin} />
+                    <div className="font-bold ml-2 text-gray-500">
+                      {props.G.players[id].score}
+                    </div>
                   </div>
+                  <img className="mt-3" src={avatars[id]} />
+                  <div className="font-bold">{name}</div>
                 </div>
-                <img className="mt-3" src={avatars[id]} />
-                <div className="font-bold">{name}</div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>
