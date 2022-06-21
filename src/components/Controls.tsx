@@ -51,18 +51,22 @@ export default function Controls(props: GameProps) {
             <img className="ml-5" src={eventStack} />
           </div>
           <div className="flex mt-16">
-            {props.matchData!.map(({ id, name }) => (
-              <div className="flex flex-col items-center ml-8" key={id}>
-                <div className="flex">
-                  <img className="w-6" src={coin} />
-                  <div className="font-bold ml-2 text-gray-500">
-                    {props.G.players[id].score}
+            {props
+              .matchData!.filter(
+                ({ id, name }) => id.toString() !== props.playerID
+              )
+              .map(({ id, name }) => (
+                <div className="flex flex-col items-center ml-8" key={id}>
+                  <div className="flex">
+                    <img className="w-6" src={coin} />
+                    <div className="font-bold ml-2 text-gray-500">
+                      {props.G.players[id].score}
+                    </div>
                   </div>
+                  <img className="mt-3" src={avatars[id]} />
+                  <div className="font-bold">{name}</div>
                 </div>
-                <img className="mt-3" src={avatars[id]} />
-                <div className="font-bold">{name}</div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>
