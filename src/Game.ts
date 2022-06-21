@@ -1,66 +1,57 @@
 import type { Game } from "boardgame.io";
+import type { BoardProps } from "boardgame.io/react";
+import stringSimilarity from "string-similarity-js";
 
-import { stringSimilarity } from "string-similarity-js";
-import events from "./assets/events.json";
-
-export interface JustusGameState {
-  board: number[];
-  playerState: { [key: string]: { position: number; score: number } };
-  rolledNumber: number;
-
+export type GameState = {
+  board: Array<number>;
+  rolled: number;
+  players: Array<{ position: number; score: number }>;
   showPolarQuestion: boolean;
   showChoiceQuestion: boolean;
   showOpenQuestion: boolean;
   showGroupQuestion: boolean;
+};
 
-  events: { message: string; type?: string; amount: number }[];
-}
+export type GameProps = BoardProps<GameState>;
 
-export const JustusGame: Game<JustusGameState> = {
-  setup: (ctx) => ({
-    /*
-     * 0: start
-     * 1: nothing
-     * 2: solo questiom
-     * 3: group question
-     * 4: event
-     * 99: end
-     */
-    board: [
-      0, 1, 2, 1, 2, 4, 2, 3, 2, 1, 2, 3, 4, 2, 1, 2, 4, 1, 2, 2, 1, 4, 2, 3, 1,
-      2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4, 99,
-    ],
-
-    playerState: {
-      0: { position: 0, score: 0 },
-      1: { position: 0, score: 0 },
-      2: { position: 0, score: 0 },
-      3: { position: 0, score: 0 },
-      4: { position: 0, score: 0 },
-      5: { position: 0, score: 0 },
-    },
-    rolledNumber: 0,
-
-    showPolarQuestion: false,
-    showChoiceQuestion: false,
-    showOpenQuestion: false,
-    showGroupQuestion: false,
-
-    events: ctx.random!.Shuffle(events),
-  }),
+export const game: Game<GameState> = {
+  name: "justus",
+  setup(ctx) {
+    const players: GameState["players"] = [];
+    for (let i = 0; i < ctx.numPlayers; i++) {
+      players.push({ position: 0, score: 0 });
+    }
+    return {
+      /*
+       * 0: start
+       * 1: nothing
+       * 2: solo questiom
+       * 3: group question
+       * 4: event
+       * 99: end
+       */
+      board: [
+        0, 1, 2, 1, 2, 4, 2, 3, 2, 1, 2, 3, 4, 2, 1, 2, 4, 1, 2, 2, 1, 4, 2, 3,
+        1, 2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4,
+        99,
+      ],
+      rolled: 0,
+      players,
+      showPolarQuestion: false,
+      showChoiceQuestion: false,
+      showOpenQuestion: false,
+      showGroupQuestion: false,
+    };
+  },
   minPlayers: 2,
   maxPlayers: 6,
+  endIf: (G, ctx) =>
+    G.players[parseInt(ctx.currentPlayer)].position >= G.board.length,
   moves: {
     rollDice: (G, ctx) => {
-      G.rolledNumber = ctx.random!.D6();
-      G.playerState[ctx.currentPlayer]
-        ? (G.playerState[ctx.currentPlayer].position =
-            G.playerState[ctx.currentPlayer].position + G.rolledNumber)
-        : (G.playerState[ctx.currentPlayer] = {
-            position: G.rolledNumber,
-            score: 0,
-          });
-      const field = G.board[G.playerState[ctx.currentPlayer].position];
+      G.rolled = ctx.random!.D6();
+      G.players[parseInt(ctx.currentPlayer)].position += G.rolled;
+      const field = G.board[G.players[parseInt(ctx.currentPlayer)].position];
       switch (field) {
         case 0:
           break;
@@ -69,8 +60,8 @@ export const JustusGame: Game<JustusGameState> = {
           break;
         //TODO GROUPQUESTIONS
         case 3:
-          G.showGroupQuestion = true;
-          ctx.events?.setStage("openQuestion");
+          //G.showGroupQuestion = true;
+          //ctx.events?.setStage("openQuestion");
           break;
         case 4:
           ctx.events?.endTurn();
@@ -101,9 +92,9 @@ export const JustusGame: Game<JustusGameState> = {
               break;
             case 5:
             case 6:
-            default:
-              G.showOpenQuestion = true;
-              ctx.events?.setStage("openQuestion");
+            //default:
+            //  G.showOpenQuestion = true;
+            //  ctx.events?.setStage("openQuestion");
           }
           break;
       }
@@ -115,7 +106,7 @@ export const JustusGame: Game<JustusGameState> = {
         moves: {
           answer: (G, ctx, question, submittedAnswer: boolean) => {
             if (submittedAnswer == question.answer) {
-              G.playerState[ctx.currentPlayer].score += 10;
+              G.players[parseInt(ctx.currentPlayer)].score += 10;
               G.showPolarQuestion = false;
               ctx.events?.endTurn();
             } else {
@@ -129,7 +120,7 @@ export const JustusGame: Game<JustusGameState> = {
         moves: {
           answer: (G, ctx, question, submittedAnswer: string) => {
             if (submittedAnswer == question.answer) {
-              G.playerState[ctx.currentPlayer].score += 10;
+              G.players[parseInt(ctx.currentPlayer)].score += 10;
               G.showChoiceQuestion = false;
               ctx.events?.endTurn();
             } else {
@@ -163,7 +154,7 @@ export const JustusGame: Game<JustusGameState> = {
             }
 
             if (result >= question.amount * 0.9) {
-              G.playerState[ctx.currentPlayer].score += 10;
+              G.players[parseInt(ctx.currentPlayer)].score += 10;
               G.showOpenQuestion = false;
               ctx.events?.endTurn();
             } else {
@@ -197,7 +188,7 @@ export const JustusGame: Game<JustusGameState> = {
             }
 
             if (result >= question.amount * 0.9) {
-              G.playerState[ctx.currentPlayer].score += 10;
+              G.players[parseInt(ctx.currentPlayer)].score += 10;
               G.showOpenQuestion = false;
               ctx.events?.endTurn();
             } else {

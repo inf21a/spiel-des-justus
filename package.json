@@ -1,5 +1,5 @@
 {
-  "name": "spiel-des-justus",
+  "name": "justus",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -20,17 +20,17 @@
   },
   "devDependencies": {
     "@iconify/react": "^3.2.2",
-    "@types/fast-shuffle": "4.5.0",
+    "@types/fast-shuffle": "^4.5.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react": "^1.3.0",
     "autoprefixer": "^10.4.7",
-    "concurrently": "^7.2.0",
+    "concurrently": "^7.2.2",
     "nodemon": "^2.0.16",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
-    "tailwindcss": "^3.1.2",
+    "tailwindcss": "^3.1.3",
     "typescript": "^4.6.3",
-    "vite": "^2.9.7"
+    "vite": "^2.9.9"
   }
 }

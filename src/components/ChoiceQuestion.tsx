@@ -1,11 +1,11 @@
 import "./QuestionCard.css";
-import questions from "../assets/questions.json";
+import questions from "../../assets/questions.json";
 import { shuffle } from "fast-shuffle";
 
-export const ChoiceQuestion = (props: {
+export default function ChoiceQuestion(props: {
   random: any;
   answer: (question: ChoiceQuestion, submittedAnswer: string) => void;
-}) => {
+}) {
   let question: ChoiceQuestion = shuffle(questions.choice)[0];
   question.answer = question.options[0];
   question.options = shuffle(question.options);
@@ -48,4 +48,4 @@ export const ChoiceQuestion = (props: {
       </div>
     </div>
   );
-};
+}

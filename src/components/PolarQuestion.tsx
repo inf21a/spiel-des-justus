@@ -1,12 +1,11 @@
 import "./QuestionCard.css";
-import questions from "../assets/questions.json";
+import questions from "../../assets/questions.json";
 import { shuffle } from "fast-shuffle";
-import { MouseEventHandler } from "react";
 
-export const PolarQuestion = (props: {
+export default function PolarQuestion(props: {
   random: any;
   answer: (question: PolarQuestion, submittedAnswer: boolean) => void;
-}) => {
+}) {
   let question: PolarQuestion = shuffle(questions.polar)[0];
 
   return (
@@ -31,4 +30,4 @@ export const PolarQuestion = (props: {
       </div>
     </div>
   );
-};
+}
