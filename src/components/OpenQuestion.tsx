@@ -9,9 +9,10 @@ export default function OpenQuestion(props: {
 }) {
   let question: OpenQuestion = shuffle(questions.open)[0];
 
-  const keypressHandler: KeyboardEventHandler = (event) => {
+  const keypressHandler: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.code === "Enter") {
-      props.answer(question, "test");
+      let temp: string = (event.target as any).value;
+      props.answer(question, temp);
     }
   };
 
@@ -28,9 +29,9 @@ export default function OpenQuestion(props: {
             id={"one-answer-input"}
             name={"one-answer"}
             placeholder={"Hier Antwort eingeben"}
+            onKeyUp={keypressHandler}
           />
         </div>
-        <button onClick={() => props.answer(question, "test")}>close</button>
       </div>
     </div>
   );

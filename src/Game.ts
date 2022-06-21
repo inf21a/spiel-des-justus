@@ -48,37 +48,39 @@ export const game: Game<GameState> = {
   endIf: (G, ctx) =>
     G.players[parseInt(ctx.currentPlayer)].position >= G.board.length,
   moves: {
+    // Called at the beginning of a turn.
+    onBegin: (G, ctx) => {
+      G.showPolarQuestion = false;
+      G.showChoiceQuestion = false;
+      G.showOpenQuestion = false;
+      G.showGroupQuestion = false;
+    },
+
+    // Called at the end of a turn.
+    onEnd: (G, ctx) => {
+      G.showPolarQuestion = false;
+      G.showChoiceQuestion = false;
+      G.showOpenQuestion = false;
+      G.showGroupQuestion = false;
+    },
+
     rollDice: (G, ctx) => {
+      console.log(G.players[parseInt(ctx.currentPlayer)].score);
+
       G.rolled = ctx.random!.D6();
       G.players[parseInt(ctx.currentPlayer)].position += G.rolled;
       const field = G.board[G.players[parseInt(ctx.currentPlayer)].position];
       switch (field) {
         case 0:
-          break;
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
         case 1:
-          ctx.events?.endTurn();
-          break;
-        //TODO GROUPQUESTIONS
-        case 3:
-          //G.showGroupQuestion = true;
-          //ctx.events?.setStage("openQuestion");
-          break;
-        case 4:
-          ctx.events?.endTurn();
-          break;
-        case 5:
-          ctx.events?.endTurn();
-          break;
-
-        //TODO WIN!
-        case 99:
-          ctx.events?.endTurn();
-          break;
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
 
         // Solo Question (Case 2)
         case 2:
           let rand = ctx.random!.D6();
-          console.log("RANDOM " + rand);
           switch (rand) {
             case 1:
             case 2:
@@ -97,22 +99,55 @@ export const game: Game<GameState> = {
               ctx.events?.setStage("openQuestion");
           }
           break;
+
+        //TODO GROUPQUESTIONS
+        case 3:
+          //G.showGroupQuestion = true;
+          //ctx.events?.setStage("openQuestion");
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
+        // ctx.events?.endTurn();          break;
+        case 4:
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
+        // ctx.events?.endTurn();          break;
+        case 5:
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
+          // ctx.events?.endTurn();
+          break;
+
+        //TODO WIN!
+        case 99:
+          ctx.events?.endTurn();
+          break;
       }
     },
   },
   turn: {
+    // Called at the beginning of a turn.
+    onBegin: (G, ctx) => {
+      G.showPolarQuestion = false;
+      G.showChoiceQuestion = false;
+      G.showOpenQuestion = false;
+      G.showGroupQuestion = false;
+    },
+
+    // Called at the end of a turn.
+    onEnd: (G, ctx) => {
+      G.showPolarQuestion = false;
+      G.showChoiceQuestion = false;
+      G.showOpenQuestion = false;
+      G.showGroupQuestion = false;
+    },
     stages: {
       polarQuestion: {
         moves: {
           answer: (G, ctx, question, submittedAnswer: boolean) => {
             if (submittedAnswer == question.answer) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showPolarQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showPolarQuestion = false;
-              ctx.events?.endTurn();
             }
+            ctx.events?.endTurn();
           },
         },
       },
@@ -121,80 +156,55 @@ export const game: Game<GameState> = {
           answer: (G, ctx, question, submittedAnswer: string) => {
             if (submittedAnswer == question.answer) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showChoiceQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showChoiceQuestion = false;
-              ctx.events?.endTurn();
             }
+            ctx.events?.endTurn();
           },
         },
       },
       openQuestion: {
         moves: {
           answer: (G, ctx, question, submittedAnswer: string) => {
-            let answers: string[] = submittedAnswer.split(",");
             let result: number = 0;
             let counter: number = 0;
+            let answers: string[] = submittedAnswer
+              .replaceAll(" ", "")
+              .split(",");
 
-            for (let answer in answers) {
-              let similarity = 0;
-              for (let option in question.options) {
-                let current = stringSimilarity(
+            question.options[0] = "test";
+            question.options[1] = "test";
+            question.options[2] = "test";
+            question.options[3] = "test";
+
+            for (let answer of answers) {
+              let highestSim: number = 0;
+              let highestIndex: number = -1;
+              for (let i = 0; i < question.options.length; i++) {
+                let currentSim = stringSimilarity(
                   answer.toLowerCase(),
-                  option.toLowerCase()
+                  question.options[i].replaceAll(" ", "").toLowerCase()
                 );
-                if (similarity < current) similarity = current;
+                if (highestSim < currentSim) {
+                  highestSim = currentSim;
+                  highestIndex = i;
+                }
               }
-              result += similarity;
 
+              result += highestSim;
+
+              if (highestIndex != -1) {
+                question.options.p;
+              }
               if (++counter == question.amount) {
                 break;
               }
             }
-
+            console.log(
+              "result: " + result + " needed: " + question.amount * 0.9
+            );
             if (result >= question.amount * 0.9) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
             }
-          },
-        },
-      },
-      groupQuestion: {
-        moves: {
-          answer: (G, ctx, question, submittedAnswer: string) => {
-            let answers: string[] = submittedAnswer.split(",");
-            let result: number = 0;
-            let counter: number = 0;
-
-            for (let answer in answers) {
-              let similarity = 0;
-              for (let option in question.options) {
-                let current = stringSimilarity(
-                  answer.toLowerCase(),
-                  option.toLowerCase()
-                );
-                if (similarity < current) similarity = current;
-              }
-              result += similarity;
-
-              if (++counter == question.amount) {
-                break;
-              }
-            }
-
-            if (result >= question.amount * 0.9) {
-              G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
-            }
+            ctx.events?.endTurn();
           },
         },
       },
