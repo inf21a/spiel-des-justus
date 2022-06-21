@@ -70,14 +70,12 @@ export const game: Game<GameState> = {
           break;
         //TODO GROUPQUESTIONS
         case 3:
-          G.winner = parseInt(ctx.currentPlayer);
           //G.showGroupQuestion = true;
           //ctx.events?.setStage("openQuestion");
           break;
         case 4:
           G.currentEvent = G.events.pop();
           G.showEvent = true;
-          console.log(G.currentEvent);
           if (G.currentEvent?.type === "pause") {
             G.pausedPlayers.push(parseInt(ctx.currentPlayer));
           } else if (G.currentEvent?.type === "money") {
@@ -99,7 +97,6 @@ export const game: Game<GameState> = {
         // Solo Question (Case 2)
         case 2:
           let rand = ctx.random!.D6();
-          console.log("RANDOM " + rand);
           switch (rand) {
             case 1:
             case 2:
@@ -113,9 +110,9 @@ export const game: Game<GameState> = {
               break;
             case 5:
             case 6:
-            default:
-              G.showOpenQuestion = true;
-              ctx.events?.setStage("openQuestion");
+            // default:
+            //   G.showOpenQuestion = true;
+            //   ctx.events?.setStage("openQuestion");
           }
           break;
       }
@@ -129,10 +126,11 @@ export const game: Game<GameState> = {
       // Get the next value of playOrderPos at the end of each turn.
       next: (G, ctx) => {
         let nextPos = (ctx.playOrderPos + 1) % ctx.numPlayers;
-        while (G.pausedPlayers.includes(nextPos)) {
-          G.pausedPlayers.splice(G.pausedPlayers.indexOf(nextPos), 1);
-          nextPos = (nextPos + 1) % ctx.numPlayers;
-        }
+        // TODO(felix): splicing the array causes a read-only error
+        // while (G.pausedPlayers.includes(nextPos)) {
+        //   G.pausedPlayers.splice(G.pausedPlayers.indexOf(nextPos), 1);
+        //   nextPos = (nextPos + 1) % ctx.numPlayers;
+        // }
         return nextPos;
       },
     },

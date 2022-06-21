@@ -6,8 +6,8 @@
     "start": "vite",
     "build": "tsc && vite build",
     "build:server": "tsc -p tsconfig.server.json",
-    "start:server": "node dist/server/server.js",
-    "dev": "tsc -p tsconfig.server.json && concurrently 'vite' 'tsc -w -p tsconfig.server.json' 'nodemon dist/server/server.js'",
+    "start:server": "node dist/server/src/server.js",
+    "dev": "tsc -p tsconfig.server.json && concurrently 'vite' 'tsc -w -p tsconfig.server.json' 'nodemon dist/server/src/server.js'",
     "format": "prettier -w ./src/",
     "format:check": "prettier --check ./src/"
   },
