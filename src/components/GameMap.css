@@ -9,6 +9,8 @@
   width: 2%;
   height: 2%;
   border-radius: 100%;
+  transition: 1.5s;
+  transition-timing-function: ease-out;
 }
 
 #f1 {
