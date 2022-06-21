@@ -79,8 +79,11 @@ export default function GameMap(props: GameProps) {
           id={`p${i + 1}`}
           key={i}
           className="justus"
-          style={{top: "calc("+tiles[player.position].top+ " + " + i * 0.2 + "%)",
-            left: "calc("+tiles[player.position].left+ " - " + i * 0.4 + "%)"}}
+          style={{
+            top: "calc(" + tiles[player.position].top + " + " + i * 0.2 + "%)",
+            left:
+              "calc(" + tiles[player.position].left + " - " + i * 0.4 + "%)",
+          }}
         >
           <img src={avatars[i]} />
         </div>
