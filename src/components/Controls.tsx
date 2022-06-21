@@ -25,9 +25,9 @@ export default function Controls(props: GameProps) {
           <div className="bg-gray-300 p-2 rounded-2xl mr-3">
             <Icon icon="clarity:volume-mute-line" color="white" height="36" />
           </div>
-          <div className="bg-red-300 p-2 rounded-2xl">
+          <button className="bg-red-300 hover:bg-red-500 p-2 rounded-2xl transition duration-150 ease-in">
             <Icon icon="iconoir:cancel" color="white" height="36" />
-          </div>
+          </button>
         </div>
         <div className="flex items-center mt-12 flex-col">
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
@@ -37,9 +37,9 @@ export default function Controls(props: GameProps) {
           <div className="flex items-center mt-12">
             <button
               disabled={props.ctx.currentPlayer != props.playerID}
-              className={`rounded-lg py-1.5 px-4 text-white font-bold ${
+              className={`rounded-lg py-1.5 px-4 text-white font-bold transition duration-150 ${
                 props.ctx.currentPlayer == props.playerID
-                  ? "bg-violet-500"
+                  ? "bg-violet-500 hover:bg-violet-600"
                   : "bg-gray-300"
               }`}
               onClick={() => {

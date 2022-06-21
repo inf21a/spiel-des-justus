@@ -92,9 +92,9 @@ export const game: Game<GameState> = {
               break;
             case 5:
             case 6:
-            //default:
-            //  G.showOpenQuestion = true;
-            //  ctx.events?.setStage("openQuestion");
+            default:
+              G.showOpenQuestion = true;
+              ctx.events?.setStage("openQuestion");
           }
           break;
       }
