@@ -1,10 +1,10 @@
 import { Origins, Server } from "boardgame.io/server";
-import { JustusGame } from "./Game";
+import { game } from "./Game";
 
 const prod = process.env.NODE_ENV == "production";
 
 const server = Server({
-  games: [JustusGame],
+  games: [game],
   origins: prod ? [] : [Origins.LOCALHOST],
 });
 

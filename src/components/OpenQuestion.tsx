@@ -1,12 +1,12 @@
 import { KeyboardEventHandler } from "react";
 import "./QuestionCard.css";
-import questions from "../assets/questions.json";
+import questions from "../../assets/questions.json";
 import { shuffle } from "fast-shuffle";
 
-export const OpenQuestion = (props: {
+export default function OpenQuestion(props: {
   random: any;
   answer: (question: OpenQuestion, submittedAnswer: string) => void;
-}) => {
+}) {
   let question: OpenQuestion = shuffle(questions.open)[0];
 
   const keypressHandler: KeyboardEventHandler = (event) => {
@@ -14,6 +14,7 @@ export const OpenQuestion = (props: {
       props.answer(question, "test");
     }
   };
+
   return (
     <div className="popup fix-centered">
       <div className="question box border">
@@ -29,10 +30,8 @@ export const OpenQuestion = (props: {
             placeholder={"Hier Antwort eingeben"}
           />
         </div>
-        <button onClick={() => props.answer(question, "test")}>
-          cloooooose
-        </button>
+        <button onClick={() => props.answer(question, "test")}>close</button>
       </div>
     </div>
   );
-};
+}

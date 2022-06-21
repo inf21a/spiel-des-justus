@@ -1,9 +1,19 @@
-export interface TilePos {
-  top: string;
-  left: string;
-}
+import { GameProps } from "../Game";
 
-export const TILES: TilePos[] = [
+import "./GameMap.css";
+
+import board from "../../assets/board.svg";
+
+import avatar1 from "../../assets/avatar1.svg";
+import avatar2 from "../../assets/avatar2.svg";
+import avatar3 from "../../assets/avatar3.svg";
+import avatar4 from "../../assets/avatar4.svg";
+import avatar5 from "../../assets/avatar5.svg";
+import avatar6 from "../../assets/avatar6.svg";
+
+const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
+
+const tiles = [
   { top: "86.7%", left: "77.6%" },
   { top: "82%", left: "77.6%" },
   { top: "77.5%", left: "76.5%" },
@@ -54,3 +64,26 @@ export const TILES: TilePos[] = [
   { top: "9%", left: "53%" },
   { top: "4.3%", left: "53%" },
 ];
+
+export default function GameMap(props: GameProps) {
+  return (
+    <div className="border-yellow-500 border-8 rounded-3xl relative w-2/3">
+      <img className="rounded-2xl" src={board} alt="Spielbrett" />
+      {Array(48)
+        .fill(0)
+        .map((_, i) => (
+          <div id={`f${i + 1}`} key={i} className="tile" />
+        ))}
+      {props.G.players.map((player, i) => (
+        <div
+          id={`p${i + 1}`}
+          key={i}
+          className="justus"
+          style={tiles[player.position]}
+        >
+          <img src={avatars[i]} />
+        </div>
+      ))}
+    </div>
+  );
+}
