@@ -70,33 +70,8 @@ export const game: Game<GameState> = {
 
       switch (field) {
         case 0:
-          break;
         case 1:
           ctx.events?.endTurn();
-          break;
-        //TODO GROUPQUESTIONS
-        case 3:
-          //G.showGroupQuestion = true;
-          //ctx.events?.setStage("openQuestion");
-          break;
-        case 4:
-          G.currentEvent = G.events.pop();
-          G.showEvent = true;
-          if (G.currentEvent?.type === "pause") {
-            G.pausedPlayers.push(parseInt(ctx.currentPlayer));
-          } else if (G.currentEvent?.type === "money") {
-            player.score += G.currentEvent.amount;
-          }
-          ctx.events?.endTurn();
-          break;
-        case 5:
-          ctx.events?.endTurn();
-          break;
-
-        //TODO WIN!
-        case 99:
-          //ctx.events?.endTurn();
-          ctx.events?.endGame(true);
           break;
 
         // Solo Question (Case 2)
@@ -115,15 +90,56 @@ export const game: Game<GameState> = {
               break;
             case 5:
             case 6:
-            // default:
-            //   G.showOpenQuestion = true;
-            //   ctx.events?.setStage("openQuestion");
+              G.showOpenQuestion = true;
+              ctx.events?.setStage("openQuestion");
+              break;
           }
+          break;
+
+        //TODO GROUPQUESTIONS
+        case 3:
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
+          break;
+
+        case 4:
+          G.currentEvent = G.events.pop();
+          G.showEvent = true;
+          if (G.currentEvent?.type === "pause") {
+            G.pausedPlayers.push(parseInt(ctx.currentPlayer));
+          } else if (G.currentEvent?.type === "money") {
+            player.score += G.currentEvent.amount;
+          }
+          ctx.events?.endTurn();
+          break;
+        case 5:
+          ctx.events?.endTurn();
+          break;
+
+        //TODO WIN!
+        case 99:
+          ctx.events?.endGame(true);
           break;
       }
     },
   },
   turn: {
+    // Called at the beginning of a turn.
+    onBegin: (G, ctx) => {
+      G.showPolarQuestion = false;
+      G.showChoiceQuestion = false;
+      G.showOpenQuestion = false;
+      G.showGroupQuestion = false;
+    },
+
+    // Called at the end of a turn.
+    onEnd: (G, ctx) => {
+      G.showPolarQuestion = false;
+      G.showChoiceQuestion = false;
+      G.showOpenQuestion = false;
+      G.showGroupQuestion = false;
+    },
+
     order: {
       // Get the initial value of playOrderPos at the beginning of the phase.
       first: (G, ctx) => 0,
@@ -145,12 +161,8 @@ export const game: Game<GameState> = {
           answer: (G, ctx, question, submittedAnswer: boolean) => {
             if (submittedAnswer == question.answer) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showPolarQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showPolarQuestion = false;
-              ctx.events?.endTurn();
             }
+            ctx.events?.endTurn();
           },
         },
       },
@@ -159,80 +171,55 @@ export const game: Game<GameState> = {
           answer: (G, ctx, question, submittedAnswer: string) => {
             if (submittedAnswer == question.answer) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showChoiceQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showChoiceQuestion = false;
-              ctx.events?.endTurn();
             }
+            ctx.events?.endTurn();
           },
         },
       },
       openQuestion: {
         moves: {
           answer: (G, ctx, question, submittedAnswer: string) => {
-            let answers: string[] = submittedAnswer.split(",");
             let result: number = 0;
             let counter: number = 0;
+            let answers: string[] = submittedAnswer
+              .replaceAll(" ", "")
+              .split(",");
 
-            for (let answer in answers) {
-              let similarity = 0;
-              for (let option in question.options) {
-                let current = stringSimilarity(
+            question.options[0] = "test";
+            question.options[1] = "test";
+            question.options[2] = "test";
+            question.options[3] = "test";
+
+            for (let answer of answers) {
+              let highestSim: number = 0;
+              let highestIndex: number = -1;
+              for (let i = 0; i < question.options.length; i++) {
+                let currentSim = stringSimilarity(
                   answer.toLowerCase(),
-                  option.toLowerCase()
+                  question.options[i].replaceAll(" ", "").toLowerCase()
                 );
-                if (similarity < current) similarity = current;
+                if (highestSim < currentSim) {
+                  highestSim = currentSim;
+                  highestIndex = i;
+                }
               }
-              result += similarity;
 
+              result += highestSim;
+
+              if (highestIndex != -1) {
+                question.options.p;
+              }
               if (++counter == question.amount) {
                 break;
               }
             }
-
+            console.log(
+              "result: " + result + " needed: " + question.amount * 0.9
+            );
             if (result >= question.amount * 0.9) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
             }
-          },
-        },
-      },
-      groupQuestion: {
-        moves: {
-          answer: (G, ctx, question, submittedAnswer: string) => {
-            let answers: string[] = submittedAnswer.split(",");
-            let result: number = 0;
-            let counter: number = 0;
-
-            for (let answer in answers) {
-              let similarity = 0;
-              for (let option in question.options) {
-                let current = stringSimilarity(
-                  answer.toLowerCase(),
-                  option.toLowerCase()
-                );
-                if (similarity < current) similarity = current;
-              }
-              result += similarity;
-
-              if (++counter == question.amount) {
-                break;
-              }
-            }
-
-            if (result >= question.amount * 0.9) {
-              G.players[parseInt(ctx.currentPlayer)].score += 10;
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
-            } else {
-              G.showOpenQuestion = false;
-              ctx.events?.endTurn();
-            }
+            ctx.events?.endTurn();
           },
         },
       },
