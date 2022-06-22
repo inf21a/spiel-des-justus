@@ -73,7 +73,7 @@ export default function Controls(props: GameProps) {
                 </div>
               </div>
               <img
-                className="w-20 rounded-md"
+                className="h-28 rounded-md"
                 src={avatars[parseInt(props.playerID!)]}
               />
               <div className="text-2xl mt-1">
