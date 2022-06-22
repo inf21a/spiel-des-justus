@@ -137,7 +137,7 @@ function GameSelect(
 
   return (
     <div className="flex flex-col items-center">
-      {props.matches.length >= 1 && (
+      {props.matches.filter((match) => !match.gameover).length >= 1 && (
         <div className="border border-white p-4 rounded-2xl text-white w-72 max-h-full">
           {props.matches
             .filter((match) => !match.gameover)
