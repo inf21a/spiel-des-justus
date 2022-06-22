@@ -49,12 +49,16 @@ export default function Controls(props: GameProps) {
           </div>
           <div className="flex items-center mt-12">
             <button
-              disabled={props.ctx.currentPlayer != props.playerID}
-              className={`rounded-lg py-1.5 px-4 text-white font-bold transition duration-150 ${
-                props.ctx.currentPlayer == props.playerID
-                  ? "bg-violet-500 hover:bg-violet-600"
-                  : "bg-gray-300"
-              }`}
+              disabled={
+                props.ctx.currentPlayer != props.playerID ||
+                [
+                  props.G.showChoiceQuestion,
+                  props.G.showPolarQuestion,
+                  props.G.showOpenQuestion,
+                  props.G.showGroupQuestion,
+                ].includes(true)
+              }
+              className="rounded-lg py-1.5 px-4 text-white font-bold transition duration-150 bg-violet-500 hover:bg-violet-600 disabled:bg-gray-300 disabled:hover:bg-gray-300"
               onClick={() => {
                 props.moves.rollDice();
               }}
