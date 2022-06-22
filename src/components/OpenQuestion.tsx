@@ -10,7 +10,7 @@ export default function OpenQuestion(props: {
   let question: OpenQuestion = shuffle(questions.open)[0];
 
   const keypressHandler: KeyboardEventHandler<HTMLInputElement> = (event) => {
-    if (event.code === "Enter") {
+    if (event.key === "Enter") {
       let temp: string = (event.target as any).value;
       props.answer(question, temp);
     }

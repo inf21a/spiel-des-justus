@@ -76,7 +76,6 @@ export const game: Game<GameState> = {
 
     rollDice: (G, ctx) => {
       console.log(G.players[parseInt(ctx.currentPlayer)].score);
-
       G.rolled = ctx.random!.D6();
       if (
         G.players[parseInt(ctx.currentPlayer)].position + G.rolled >
@@ -92,32 +91,6 @@ export const game: Game<GameState> = {
         case 1:
           ctx.events?.endTurn();
           break;
-        //TODO GROUPQUESTIONS
-        case 3:
-          //G.showGroupQuestion = true;
-          //ctx.events?.setStage("openQuestion");
-          break;
-        case 4:
-          G.currentEvent = G.events.pop();
-          G.showEvent = true;
-          if (G.currentEvent?.type === "pause") {
-            G.pausedPlayers.push(parseInt(ctx.currentPlayer));
-          } else if (G.currentEvent?.type === "money") {
-            G.players[parseInt(ctx.currentPlayer)].score +=
-              G.currentEvent.amount;
-          }
-          ctx.events?.endTurn();
-          break;
-        case 5:
-          ctx.events?.endTurn();
-          break;
-
-        //TODO WIN!
-        case 99:
-          G.gameEnd = true;
-          ctx.events?.endTurn();
-          break;
-
         // Solo Question (Case 2)
         case 2:
           let rand = ctx.random!.D6();
@@ -139,26 +112,28 @@ export const game: Game<GameState> = {
             //   ctx.events?.setStage("openQuestion");
           }
           break;
-
         //TODO GROUPQUESTIONS
         case 3:
           //G.showGroupQuestion = true;
           //ctx.events?.setStage("openQuestion");
-          G.showOpenQuestion = true;
-          ctx.events?.setStage("openQuestion");
-        // ctx.events?.endTurn();          break;
-        case 4:
-          G.showOpenQuestion = true;
-          ctx.events?.setStage("openQuestion");
-        // ctx.events?.endTurn();          break;
-        case 5:
-          G.showOpenQuestion = true;
-          ctx.events?.setStage("openQuestion");
-          // ctx.events?.endTurn();
           break;
-
+        case 4:
+          G.currentEvent = G.events.pop();
+          G.showEvent = true;
+          if (G.currentEvent?.type === "pause") {
+            G.pausedPlayers.push(parseInt(ctx.currentPlayer));
+          } else if (G.currentEvent?.type === "money") {
+            G.players[parseInt(ctx.currentPlayer)].score +=
+              G.currentEvent.amount;
+          }
+          ctx.events?.endTurn();
+          break;
+        case 5:
+          ctx.events?.endTurn();
+          break;
         //TODO WIN!
         case 99:
+          G.gameEnd = true;
           ctx.events?.endTurn();
           break;
       }
