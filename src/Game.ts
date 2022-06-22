@@ -40,7 +40,7 @@ export const game: Game<GameState> = {
         1, 2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4,
         99,
       ],
-      rolled: 0,
+      rolled: 1,
       players,
       showPolarQuestion: false,
       showChoiceQuestion: false,

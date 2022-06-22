@@ -57,7 +57,10 @@ export default function WinPanel(props: GameProps) {
         width={500}
         style={{ marginTop: 0 }}
       />
-      <img className="w-32 -mt-96 z-10" src={avatars[winner.index]} />
+      <img
+        className="w-32 -mt-96 z-10 rounded-md"
+        src={avatars[winner.index]}
+      />
       <div className="flex text-2xl mt-12">
         <div className="font-bold">
           {winner.name}

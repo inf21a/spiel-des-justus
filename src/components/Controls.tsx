@@ -35,35 +35,41 @@ export default function Controls(props: GameProps) {
             props.ctx.gameover ? "hidden" : "flex"
           }`}
         >
-          <div className="flex items-center m-2">
-            <img className="w-8" src={coin} />
-            <div className="font-bold ml-2 text-gray-500">
-              {props.G.players[parseInt(props.playerID!)].score}
+          <div className="flex flex-row items-center space-x-16">
+            <div className="flex flex-col items-center text-center">
+              <div className="flex items-center m-2">
+                <img className="w-8" src={coin} />
+                <div className="font-bold ml-2 text-gray-500">
+                  {props.G.players[parseInt(props.playerID!)].score}
+                </div>
+              </div>
+              <img
+                className="w-20 rounded-md"
+                src={avatars[parseInt(props.playerID!)]}
+              />
+              <div className="text-2xl mt-1">
+                {props.matchData![parseInt(props.playerID!)].name}
+              </div>
             </div>
-          </div>
-          <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
-          <div className="font-bold text-2xl">
-            {props.matchData![parseInt(props.playerID!)].name}
-          </div>
-          <div className="flex items-center mt-12">
-            <button
-              disabled={
-                props.ctx.currentPlayer != props.playerID ||
-                [
-                  props.G.showChoiceQuestion,
-                  props.G.showPolarQuestion,
-                  props.G.showOpenQuestion,
-                  props.G.showGroupQuestion,
-                ].includes(true)
-              }
-              className="rounded-lg py-1.5 px-4 text-white font-bold transition duration-150 bg-violet-500 hover:bg-violet-600 disabled:bg-gray-300 disabled:hover:bg-gray-300"
-              onClick={() => {
-                props.moves.rollDice();
-              }}
-            >
-              Würfeln
-            </button>
-            <div className="ml-4 font-bold">{props.G.rolled}</div>
+            <div className="flex items-center mt-12">
+              <button
+                disabled={
+                  props.ctx.currentPlayer != props.playerID ||
+                  [
+                    props.G.showChoiceQuestion,
+                    props.G.showPolarQuestion,
+                    props.G.showOpenQuestion,
+                    props.G.showGroupQuestion,
+                  ].includes(true)
+                }
+                className="rounded-lg transition duration-150 text-green-500 hover:text-green-400 disabled:text-gray-400 disabled:hover:text-gray-400 text-6xl"
+                onClick={() => {
+                  props.moves.rollDice();
+                }}
+              >
+                <Icon icon={`bi:dice-${props.G.rolled}-fill`} />
+              </button>
+            </div>
           </div>
           {/* Temporarily disabled because look is bad
           <div className="flex mt-12">
@@ -85,8 +91,8 @@ export default function Controls(props: GameProps) {
                       {props.G.players[id].score}
                     </div>
                   </div>
-                  <img className="mt-3 h-16" src={avatars[id]} />
-                  <div className="text-sm block truncate w-20">{name}</div>
+                  <img className="mt-3 h-16 rounded-md" src={avatars[id]} />
+                  <div className="text-sm block truncate w-20 mt-1">{name}</div>
                 </div>
               ))}
           </div>
