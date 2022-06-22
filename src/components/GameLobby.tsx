@@ -64,9 +64,9 @@ function NameSelect(
     <div className="text-center">
       <div className="flex">
         <input
-          className="bg-transparent text-white font-medium placeholder:text-gray-100 placeholder:font-normal border border-white rounded-xl px-4 py-3 select-none outline-none caret-white"
+          className="bg-transparent text-white font-medium placeholder:text-gray-100 placeholder:font-normal border border-white rounded-xl px-4 py-3 outline-none caret-white"
           placeholder="Name"
-          type="input"
+          type="text"
           value={name}
           onChange={(event) => handleNameChange(event.target.value)}
           onKeyDown={(ev) => ev.key == "Enter" && submit()}
