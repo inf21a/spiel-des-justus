@@ -74,20 +74,23 @@ export default function GameMap(props: GameProps) {
         .map((_, i) => (
           <div id={`f${i + 1}`} key={i} className="tile" />
         ))}
-      {props.G.players.map((player, i) => (
-        <div
-          id={`p${i + 1}`}
-          key={i}
-          className="justus"
-          style={{
-            top: "calc(" + tiles[player.position].top + " + " + i * 0.2 + "%)",
-            left:
-              "calc(" + tiles[player.position].left + " - " + i * 0.4 + "%)",
-          }}
-        >
-          <img src={avatars[i]} />
-        </div>
-      ))}
+      {props.G.players
+        .filter((player) => player.position < tiles.length)
+        .map((player, i) => (
+          <div
+            id={`p${i + 1}`}
+            key={i}
+            className="justus"
+            style={{
+              top:
+                "calc(" + tiles[player.position].top + " + " + i * 0.2 + "%)",
+              left:
+                "calc(" + tiles[player.position].left + " - " + i * 0.4 + "%)",
+            }}
+          >
+            <img src={avatars[i]} />
+          </div>
+        ))}
     </div>
   );
 }

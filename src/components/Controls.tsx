@@ -1,6 +1,8 @@
 import { Icon } from "@iconify/react";
 
 import { GameProps } from "../Game";
+import WinPanel from "./WinPanel";
+import { QuitGameContext } from "../Context";
 
 import coin from "../../assets/coin.svg";
 
@@ -20,16 +22,27 @@ const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 export default function Controls(props: GameProps) {
   return (
     <div className="w-1/3 border-l-2 fixed top-0 right-0 h-full">
-      <div className="h-full w-full flex flex-col">
+      <div className="h-full w-full flex-col flex">
         <div className="mt-12 flex mr-8 justify-end">
           <div className="bg-gray-300 p-2 rounded-2xl mr-3">
             <Icon icon="clarity:volume-mute-line" color="white" height="36" />
           </div>
-          <button className="bg-red-300 hover:bg-red-500 p-2 rounded-2xl transition duration-150 ease-in">
-            <Icon icon="iconoir:cancel" color="white" height="36" />
-          </button>
+          <QuitGameContext.Consumer>
+            {(quitGame) => (
+              <button
+                onClick={() => quitGame(props.matchID)}
+                className="bg-red-300 hover:bg-red-500 p-2 rounded-2xl transition duration-150 ease-in"
+              >
+                <Icon icon="iconoir:cancel" color="white" height="36" />
+              </button>
+            )}
+          </QuitGameContext.Consumer>
         </div>
-        <div className="flex items-center mt-12 flex-col">
+        <div
+          className={`items-center mt-12 flex-col ${
+            props.G.gameEnd ? "hidden" : "flex"
+          }`}
+        >
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
           <div className="font-bold text-2xl">
             {props.matchData![parseInt(props.playerID!)].name}
@@ -50,7 +63,7 @@ export default function Controls(props: GameProps) {
             </button>
             <div className="ml-4 font-bold">{props.G.rolled}</div>
           </div>
-          {/*
+          {/* Temporarily disabled because look is bad
           <div className="flex mt-12">
             <img src={singleStack} />
             <img className="ml-5" src={groupStack} />
@@ -75,6 +88,7 @@ export default function Controls(props: GameProps) {
               ))}
           </div>
         </div>
+        {props.G.gameEnd && <WinPanel {...props} />}
       </div>
     </div>
   );
