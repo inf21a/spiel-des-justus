@@ -90,6 +90,7 @@ function GameSelect(
 ) {
   const [matchID, setMatchID] = useState<string>();
   const [playerID, setPlayerID] = useState<string>();
+  const [playerCount, setPlayerCount] = useState(2);
 
   const match = props.matches.find((match) => match.matchID == matchID);
 
@@ -126,7 +127,9 @@ function GameSelect(
                       {match.players.filter((player) => player.name).length}/
                       {match.players.length} Spieler)
                     </div>
-                    {!matchID && (
+                    {!matchID &&
+                    match.players.filter((player) => player.name).length !=
+                      match.players.length ? (
                       <button
                         className="px-2 bg-lButton rounded-md ml-2 hover:bg-lButtonH transition duration-150"
                         onClick={async () => {
@@ -146,7 +149,14 @@ function GameSelect(
                       >
                         Join
                       </button>
-                    )}
+                    ) : matchID != match.matchID ? (
+                      <button
+                        disabled
+                        className="px-2 bg-lBred rounded-md ml-2 hover:bg-lBredH transition duration-150"
+                      >
+                        Voll
+                      </button>
+                    ) : null}
                     {matchID == match.matchID && (
                       <button
                         className="px-2 bg-lBred rounded-md ml-2 hover:bg-lBredH transition duration-150"
@@ -196,12 +206,22 @@ function GameSelect(
             : "Match Starten!"}
         </button>
       ) : (
-        <button
-          onClick={() => props.handleCreateMatch("justus", 2)}
-          className="bg-lButton hover:bg-lButtonH transition duration-150 rounded-2xl p-3 mt-4"
-        >
-          <Icon icon="akar-icons:plus" color="#f8f8f8" height="40" />
-        </button>
+        <>
+          <button
+            onClick={() => props.handleCreateMatch("justus", playerCount)}
+            className="bg-lButton hover:bg-lButtonH transition duration-150 rounded-2xl p-3 mt-4"
+          >
+            <Icon icon="akar-icons:plus" color="#f8f8f8" height="40" />
+          </button>
+          <input
+            type="range"
+            min="2"
+            max="6"
+            value={playerCount}
+            onChange={(event) => setPlayerCount(parseInt(event.target.value))}
+          />
+          {playerCount} Spieler
+        </>
       )}
     </div>
   );
