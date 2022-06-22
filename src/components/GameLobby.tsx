@@ -101,7 +101,7 @@ function NameSelect(
       </div>
       <button
         onClick={() => props.setLobbyStage(LobbyStage.showCredits)}
-        className="mt-24 bg-lButton hover:bg-lButtonH rounded-2xl duration-150 transition text-white p-3"
+        className="mt-24 bg-lButton hover:bg-lButtonH rounded-xl duration-150 transition text-white p-1.5 text-sm absolute bottom-6 right-6"
       >
         Credits
       </button>
