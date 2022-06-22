@@ -40,7 +40,7 @@ export default function Controls(props: GameProps) {
         </div>
         <div
           className={`items-center mt-12 flex-col ${
-            props.G.gameEnd ? "hidden" : "flex"
+            props.ctx.gameover ? "hidden" : "flex"
           }`}
         >
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
@@ -88,7 +88,7 @@ export default function Controls(props: GameProps) {
               ))}
           </div>
         </div>
-        {props.G.gameEnd && <WinPanel {...props} />}
+        {props.ctx.gameover && <WinPanel {...props} />}
       </div>
     </div>
   );

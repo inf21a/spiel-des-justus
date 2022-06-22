@@ -11,7 +11,6 @@ export type GameState = {
   showChoiceQuestion: boolean;
   showOpenQuestion: boolean;
   showGroupQuestion: boolean;
-  gameEnd: boolean;
   events: Array<{ message: string; type: string; amount: number }>;
   pausedPlayers: Array<number>;
   showEvent: boolean;
@@ -47,7 +46,6 @@ export const game: Game<GameState> = {
       showChoiceQuestion: false,
       showOpenQuestion: false,
       showGroupQuestion: false,
-      gameEnd: false,
       events: ctx.random!.Shuffle(events),
       pausedPlayers: [],
       showEvent: false,
@@ -59,14 +57,17 @@ export const game: Game<GameState> = {
     G.players[parseInt(ctx.currentPlayer)].position >= G.board.length,
   moves: {
     rollDice: (G, ctx) => {
+      const player = G.players[parseInt(ctx.currentPlayer)];
       G.rolled = ctx.random!.D6();
-      if (
-        G.players[parseInt(ctx.currentPlayer)].position + G.rolled >
-        G.board.length
-      )
+
+      if (player.position + G.rolled > G.board.length) {
         ctx.events?.endTurn();
-      G.players[parseInt(ctx.currentPlayer)].position += G.rolled;
-      const field = G.board[G.players[parseInt(ctx.currentPlayer)].position];
+        return;
+      }
+
+      player.position += G.rolled;
+      const field = G.board[player.position];
+
       switch (field) {
         case 0:
           break;
@@ -84,8 +85,7 @@ export const game: Game<GameState> = {
           if (G.currentEvent?.type === "pause") {
             G.pausedPlayers.push(parseInt(ctx.currentPlayer));
           } else if (G.currentEvent?.type === "money") {
-            G.players[parseInt(ctx.currentPlayer)].score +=
-              G.currentEvent.amount;
+            player.score += G.currentEvent.amount;
           }
           ctx.events?.endTurn();
           break;
@@ -95,8 +95,8 @@ export const game: Game<GameState> = {
 
         //TODO WIN!
         case 99:
-          G.gameEnd = true;
-          ctx.events?.endTurn();
+          //ctx.events?.endTurn();
+          ctx.events?.endGame(true);
           break;
 
         // Solo Question (Case 2)
