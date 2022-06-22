@@ -50,8 +50,13 @@ function NameSelect(
 ) {
   const [name, setName] = useState("");
 
+  function handleNameChange(newName: string) {
+    if (newName.length > 20) return;
+    setName(newName);
+  }
+
   function submit() {
-    props.handleEnterLobby(name);
+    props.handleEnterLobby(name.trim());
     props.setLobbyStage(LobbyStage.gameSelect);
   }
 
@@ -63,13 +68,13 @@ function NameSelect(
           placeholder="Name"
           type="input"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => handleNameChange(event.target.value)}
           onKeyDown={(ev) => ev.key == "Enter" && submit()}
         />
         <button
           className="text-white ml-4 bg-lButton px-3 rounded-xl font-normal hover:bg-lButtonH transition duration-150 disabled:bg-lButtonD"
           onClick={submit}
-          disabled={!name}
+          disabled={!name.trim()}
         >
           Zur Lobby
         </button>
