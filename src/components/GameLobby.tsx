@@ -8,6 +8,7 @@ type Props = Parameters<
 const enum LobbyStage {
   nameSelect,
   gameSelect,
+  showCredits,
 }
 
 function LobbyWrapper({
@@ -38,6 +39,26 @@ function LobbyWrapper({
         </div>
         <div className="mt-20">{children}</div>
       </div>
+    </div>
+  );
+}
+
+function CreditsPage({
+  setLobbyStage,
+}: {
+  setLobbyStage: React.Dispatch<React.SetStateAction<LobbyStage>>;
+}) {
+  return (
+    <div className="text-center text-white space-y-2">
+      <p>
+        <button
+          onClick={() => setLobbyStage(LobbyStage.nameSelect)}
+          className="bg-lButton hover:bg-lButtonH rounded-2xl duration-150 transition text-white p-3"
+        >
+          Zurück
+        </button>
+      </p>
+      <p>TODO: Add Credits</p>
     </div>
   );
 }
@@ -78,6 +99,12 @@ function NameSelect(
           Zur Lobby
         </button>
       </div>
+      <button
+        onClick={() => props.setLobbyStage(LobbyStage.showCredits)}
+        className="mt-24 bg-lButton hover:bg-lButtonH rounded-2xl duration-150 transition text-white p-3"
+      >
+        Credits
+      </button>
     </div>
   );
 }
@@ -286,8 +313,10 @@ export default function GameLobby(props: Props) {
     <LobbyWrapper>
       {lobbyStage == LobbyStage.nameSelect ? (
         <NameSelect {...props} setLobbyStage={setLobbyStage} />
-      ) : (
+      ) : lobbyStage == LobbyStage.gameSelect ? (
         <GameSelect {...props} setLobbyStage={setLobbyStage} />
+      ) : (
+        <CreditsPage setLobbyStage={setLobbyStage} />
       )}
     </LobbyWrapper>
   );
