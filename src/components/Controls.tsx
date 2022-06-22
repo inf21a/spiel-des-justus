@@ -1,4 +1,4 @@
-import { Icon } from "@iconify/react";
+import { Icon, loadIcons } from "@iconify/react";
 
 import { GameProps } from "../Game";
 import { QuitGameContext } from "../Context";
@@ -10,6 +10,9 @@ import coin from "../../assets/coin.svg";
 // import singleStack from "../../assets/cards/single-stack.svg";
 // import groupStack from "../../assets/cards/group-stack.svg";
 // import eventStack from "../../assets/cards/event-stack.svg";
+
+// preload dice icons
+loadIcons([1, 2, 3, 4, 5, 6].map((n) => `bi:dice-${n}-fill`));
 
 export default function Controls(props: GameProps) {
   return (
