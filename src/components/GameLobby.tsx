@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Lobby } from "boardgame.io/react";
 import { Icon } from "@iconify/react";
 
@@ -86,76 +86,109 @@ function GameSelect(
   const [matchID, setMatchID] = useState<string>();
   const [playerID, setPlayerID] = useState<string>();
 
+  const match = props.matches.find((match) => match.matchID == matchID);
+
+  // auto-start match if lobby is full
+  useEffect(() => {
+    if (
+      match &&
+      playerID &&
+      match.players.filter((player) => player.name).length ==
+        match.players.length
+    ) {
+      props.handleStartMatch("justus", {
+        matchID: match.matchID,
+        playerID,
+        numPlayers: match.players.length,
+      });
+    }
+  }, [match]);
+
   return (
     <div className="flex flex-col items-center">
       {props.matches.length >= 1 && (
         <div className="border border-white p-4 rounded-2xl text-white w-72 max-h-full">
-          {props.matches.map((match, i) => (
-            <div>
-              {!(i === 0) && <div className="h-px w-ful mt-4 mb-4 bg-white" />}
-              <div key={match.matchID} className="flex flex-col">
-                <div className="flex">
-                  <div className="text-xl">Match {i + 1}</div>
-                  {!matchID && (
-                    <button
-                      className="px-2 bg-lButton rounded-md ml-2 hover:bg-lButtonH transition duration-150"
-                      onClick={async () => {
-                        const seat = match.players.find(
-                          (player) => !player.name
-                        );
-                        const pID = seat ? seat.id.toString() : undefined;
-                        if (pID)
-                          await props.handleJoinMatch(
-                            "justus",
-                            match.matchID,
-                            pID
+          {props.matches.map((match, i) => {
+            return (
+              <div key={match.matchID}>
+                {!(i === 0) && (
+                  <div className="h-px w-ful mt-4 mb-4 bg-white" />
+                )}
+                <div className="flex flex-col">
+                  <div className="flex">
+                    <div className="text-xl">
+                      Match {i + 1} (
+                      {match.players.filter((player) => player.name).length}/
+                      {match.players.length} Spieler)
+                    </div>
+                    {!matchID && (
+                      <button
+                        className="px-2 bg-lButton rounded-md ml-2 hover:bg-lButtonH transition duration-150"
+                        onClick={async () => {
+                          const seat = match.players.find(
+                            (player) => !player.name
                           );
-                        setPlayerID(pID);
-                        setMatchID(match.matchID);
-                      }}
-                    >
-                      Join
-                    </button>
-                  )}
-                  {matchID == match.matchID && (
-                    <button
-                      className="px-2 bg-lBred rounded-md ml-2 hover:bg-lBredH transition duration-150"
-                      onClick={() => {
-                        if (matchID) {
-                          props.handleLeaveMatch("justus", matchID);
-                          setMatchID(undefined);
-                        }
-                      }}
-                    >
-                      Leave
-                    </button>
-                  )}
-                </div>
-                <div className="mt-2 flex">
-                  {match.players.filter((player) => player.name).length < 1
-                    ? "Keine Spieler"
-                    : match.players
-                        .filter((player) => player.name)
-                        .map((player) => player.name)
-                        .join(", ")}
+                          const pID = seat ? seat.id.toString() : undefined;
+                          if (pID)
+                            await props.handleJoinMatch(
+                              "justus",
+                              match.matchID,
+                              pID
+                            );
+                          setPlayerID(pID);
+                          setMatchID(match.matchID);
+                        }}
+                      >
+                        Join
+                      </button>
+                    )}
+                    {matchID == match.matchID && (
+                      <button
+                        className="px-2 bg-lBred rounded-md ml-2 hover:bg-lBredH transition duration-150"
+                        onClick={() => {
+                          if (matchID) {
+                            props.handleLeaveMatch("justus", matchID);
+                            setMatchID(undefined);
+                          }
+                        }}
+                      >
+                        Leave
+                      </button>
+                    )}
+                  </div>
+                  <div className="mt-2 flex">
+                    {match.players.filter((player) => player.name).length < 1
+                      ? "Keine Spieler"
+                      : match.players
+                          .filter((player) => player.name)
+                          .map((player) => player.name)
+                          .join(", ")}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
-      {matchID ? (
+      {match ? (
         <button
           onClick={() =>
             props.handleStartMatch("justus", {
-              matchID,
-              numPlayers: 2,
+              matchID: match.matchID,
+              numPlayers: match.players.length,
               playerID,
             })
           }
+          disabled={
+            match.players.filter((player) => player.name).length !=
+            match.players.length
+          }
           className="bg-lButton hover:bg-lButtonH transition duration-150 rounded-xl p-3 mt-4 text-white"
         >
-          Match starten
+          {match.players.filter((player) => player.name).length !=
+          match.players.length
+            ? "Warte auf Spieler..."
+            : "Match Starten!"}
         </button>
       ) : (
         <button
