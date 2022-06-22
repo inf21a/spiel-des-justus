@@ -90,16 +90,19 @@ export const game: Game<GameState> = {
               break;
             case 5:
             case 6:
-              G.showOpenQuestion = true;
-              ctx.events?.setStage("openQuestion");
+              // Open questions still broken
+              //G.showOpenQuestion = true;
+              //ctx.events?.setStage("openQuestion");
+              ctx.events?.endTurn();
               break;
           }
           break;
 
         //TODO GROUPQUESTIONS
         case 3:
-          G.showOpenQuestion = true;
-          ctx.events?.setStage("openQuestion");
+          // Open questions still broken
+          //G.showOpenQuestion = true;
+          //ctx.events?.setStage("openQuestion");
           break;
 
         case 4:
@@ -134,6 +137,7 @@ export const game: Game<GameState> = {
 
     // Called at the end of a turn.
     onEnd: (G, ctx) => {
+      console.log("End turn");
       G.showPolarQuestion = false;
       G.showChoiceQuestion = false;
       G.showOpenQuestion = false;
@@ -219,6 +223,7 @@ export const game: Game<GameState> = {
             if (result >= question.amount * 0.9) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
             }
+            console.log("hey");
             ctx.events?.endTurn();
           },
         },

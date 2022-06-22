@@ -1,7 +1,7 @@
 import type { GameProps } from "../Game";
 import GameMap from "./GameMap";
 import Controls from "./Controls";
-import PopupList from "./PopupList";
+import CardWrapper from "./CardWrapper";
 
 export default function Board(props: GameProps) {
   // super hacky shit
@@ -27,7 +27,10 @@ export default function Board(props: GameProps) {
     <div className="flex bg-yellow-50">
       <GameMap {...props} />
       <Controls {...props} />
-      {props.ctx.currentPlayer == props.playerID && <PopupList {...props} />}
+      {props.ctx.currentPlayer == props.playerID &&
+        (props.G.showPolarQuestion ||
+          props.G.showChoiceQuestion ||
+          props.G.showOpenQuestion) && <CardWrapper {...props} />}
     </div>
   );
 }
