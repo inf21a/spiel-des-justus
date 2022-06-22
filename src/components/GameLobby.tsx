@@ -123,7 +123,6 @@ function GameSelect(
 
   // auto join back matches
   useEffect(() => {
-    console.log(props.playerName);
     const existingMatch = props.matches.find((match) =>
       match.players
         .filter((player) => player.name)

@@ -2,6 +2,7 @@ import { GameProps } from "../Game";
 import CQuestion from "./CQuestion";
 import PQuestion from "./PQuestion";
 import OQuestion from "./OQuestion";
+import EventCard from "./EventCard";
 
 export function QButton(props: { text: string; onClick: any }) {
   return (
@@ -27,13 +28,28 @@ export default function CardWrapper(props: GameProps) {
         className="fixed flex h-screen w-2/3 items-center justify-center"
       >
         {props.G.showPolarQuestion && (
-          <PQuestion answer={props.moves.answer} random={props.ctx.random} />
+          <PQuestion
+            question={props.G.cPolarQuestion!}
+            answer={props.moves.answer}
+          />
         )}
         {props.G.showChoiceQuestion && (
-          <CQuestion answer={props.moves.answer} random={props.ctx.random} />
+          <CQuestion
+            question={props.G.cChoiceQuestion!}
+            answer={props.moves.answer}
+          />
         )}
         {props.G.showOpenQuestion && (
-          <OQuestion answer={props.moves.answer} random={props.ctx.random} />
+          <OQuestion
+            question={props.G.cOpenQuestion!}
+            answer={props.moves.answer}
+          />
+        )}
+        {props.G.showEvent && (
+          <EventCard
+            justusEvent={props.G.cEvent}
+            acceptEvent={props.moves.acceptEvent}
+          />
         )}
       </div>
     </>

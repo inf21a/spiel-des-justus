@@ -1,197 +1,197 @@
 [
   {
     "message": "Du hast bereits eine Ausbildung zur Pflegekraft gemacht und stellst dich mit einem Plakat, das dies verkündet, auf den Marienplatz. 5 Minuten später hast du einen Job. +1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 1
   },
   {
     "message": "Du findest deinen alten Bitcoin-Wallet aus 2012. +5 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 5
   },
   {
     "message": "Du stellst die Firma deiner Schwester auf Urban Mobility um. +3 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 3
   },
   {
     "message": "Du bist 18 geworden und bekommst Zugriff auf deinen Trust-Fond. +2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 2
   },
   {
     "message": "Du heiratest eine BWL-Marie deren Eltern noch mehr Geld haben als deine. Herzlichen Glückwunsch zum Eintritt in die etablierte Klasse. +3 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 3
   },
   {
     "message": "Du hast dich gegen deinen Vertriebsleiter durchgesetzt und ihr behaltet euren Generalimporteur in Italien. Gute Entscheidung: +2 JT. ",
-    "type": "money",
+    "eventType": "money",
     "amount": 2
   },
   {
     "message": "Du hast zum richtigen Zeitpunkt in GameStop Aktien investiert. +3 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 3
   },
   {
     "message": "Du findest das goldene Ticket zu Charlies Schokoladenfabrik. Du erbst Charlies Imperium. +5 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 5
   },
   {
     "message": "Du hast dein Abitur bestanden. Dein Vater ist stolz auf dich und überlässt dir das Portfolio, das vor 18 Jahren für dich angelegt wurde. +4 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 4
   },
   {
     "message": "Du wanderst nach Australien aus und wirst fame auf Instagram. +1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 1
   },
   {
     "message": "Du hast Geburtstag. Dafür schenken dir Mama und Papa ein Eigenheim. +2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 2
   },
   {
     "message": "Du siehst Ron Bielecki und entscheidest just mit ihm einen Tornado zu zünden. Er schenkt dir 1 JT für deine Leistung. +1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 1
   },
   {
     "message": "Papa kauft dir einen Studienplatz für Harvard. Du kannst diverse Business Connections schließen und gründest ein erfolgreiches Startup. +3 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 3
   },
   {
     "message": "Du bist erfolgreiche BWL-Marie-fluencerin und bewirbst diverse Produkte. +1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 1
   },
   {
     "message": "Du willst Unreal Tournament spielen und wirst zur Internet-Legende. +1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 1
   },
   {
     "message": "Du hast ein brandneues multi-level Marketing Modell entworfen und scamst 500 Leute. +4 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 4
   },
   {
     "message": "Du fliegst nach Mykonos als BWL-Marie und triffst zufällig den reichen BWL-Justus deiner Träume. Ihr heiratet kurz darauf und du wirst zur Cappuccino Mutter. +2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 2
   },
   {
     "message": "Du gehst mit deinen Mädels ins Casino im Malta Urlaub. Du hast eine Glücksträhne am Blackjack Table. +4 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 4
   },
   {
     "message": "Du hast einen fetten Blunt geraucht und bist dadurch mit einem netten Herrn ins Gespräch gekommen. Er bietet dir einen high Performer Job an, den du natürlich annimmst. +2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": 1
   },
   {
     "message": "Deine Studierenden-Band tritt auf einer Hochzeit auf. Die Örtlichkeiten sind jedoch nicht auf schlechtes Wetter ausgelegt. Schaden an den Instrumenten. -2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -2
   },
   {
     "message": "Du lässt die Felgen des neuen Porsches deines Vaters im Parkhaus hängen. -2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -2
   },
   {
     "message": "Du willst kein Geringverdiener sein und kaufst dir ein neues Auto: -3 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -3
   },
   {
     "message": "Dein Chef steht auf dem Parkplatz neben seinem Porsche. Er sagt dir: „Wenn du weiterhin hart arbeitest und dich richtig reinhängst – die extra Meile gehst – kauf‘ ich mir nächstes Jahr noch einen“. Du hast EMOTIONAL DAMAGE. Du gehst in Therapie. -2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -2
   },
   {
     "message": "Du bist ein Tire-kicker und hast gegen Ferrari Reifen getreten. Deine Haftpflichtversicherung übernimmt den Schaden nicht. -1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -1
   },
   {
     "message": "Du kaufst dir einen neuen Motorradhelm bei Schuberth. -1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -1
   },
   {
     "message": "Du hast nicht dafür budgetiert, dass die komplette Messe mit echtem Sand aufgefüllt werden muss und musst jetzt einen Kredit aufnehmen. - 4 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -4
   },
   {
     "message": "Du fliegst mit dem Flugzeug nach Dubai. Aufgrund eines heftigen Hurricanes müsst ihr zwischenlanden. Setze 1 Runde aus.",
-    "type": "pause",
+    "eventType": "pause",
     "amount": 1
   },
   {
     "message": "Deine Patek Philippe muss repariert werden.  -1 JT",
-    "type": "money",
+    "eventType": "money",
     "amount": -1
   },
   {
     "message": "Du hast ein Meeting am anderen Ende der Fabrik. Aufgrund schlechter Meetingplanung wird dir jedoch bei deiner Ankunft gesagt, dass das Meeting später stattfinden wird. Also läufst du unnütz in der Fabrik herum. Setze 1 Runde aus.",
-    "type": "pause",
+    "eventType": "pause",
     "amount": 1
   },
   {
     "message": "Du hast eine BWL-Marie gespottet. Vor lauter Begeisterung fällst du vom Stuhl und brichst deinen Arm. Setzte 1 Runde aus",
-    "type": "pause",
+    "eventType": "pause",
     "amount": 1
   },
   {
     "message": "Du hast Ecstasy genommen, um mal richtig einen draufzumachen. Du merkst nach der heißen Partynacht, dass du völlig dehydriert bist und trinkst 4L Wasser auf Ex. Du stirbst fast an Hyponatriämie. Setzte 1 Runde aus.",
-    "type": "pause",
+    "eventType": "pause",
     "amount": 1
   },
   {
     "message": "Du bist auf die multi-level Marketing Strategie von Karl Ess reingefallen und musst Papas Aktien verkaufen. -3 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -3
   },
   {
     "message": "Du hast 10 JT in GameStop investiert, daraufhin ist GameStop zusammengebrochen. -4 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -4
   },
   {
     "message": "Du klaust Mamas 911, fährst ihn gegen die Wand und trägst heftige Verletzungen davon. Zum Glück bist du über Mama privatversichert. Setzte 1 Runde aus",
-    "type": "pause",
+    "eventType": "pause",
     "amount": 1
   },
   {
     "message": "Du organisierst für deinen besten Freund ein Junggesellenwochenende. Der Spaß war ganz schön teuer. -2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -2
   },
   {
     "message": "Im Suff gestern dachtest du, es wäre eine gute Idee, im Aquarium von deinem Hotel schwimmen zu gehen. Du musst Sachschaden zahlen. -2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -2
   },
   {
     "message": "Du dachtest, es wäre eine gute Idee, in Amsterdam Pilze zu nehmen und anschließend ins Casino zu gehen. Du hast dein ganzes Bargeld an den Slots verloren. -1 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -1
   },
   {
     "message": "Du dachtest, es wäre eine gute Idee, „Frauen sind wie Hunde” zu twittern. Du fängst dir einen Shitstorm ein und erleidest dadurch wirtschaftlichen Schaden. -3 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -3
   },
   {
     "message": "Du hast auf der BMW-Hauptversammlung ein, zwei oder auch mehrere Gläschen Sekt zu viel getrunken und dich danebenbenommen. Papa sagt dir, dass er dir den Zugriff auf seinen Fond entzieht. Du ärgerst dich und stürmst wütend davon.  - 2 JT ",
-    "type": "money",
+    "eventType": "money",
     "amount": -2
   }
 ]

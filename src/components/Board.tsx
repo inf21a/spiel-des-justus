@@ -30,7 +30,8 @@ export default function Board(props: GameProps) {
       {props.ctx.currentPlayer == props.playerID &&
         (props.G.showPolarQuestion ||
           props.G.showChoiceQuestion ||
-          props.G.showOpenQuestion) && <CardWrapper {...props} />}
+          props.G.showOpenQuestion ||
+          props.G.showEvent) && <CardWrapper {...props} />}
     </div>
   );
 }

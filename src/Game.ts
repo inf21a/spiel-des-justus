@@ -2,19 +2,60 @@ import type { Game } from "boardgame.io";
 import type { BoardProps } from "boardgame.io/react";
 import stringSimilarity from "string-similarity-js";
 import events from "../assets/events.json";
+import questions from "../assets/questions.json";
 
 export type GameState = {
   board: Array<number>;
+
   rolled: number;
   players: Array<{ position: number; score: number }>;
+  pausedPlayers: number[];
+
   showPolarQuestion: boolean;
   showChoiceQuestion: boolean;
   showOpenQuestion: boolean;
   showGroupQuestion: boolean;
-  events: Array<{ message: string; type: string; amount: number }>;
-  pausedPlayers: Array<number>;
   showEvent: boolean;
-  currentEvent?: { message: string; type: string; amount: number };
+
+  choiceQuestions: Array<{
+    question: string;
+    options: Array<string>;
+    answer?: string;
+  }>;
+  polarQuestions: Array<{ question: string; answer: boolean }>;
+  groupQuestions: Array<{
+    question: string;
+    options: Array<string>;
+    amount: number;
+  }>;
+  openQuestions: Array<{
+    question: string;
+    options: Array<string>;
+    amount: number;
+  }>;
+  events: Array<{
+    message: string;
+    eventType: string;
+    amount: number;
+  }>;
+
+  cChoiceQuestion?: {
+    question: string;
+    options: Array<string>;
+    answer?: string;
+  };
+  cPolarQuestion?: { question: string; answer: boolean };
+  cGroupQuestions?: {
+    question: string;
+    options: Array<string>;
+    amount: number;
+  };
+  cOpenQuestion?: { question: string; options: Array<string>; amount: number };
+  cEvent?: {
+    message: string;
+    eventType: string;
+    amount: number;
+  };
 };
 
 export type GameProps = BoardProps<GameState>;
@@ -40,15 +81,22 @@ export const game: Game<GameState> = {
         1, 2, 2, 1, 4, 1, 3, 2, 1, 4, 3, 2, 4, 1, 2, 4, 3, 2, 1, 2, 4, 3, 2, 4,
         99,
       ],
+
       rolled: 0,
       players,
+      pausedPlayers: [],
+
       showPolarQuestion: false,
       showChoiceQuestion: false,
       showOpenQuestion: false,
       showGroupQuestion: false,
-      events: ctx.random!.Shuffle(events),
-      pausedPlayers: [],
       showEvent: false,
+
+      events: ctx.random!.Shuffle(events),
+      choiceQuestions: ctx.random!.Shuffle(questions.choice),
+      polarQuestions: ctx.random!.Shuffle(questions.polar),
+      groupQuestions: ctx.random!.Shuffle(questions.group),
+      openQuestions: ctx.random!.Shuffle(questions.open),
     };
   },
   minPlayers: 2,
@@ -80,43 +128,36 @@ export const game: Game<GameState> = {
           switch (rand) {
             case 1:
             case 2:
+              G.cPolarQuestion = G.polarQuestions.pop();
               G.showPolarQuestion = true;
               ctx.events?.setStage("polarQuestion");
               break;
             case 3:
             case 4:
+              G.cChoiceQuestion = G.choiceQuestions.pop();
               G.showChoiceQuestion = true;
               ctx.events?.setStage("choiceQuestion");
               break;
             case 5:
             case 6:
-              // Open questions still broken
-              //G.showOpenQuestion = true;
-              //ctx.events?.setStage("openQuestion");
-              ctx.events?.endTurn();
+              G.cOpenQuestion = G.openQuestions.pop();
+              G.showOpenQuestion = true;
+              ctx.events?.setStage("openQuestion");
               break;
           }
           break;
 
         //TODO GROUPQUESTIONS
         case 3:
-          // Open questions still broken
-          //G.showOpenQuestion = true;
-          //ctx.events?.setStage("openQuestion");
+          G.cOpenQuestion = G.openQuestions.pop();
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
           break;
 
         case 4:
-          G.currentEvent = G.events.pop();
+          G.cEvent = G.events.pop();
           G.showEvent = true;
-          if (G.currentEvent?.type === "pause") {
-            G.pausedPlayers.push(parseInt(ctx.currentPlayer));
-          } else if (G.currentEvent?.type === "money") {
-            player.score += G.currentEvent.amount;
-          }
-          ctx.events?.endTurn();
-          break;
-        case 5:
-          ctx.events?.endTurn();
+          ctx.events?.setStage("justusEvent");
           break;
 
         //TODO WIN!
@@ -133,15 +174,22 @@ export const game: Game<GameState> = {
       G.showChoiceQuestion = false;
       G.showOpenQuestion = false;
       G.showGroupQuestion = false;
+      G.showEvent = false;
+
+      let pausedIndex = G.pausedPlayers.indexOf(parseInt(ctx.currentPlayer));
+      if (pausedIndex != -1) {
+        G.pausedPlayers.splice(pausedIndex, 1);
+        ctx.events?.endTurn();
+      }
     },
 
     // Called at the end of a turn.
     onEnd: (G, ctx) => {
-      console.log("End turn");
       G.showPolarQuestion = false;
       G.showChoiceQuestion = false;
       G.showOpenQuestion = false;
       G.showGroupQuestion = false;
+      G.showEvent = false;
     },
 
     order: {
@@ -150,20 +198,27 @@ export const game: Game<GameState> = {
 
       // Get the next value of playOrderPos at the end of each turn.
       next: (G, ctx) => {
-        let nextPos = (ctx.playOrderPos + 1) % ctx.numPlayers;
-        // TODO(felix): splicing the array causes a read-only error
-        // while (G.pausedPlayers.includes(nextPos)) {
-        //   G.pausedPlayers.splice(G.pausedPlayers.indexOf(nextPos), 1);
-        //   nextPos = (nextPos + 1) % ctx.numPlayers;
-        // }
-        return nextPos;
+        return (ctx.playOrderPos + 1) % ctx.numPlayers;
       },
     },
     stages: {
+      justusEvent: {
+        moves: {
+          acceptEvent: (G, ctx) => {
+            if (G.cEvent?.eventType === "pause") {
+              G.pausedPlayers.push(parseInt(ctx.currentPlayer));
+            } else if (G.cEvent?.eventType === "money") {
+              G.players[parseInt(ctx.currentPlayer)].score += G.cEvent.amount;
+            }
+            G.showEvent = false;
+            ctx.events?.endTurn();
+          },
+        },
+      },
       polarQuestion: {
         moves: {
-          answer: (G, ctx, question, submittedAnswer: boolean) => {
-            if (submittedAnswer == question.answer) {
+          answer: (G, ctx, submittedAnswer: boolean) => {
+            if (submittedAnswer == G.cPolarQuestion!.answer) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
             }
             ctx.events?.endTurn();
@@ -172,8 +227,10 @@ export const game: Game<GameState> = {
       },
       choiceQuestion: {
         moves: {
-          answer: (G, ctx, question, submittedAnswer: string) => {
-            if (submittedAnswer == question.answer) {
+          answer: (G, ctx, submittedAnswer: string, correct: string) => {
+            console.log("COrrect: " + correct);
+            console.log("given: " + submittedAnswer);
+            if (submittedAnswer == correct) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
             }
             ctx.events?.endTurn();
@@ -182,25 +239,25 @@ export const game: Game<GameState> = {
       },
       openQuestion: {
         moves: {
-          answer: (G, ctx, question, submittedAnswer: string) => {
+          answer: (G, ctx, submittedAnswer: string) => {
             let result: number = 0;
             let counter: number = 0;
-            let answers: string[] = submittedAnswer
+            let answers: Array<string> = submittedAnswer
               .replaceAll(" ", "")
               .split(",");
 
-            question.options[0] = "test";
-            question.options[1] = "test";
-            question.options[2] = "test";
-            question.options[3] = "test";
+            G.cOpenQuestion!.options[0] = "test";
+            G.cOpenQuestion!.options[1] = "test";
+            G.cOpenQuestion!.options[2] = "test";
+            G.cOpenQuestion!.options[3] = "test";
 
             for (let answer of answers) {
               let highestSim: number = 0;
               let highestIndex: number = -1;
-              for (let i = 0; i < question.options.length; i++) {
+              for (let i = 0; i < G.cOpenQuestion!.options.length; i++) {
                 let currentSim = stringSimilarity(
                   answer.toLowerCase(),
-                  question.options[i].replaceAll(" ", "").toLowerCase()
+                  G.cOpenQuestion!.options[i].replaceAll(" ", "").toLowerCase()
                 );
                 if (highestSim < currentSim) {
                   highestSim = currentSim;
@@ -211,19 +268,15 @@ export const game: Game<GameState> = {
               result += highestSim;
 
               if (highestIndex != -1) {
-                question.options.p;
+                G.cOpenQuestion!.options.splice(highestIndex, 1);
               }
-              if (++counter == question.amount) {
+              if (++counter == G.cOpenQuestion!.amount) {
                 break;
               }
             }
-            console.log(
-              "result: " + result + " needed: " + question.amount * 0.9
-            );
-            if (result >= question.amount * 0.9) {
+            if (result >= G.cOpenQuestion!.amount * 0.9) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
             }
-            console.log("hey");
             ctx.events?.endTurn();
           },
         },

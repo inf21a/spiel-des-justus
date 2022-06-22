@@ -7,12 +7,12 @@ interface PolarQuestion extends Question {
 }
 
 interface OpenQuestion extends Question {
-  options: string[];
+  options: Array<string>;
   amount: number;
 }
 
 interface ChoiceQuestion extends Question {
-  options: string[];
+  options: Array<string>;
   answer?: string;
 }
 
@@ -20,8 +20,8 @@ interface GroupQuestion extends Question {
   answer: string;
 }
 
-type Events = Array<{
+interface JustusEvent {
   message: string;
-  type: "money" | "pause"; // etc.
-  amount?: number;
-}>;
+  eventType: string;
+  amount: number;
+}
