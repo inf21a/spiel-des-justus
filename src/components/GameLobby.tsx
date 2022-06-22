@@ -90,10 +90,11 @@ function GameSelect(
   const [matchID, setMatchID] = useState<string>();
   const [playerID, setPlayerID] = useState<string>();
   const [playerCount, setPlayerCount] = useState(2);
+  const [createdMatch, setCreatedMatch] = useState(false);
 
   const match = props.matches.find((match) => match.matchID == matchID);
 
-  // automatically join back matches
+  // auto join back matches
   useEffect(() => {
     console.log(props.playerName);
     const existingMatch = props.matches.find((match) =>
@@ -134,6 +135,18 @@ function GameSelect(
       });
     }
   }, [match]);
+
+  // auto join self-created match
+  useEffect(() => {
+    if (createdMatch) {
+      const match = props.matches.at(-1);
+      if (!match) return;
+      props.handleJoinMatch("justus", match.matchID, "0");
+      setPlayerID("0");
+      setMatchID(match.matchID);
+      setCreatedMatch(false);
+    }
+  });
 
   return (
     <div className="flex flex-col items-center">
@@ -250,7 +263,10 @@ function GameSelect(
             ))}
           </select>
           <button
-            onClick={() => props.handleCreateMatch("justus", playerCount)}
+            onClick={async () => {
+              await props.handleCreateMatch("justus", playerCount);
+              setCreatedMatch(true);
+            }}
             className="bg-lButton hover:bg-lButtonH transition duration-150 rounded-2xl p-3 mt-4"
           >
             Lobby erstellen
