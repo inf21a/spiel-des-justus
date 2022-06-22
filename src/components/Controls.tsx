@@ -59,7 +59,7 @@ export default function Controls(props: GameProps) {
                 props.moves.rollDice();
               }}
             >
-              Roll the dice
+              Würfeln
             </button>
             <div className="ml-4 font-bold">{props.G.rolled}</div>
           </div>
