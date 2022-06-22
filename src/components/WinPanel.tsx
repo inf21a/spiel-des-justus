@@ -1,22 +1,45 @@
-import { GameProps } from "../Game";
 import Lottie from "react-lottie";
 
-import coin from "../../assets/coin.svg";
-import avatar1 from "../../assets/avatar1.svg";
-import avatar2 from "../../assets/avatar2.svg";
-import avatar3 from "../../assets/avatar3.svg";
-import avatar4 from "../../assets/avatar4.svg";
-import avatar5 from "../../assets/avatar5.svg";
-import avatar6 from "../../assets/avatar6.svg";
+import { GameProps } from "../Game";
+import { avatars } from "../Constants";
 
+import coin from "../../assets/coin.svg";
 import stars from "../../assets/animations/win-stars.json";
 
-interface Winner {
-  name?: string;
-  score: number;
-}
-
 export default function WinPanel(props: GameProps) {
+  // determine winner
+
+  // add names and indices to players
+  const players = props.G.players.map((player, i) => ({
+    ...player,
+    name: props.matchData![i].name!,
+    index: i,
+  }));
+
+  // find the highest score
+  const highestScore = Math.max(...players.map((player) => player.score));
+
+  // find all players with the highest score
+  const potentialWinners = players.filter(
+    (player) => player.score == highestScore
+  );
+
+  // find the highest position of a winner
+  const highestPosition = Math.max(
+    ...potentialWinners.map((player) => player.position)
+  );
+
+  // find all winners with the highest position
+  const winnersWithHighestPosition = potentialWinners.filter(
+    (player) => player.position == highestPosition
+  );
+
+  // select a random winner
+  const winner =
+    winnersWithHighestPosition[
+      Math.floor(Math.random() * winnersWithHighestPosition.length)
+    ];
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -24,22 +47,6 @@ export default function WinPanel(props: GameProps) {
     rendererSettings: {
       preserveAspectRatio: "",
     },
-  };
-
-  // Please someone write something more efficient and compact
-  // Also if two players have the exact same score the player with the highest position should win
-  // and if both are on the same position there will be a random winner.
-  const getWinner = (): Winner => {
-    let tmp_win_id = 0;
-    let tmp_max_score = 0;
-    for (let i = 0; i < props.G.players.length; i++) {
-      if (props.G.players[i].score > tmp_max_score) {
-        tmp_max_score = props.G.players[i].score;
-        tmp_win_id = i;
-      }
-    }
-
-    return { name: props.matchData![tmp_win_id].name, score: tmp_max_score };
   };
 
   return (
@@ -50,17 +57,17 @@ export default function WinPanel(props: GameProps) {
         width={500}
         style={{ marginTop: 0 }}
       />
-      <img className="w-32 -mt-96 z-10" src={avatar1} />
+      <img className="w-32 -mt-96 z-10" src={avatars[winner.index]} />
       <div className="flex text-2xl mt-12">
         <div className="font-bold">
-          {getWinner().name}
+          {winner.name}
           &nbsp;
         </div>{" "}
         <div>hat gewonnen</div>
       </div>
       <div className="flex mt-12 items-center">
         <img className="w-16" src={coin} />
-        <div className="text-3xl font-bold ml-4">{getWinner().score}</div>
+        <div className="text-3xl font-bold ml-4">{winner.score}</div>
       </div>
     </div>
   );

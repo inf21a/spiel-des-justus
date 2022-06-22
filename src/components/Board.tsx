@@ -24,7 +24,7 @@ export default function Board(props: GameProps) {
   });
 
   return (
-    <div className="flex bg-yellow-50">
+    <div className="flex bg-justusbgold h-screen">
       <GameMap {...props} />
       <Controls {...props} />
       {props.ctx.currentPlayer == props.playerID &&
