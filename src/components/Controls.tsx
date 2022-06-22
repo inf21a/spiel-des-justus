@@ -43,6 +43,12 @@ export default function Controls(props: GameProps) {
             props.ctx.gameover ? "hidden" : "flex"
           }`}
         >
+          <div className="flex items-center m-2">
+            <img className="w-8" src={coin} />
+            <div className="font-bold ml-2 text-gray-500">
+              {props.G.players[parseInt(props.playerID!)].score}
+            </div>
+          </div>
           <img className="w-20" src={avatars[parseInt(props.playerID!)]} />
           <div className="font-bold text-2xl">
             {props.matchData![parseInt(props.playerID!)].name}
@@ -75,9 +81,7 @@ export default function Controls(props: GameProps) {
             </div> */}
           <div className="flex mt-16">
             {props
-              .matchData!.filter(
-                ({ id, name }) => id.toString() !== props.playerID
-              )
+              .matchData!.filter(({ id }) => id.toString() !== props.playerID)
               .map(({ id, name }) => (
                 <div className="flex flex-col items-center ml-8" key={id}>
                   <div className="flex">
