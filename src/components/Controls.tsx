@@ -75,15 +75,18 @@ export default function Controls(props: GameProps) {
             {props
               .matchData!.filter(({ id }) => id.toString() !== props.playerID)
               .map(({ id, name }) => (
-                <div className="flex flex-col items-center ml-8" key={id}>
+                <div
+                  className="flex flex-col items-center ml-8 text-center"
+                  key={id}
+                >
                   <div className="flex">
                     <img className="w-6" src={coin} />
                     <div className="font-bold ml-2 text-gray-500">
                       {props.G.players[id].score}
                     </div>
                   </div>
-                  <img className="mt-3 w-12" src={avatars[id]} />
-                  <div className="w-24 text-sm block truncate">{name}</div>
+                  <img className="mt-3 h-16" src={avatars[id]} />
+                  <div className="text-sm block truncate w-20">{name}</div>
                 </div>
               ))}
           </div>
