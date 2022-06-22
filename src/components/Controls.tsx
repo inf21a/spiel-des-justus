@@ -82,8 +82,8 @@ export default function Controls(props: GameProps) {
                       {props.G.players[id].score}
                     </div>
                   </div>
-                  <img className="mt-3" src={avatars[id]} />
-                  <div className="font-bold">{name}</div>
+                  <img className="mt-3 w-12" src={avatars[id]} />
+                  <div className="w-24 text-sm block truncate">{name}</div>
                 </div>
               ))}
           </div>
