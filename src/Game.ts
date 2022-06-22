@@ -11,7 +11,6 @@ export type GameState = {
   showChoiceQuestion: boolean;
   showOpenQuestion: boolean;
   showGroupQuestion: boolean;
-  gameEnd: boolean;
   events: Array<{ message: string; type: string; amount: number }>;
   pausedPlayers: Array<number>;
   showEvent: boolean;
@@ -47,7 +46,6 @@ export const game: Game<GameState> = {
       showChoiceQuestion: false,
       showOpenQuestion: false,
       showGroupQuestion: false,
-      gameEnd: false,
       events: ctx.random!.Shuffle(events),
       pausedPlayers: [],
       showEvent: false,
@@ -58,39 +56,24 @@ export const game: Game<GameState> = {
   endIf: (G, ctx) =>
     G.players[parseInt(ctx.currentPlayer)].position >= G.board.length,
   moves: {
-    // Called at the beginning of a turn.
-    onBegin: (G, ctx) => {
-      G.showPolarQuestion = false;
-      G.showChoiceQuestion = false;
-      G.showOpenQuestion = false;
-      G.showGroupQuestion = false;
-    },
-
-    // Called at the end of a turn.
-    onEnd: (G, ctx) => {
-      G.showPolarQuestion = false;
-      G.showChoiceQuestion = false;
-      G.showOpenQuestion = false;
-      G.showGroupQuestion = false;
-    },
-
     rollDice: (G, ctx) => {
-      console.log(G.players[parseInt(ctx.currentPlayer)].score);
+      const player = G.players[parseInt(ctx.currentPlayer)];
       G.rolled = ctx.random!.D6();
-      if (
-        G.players[parseInt(ctx.currentPlayer)].position + G.rolled >
-        G.board.length
-      )
+
+      if (player.position + G.rolled > G.board.length) {
         ctx.events?.endTurn();
-      G.players[parseInt(ctx.currentPlayer)].position += G.rolled;
-      const field = G.board[G.players[parseInt(ctx.currentPlayer)].position];
+        return;
+      }
+
+      player.position += G.rolled;
+      const field = G.board[player.position];
+
       switch (field) {
         case 0:
-          G.showOpenQuestion = true;
-          ctx.events?.setStage("openQuestion");
         case 1:
           ctx.events?.endTurn();
           break;
+
         // Solo Question (Case 2)
         case 2:
           let rand = ctx.random!.D6();
@@ -107,34 +90,35 @@ export const game: Game<GameState> = {
               break;
             case 5:
             case 6:
-            // default:
-            //   G.showOpenQuestion = true;
-            //   ctx.events?.setStage("openQuestion");
+              G.showOpenQuestion = true;
+              ctx.events?.setStage("openQuestion");
+              break;
           }
           break;
+
         //TODO GROUPQUESTIONS
         case 3:
-          //G.showGroupQuestion = true;
-          //ctx.events?.setStage("openQuestion");
+          G.showOpenQuestion = true;
+          ctx.events?.setStage("openQuestion");
           break;
+
         case 4:
           G.currentEvent = G.events.pop();
           G.showEvent = true;
           if (G.currentEvent?.type === "pause") {
             G.pausedPlayers.push(parseInt(ctx.currentPlayer));
           } else if (G.currentEvent?.type === "money") {
-            G.players[parseInt(ctx.currentPlayer)].score +=
-              G.currentEvent.amount;
+            player.score += G.currentEvent.amount;
           }
           ctx.events?.endTurn();
           break;
         case 5:
           ctx.events?.endTurn();
           break;
+
         //TODO WIN!
         case 99:
-          G.gameEnd = true;
-          ctx.events?.endTurn();
+          ctx.events?.endGame(true);
           break;
       }
     },
