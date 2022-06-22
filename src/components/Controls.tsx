@@ -1,6 +1,8 @@
 import { Icon } from "@iconify/react";
 
 import { GameProps } from "../Game";
+import WinPanel from "./WinPanel";
+import { QuitGameContext } from "../Context";
 
 import coin from "../../assets/coin.svg";
 
@@ -14,7 +16,6 @@ import avatar3 from "../../assets/avatar3.svg";
 import avatar4 from "../../assets/avatar4.svg";
 import avatar5 from "../../assets/avatar5.svg";
 import avatar6 from "../../assets/avatar6.svg";
-import WinPanel from "./WinPanel";
 
 const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
@@ -26,9 +27,16 @@ export default function Controls(props: GameProps) {
           <div className="bg-gray-300 p-2 rounded-2xl mr-3">
             <Icon icon="clarity:volume-mute-line" color="white" height="36" />
           </div>
-          <button className="bg-red-300 hover:bg-red-500 p-2 rounded-2xl transition duration-150 ease-in">
-            <Icon icon="iconoir:cancel" color="white" height="36" />
-          </button>
+          <QuitGameContext.Consumer>
+            {(quitGame) => (
+              <button
+                onClick={() => quitGame(props.matchID)}
+                className="bg-red-300 hover:bg-red-500 p-2 rounded-2xl transition duration-150 ease-in"
+              >
+                <Icon icon="iconoir:cancel" color="white" height="36" />
+              </button>
+            )}
+          </QuitGameContext.Consumer>
         </div>
         <div
           className={`items-center mt-12 flex-col ${

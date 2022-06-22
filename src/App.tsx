@@ -5,6 +5,7 @@ import { Lobby, Client } from "boardgame.io/react";
 import Board from "./components/Board";
 import GameLobby from "./components/GameLobby";
 import Loading from "./components/Loading";
+import { QuitGameContext } from "./Context";
 
 import { game } from "./Game";
 import "./index.css";
@@ -23,11 +24,18 @@ ReactDOM.render(
       renderer={(args) => {
         if (args.runningMatch)
           return (
-            <args.runningMatch.app
-              matchID={args.runningMatch.matchID}
-              playerID={args.runningMatch.playerID}
-              credentials={args.runningMatch.credentials}
-            />
+            <QuitGameContext.Provider
+              value={async (matchID: string) => {
+                args.handleExitMatch();
+                await args.handleLeaveMatch("justus", matchID);
+              }}
+            >
+              <args.runningMatch.app
+                matchID={args.runningMatch.matchID}
+                playerID={args.runningMatch.playerID}
+                credentials={args.runningMatch.credentials}
+              />
+            </QuitGameContext.Provider>
           );
         return <GameLobby {...args} />;
       }}
