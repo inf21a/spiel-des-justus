@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import type { Lobby } from "boardgame.io/react";
-import { Icon } from "@iconify/react";
 
 type Props = Parameters<
   NonNullable<ConstructorParameters<typeof Lobby>[0]["renderer"]>
@@ -94,6 +93,32 @@ function GameSelect(
 
   const match = props.matches.find((match) => match.matchID == matchID);
 
+  // automatically join back matches
+  useEffect(() => {
+    console.log(props.playerName);
+    const existingMatch = props.matches.find((match) =>
+      match.players
+        .filter((player) => player.name)
+        .map((player) => player.name)
+        .includes(props.playerName)
+    );
+
+    (async () => {
+      if (existingMatch) {
+        const player = existingMatch.players.find(
+          (player) => player.name == props.playerName
+        );
+        await props.handleJoinMatch(
+          "justus",
+          existingMatch.matchID,
+          player!.id.toString()
+        );
+        setPlayerID(player!.id.toString());
+        setMatchID(existingMatch.matchID);
+      }
+    })();
+  }, []);
+
   // auto-start match if lobby is full
   useEffect(() => {
     if (
@@ -129,36 +154,41 @@ function GameSelect(
                         {match.players.filter((player) => player.name).length}/
                         {match.players.length} Spieler)
                       </div>
-                      {!matchID &&
-                      match.players.filter((player) => player.name).length !=
-                        match.players.length ? (
-                        <button
-                          className="px-2 bg-lButton rounded-md ml-2 hover:bg-lButtonH transition duration-150"
-                          onClick={async () => {
-                            const seat = match.players.find(
-                              (player) => !player.name
-                            );
-                            const pID = seat ? seat.id.toString() : undefined;
-                            if (pID)
-                              await props.handleJoinMatch(
-                                "justus",
-                                match.matchID,
-                                pID
-                              );
-                            setPlayerID(pID);
-                            setMatchID(match.matchID);
-                          }}
-                        >
-                          Join
-                        </button>
-                      ) : matchID != match.matchID ? (
+                      {match.players.filter((player) => player.name).length !=
+                      match.players.length ? (
+                        <>
+                          {!matchID && (
+                            <button
+                              className="px-2 bg-lButton rounded-md ml-2 hover:bg-lButtonH transition duration-150"
+                              onClick={async () => {
+                                const seat = match.players.find(
+                                  (player) => !player.name
+                                );
+                                const pID = seat
+                                  ? seat.id.toString()
+                                  : undefined;
+                                if (pID)
+                                  await props.handleJoinMatch(
+                                    "justus",
+                                    match.matchID,
+                                    pID
+                                  );
+                                setPlayerID(pID);
+                                setMatchID(match.matchID);
+                              }}
+                            >
+                              Join
+                            </button>
+                          )}
+                        </>
+                      ) : (
                         <button
                           disabled
                           className="px-2 bg-lBred rounded-md ml-2 hover:bg-lBredH transition duration-150"
                         >
                           Voll
                         </button>
-                      ) : null}
+                      )}
                       {matchID == match.matchID && (
                         <button
                           className="px-2 bg-lBred rounded-md ml-2 hover:bg-lBredH transition duration-150"
@@ -208,22 +238,24 @@ function GameSelect(
             : "Match Starten!"}
         </button>
       ) : (
-        <>
+        <div className="text-white space-x-2">
+          <select
+            defaultValue="2"
+            onChange={(event) => setPlayerCount(parseInt(event.target.value))}
+            className="bg-lButton hover:bg-lButtonH transition duration-150 rounded-2xl p-3.5 mt-4 outline-none"
+            style={{ borderRight: "16px solid transparent" }}
+          >
+            {[2, 3, 4, 5, 6].map((count) => (
+              <option key={count}>{count} Spieler</option>
+            ))}
+          </select>
           <button
             onClick={() => props.handleCreateMatch("justus", playerCount)}
             className="bg-lButton hover:bg-lButtonH transition duration-150 rounded-2xl p-3 mt-4"
           >
-            <Icon icon="akar-icons:plus" color="#f8f8f8" height="40" />
+            Lobby erstellen
           </button>
-          <input
-            type="range"
-            min="2"
-            max="6"
-            value={playerCount}
-            onChange={(event) => setPlayerCount(parseInt(event.target.value))}
-          />
-          {playerCount} Spieler
-        </>
+        </div>
       )}
     </div>
   );
