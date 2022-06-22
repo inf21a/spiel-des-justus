@@ -14,6 +14,32 @@ import coin from "../../assets/coin.svg";
 // preload dice icons
 loadIcons([1, 2, 3, 4, 5, 6].map((n) => `bi:dice-${n}-fill`));
 
+function createGameStateMessage(props: GameProps) {
+  const hasTurn = props.playerID == props.ctx.currentPlayer;
+  const showingQuestion = [
+    props.G.showChoiceQuestion,
+    props.G.showOpenQuestion,
+    props.G.showPolarQuestion,
+    props.G.showGroupQuestion,
+  ].includes(true);
+
+  if (showingQuestion) {
+    if (hasTurn)
+      return "Fragenfeld! Beantworte die Frage, um Justustaler zu verdienen.";
+    return `${
+      props.matchData![parseInt(props.ctx.currentPlayer)].name
+    } beantwortet eine Frage...`;
+  }
+
+  if (hasTurn) {
+    return "Du bist dran! Benutze den Würfel.";
+  }
+
+  return `${
+    props.matchData![parseInt(props.ctx.currentPlayer)].name
+  } ist am würfeln...`;
+}
+
 export default function Controls(props: GameProps) {
   return (
     <div className="w-1/3 bg-white m-4 ml-2 border-8 rounded-3xl border-yellow-500">
@@ -74,13 +100,16 @@ export default function Controls(props: GameProps) {
               </button>
             </div>
           </div>
+          <div className="font-bold text-center text-xl mt-12 mx-4">
+            {createGameStateMessage(props)}
+          </div>
           {/* Temporarily disabled because look is bad
           <div className="flex mt-12">
             <img src={singleStack} />
             <img className="ml-5" src={groupStack} />
             <img className="ml-5" src={eventStack} />
             </div> */}
-          <div className="flex mt-16">
+          <div className="flex mt-12">
             {props
               .matchData!.filter(({ id }) => id.toString() !== props.playerID)
               .map(({ id, name }) => (
