@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { GameProps } from "../Game";
 
 import "./GameMap.css";
@@ -66,6 +67,17 @@ const tiles = [
 ];
 
 export default function GameMap(props: GameProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
+  });
+
   return (
     <div className="border-yellow-500 border-8 rounded-3xl relative w-2/3 m-4 mr-2 shadow-l overflow-scroll">
       <img className="rounded-2xl" src={board} alt="Spielbrett" />
@@ -87,6 +99,7 @@ export default function GameMap(props: GameProps) {
               marginLeft:
                 "calc(" + tiles[player.position].left + " - " + i * 0.4 + "%)",
             }}
+            ref={i.toString() == props.playerID ? ref : undefined}
           >
             <img src={avatars[i]} />
           </div>
