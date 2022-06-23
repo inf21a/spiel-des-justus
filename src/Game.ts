@@ -100,8 +100,6 @@ export const game: Game<GameState> = {
   },
   minPlayers: 2,
   maxPlayers: 6,
-  endIf: (G, ctx) =>
-    G.players[parseInt(ctx.currentPlayer)].position >= G.board.length,
   moves: {
     rollDice: (G, ctx) => {
       const player = G.players[parseInt(ctx.currentPlayer)];
@@ -218,7 +216,7 @@ export const game: Game<GameState> = {
         moves: {
           answer: (G, ctx, submittedAnswer: boolean) => {
             if (submittedAnswer == G.cPolarQuestion!.answer) {
-              G.players[parseInt(ctx.currentPlayer)].score += 10;
+              G.players[parseInt(ctx.currentPlayer)].score += 1;
             }
             ctx.events?.endTurn();
           },
@@ -228,7 +226,7 @@ export const game: Game<GameState> = {
         moves: {
           answer: (G, ctx, submittedAnswer: string, correct: string) => {
             if (submittedAnswer == correct) {
-              G.players[parseInt(ctx.currentPlayer)].score += 10;
+              G.players[parseInt(ctx.currentPlayer)].score += 2;
             }
             ctx.events?.endTurn();
           },
@@ -267,7 +265,7 @@ export const game: Game<GameState> = {
               }
             }
             if (result >= G.cOpenQuestion!.amount * 0.9) {
-              G.players[parseInt(ctx.currentPlayer)].score += 10;
+              G.players[parseInt(ctx.currentPlayer)].score += 3;
             }
             ctx.events?.endTurn();
           },
