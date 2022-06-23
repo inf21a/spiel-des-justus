@@ -69,6 +69,10 @@ function CreditsPage({
 }: {
   setLobbyStage: React.Dispatch<React.SetStateAction<LobbyStage>>;
 }) {
+  useEffect(() => {
+    window.history.pushState("", "", "/credits");
+    return () => window.history.pushState("", "", "/");
+  }, []);
   return (
     <div className="text-center text-white space-y-2">
       <p>
@@ -326,8 +330,10 @@ function GameSelect(
 }
 
 export default function GameLobby(props: Props) {
+  const showCreditsByRoute = window.location.pathname == "/credits";
+
   const [lobbyStage, setLobbyStage] = useState<LobbyStage>(
-    LobbyStage.nameSelect
+    showCreditsByRoute ? LobbyStage.showCredits : LobbyStage.nameSelect
   );
 
   return (
