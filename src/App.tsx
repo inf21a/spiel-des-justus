@@ -6,19 +6,16 @@ import Board from "./components/Board";
 import GameLobby from "./components/GameLobby";
 import Loading from "./components/Loading";
 import { QuitGameContext } from "./Context";
-
 import { game } from "./Game";
-import "./index.css";
+import { apiUrl } from "./Constants";
 
-const server = `http${import.meta.env.DEV ? "" : "s"}://${
-  window.location.hostname
-}${import.meta.env.DEV ? ":3001" : ""}`;
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
     <Lobby
-      gameServer={server}
-      lobbyServer={server}
+      gameServer={apiUrl}
+      lobbyServer={apiUrl}
       gameComponents={[{ game, board: Board }]}
       clientFactory={(args) => Client({ ...args, loading: Loading })}
       renderer={(args) => {

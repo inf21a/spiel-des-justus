@@ -46,7 +46,7 @@ export default function CQuestion(props: {
           />
         </div>
         <div className="text-center m-6 text-white text-xl font-bold md:flex hidden">
-          10
+          2
           <br />
           Punkte
         </div>

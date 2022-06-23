@@ -20,7 +20,6 @@ export default function OQuestion(props: {
       </div>
       <div className="mx-6 md:mt-10 mt-5 flex">
         <input
-          id="open-question-answer"
           type="text"
           className="bg-transparent border-white border rounded-lg p-4 outline-none caret-white text-white placeholder:text-white font-medium placeholder:font-normal w-full"
           placeholder="Deine Antwort"
