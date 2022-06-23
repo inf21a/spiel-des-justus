@@ -37,16 +37,18 @@ export default function GQuestion(props: GameProps) {
   return (
     <div
       style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
-      className="bg-qCbg p-10 rounded-2xl w-2/3"
+      className="bg-qCbg p-10 rounded-2xl md:w-2/3 w-full"
     >
       {props.G.waitingForGroupAnswers ? (
-        <div className="text-white font-bold mx-6 text-3xl text-center">
-          <p>Gruppenfrage!</p>
-          <p>Warte auf Antworten der anderen Spieler...</p>
+        <div className="mx-6 md:text-3xl text-lg text-center">
+          <p className="font-bold text-white">Gruppenfrage!</p>
+          <p className="text-gray-200">
+            Warte auf Antworten der anderen Spieler...
+          </p>
         </div>
       ) : (
         <>
-          <div className="text-white font-bold mx-6 text-2xl text-center">
+          <div className="text-white font-bold mx-6 md:text-2xl text-center">
             {question.question}
           </div>
           {showCorrect == null ? (

@@ -22,9 +22,12 @@ ReactDOM.render(
         if (args.runningMatch)
           return (
             <QuitGameContext.Provider
-              value={async (matchID: string) => {
+              value={async () => {
                 args.handleExitMatch();
-                await args.handleLeaveMatch("justus", matchID);
+                await args.handleLeaveMatch(
+                  "justus",
+                  args.runningMatch!.matchID
+                );
               }}
             >
               <args.runningMatch.app

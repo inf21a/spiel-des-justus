@@ -1,10 +1,13 @@
+import { useContext, useEffect, useState } from "react";
 import Lottie from "react-lottie";
 
 import { GameProps } from "../Game";
 import { avatars } from "../Constants";
+import { AudioContext, QuitGameContext } from "../Context";
 
 import coin from "../../assets/coin.svg";
 import stars from "../../assets/animations/win-stars.json";
+import applause from "../../assets/sounds/applause.wav";
 
 export default function WinPanel(props: GameProps) {
   // determine winner
@@ -40,6 +43,34 @@ export default function WinPanel(props: GameProps) {
       Math.floor(Math.random() * winnersWithHighestPosition.length)
     ];
 
+  const { playAudio } = useContext(AudioContext);
+  const applauseAudio = new Audio(applause);
+  applauseAudio.currentTime += 1;
+
+  useEffect(() => {
+    if (playAudio) {
+      applauseAudio.play();
+      return () => applauseAudio.pause();
+    }
+  }, []);
+
+  const [backToLobbyCounter, setBackToLobbyCounter] = useState(30);
+  const quitGame = useContext(QuitGameContext);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBackToLobbyCounter((counter) => {
+        const newCounter = counter - 1;
+        if (newCounter <= 0) {
+          clearInterval(interval);
+          quitGame();
+        }
+        return newCounter;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -71,6 +102,9 @@ export default function WinPanel(props: GameProps) {
       <div className="flex mt-12 items-center">
         <img className="w-16" src={coin} />
         <div className="text-3xl font-bold ml-4">{winner.score}</div>
+      </div>
+      <div className="flex mt-12 items-center text-1xl">
+        Zurück zur Lobby in {backToLobbyCounter}...
       </div>
     </div>
   );

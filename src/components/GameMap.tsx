@@ -66,21 +66,38 @@ const tiles = [
   { top: "-164%", left: "53%" },
 ];
 
+function debounce<T extends () => any>(fn: T, timeout: number): () => void {
+  let ready = true;
+  return () => {
+    if (ready) {
+      ready = false;
+      setTimeout(() => (ready = true), timeout);
+      fn();
+    }
+  };
+}
+
 export default function GameMap(props: GameProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center",
-      });
-    }
-  });
+
+  useEffect(
+    debounce(() => {
+      if (
+        !window.screen.orientation.type.startsWith("portrait") &&
+        ref.current
+      ) {
+        ref.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+      }
+    }, 200)
+  );
 
   return (
-    <div className="border-yellow-500 border-8 rounded-3xl relative w-2/3 m-4 mr-2 shadow-l overflow-scroll">
-      <img className="rounded-2xl" src={board} alt="Spielbrett" />
+    <div className="border-yellow-500 border-8 rounded-3xl relative w-full md:w-2/3 md:m-4 md:mr-2 shadow-l md:overflow-scroll no-scrollbar">
+      <img className="rounded-2xl sm:w-screen" src={board} alt="Spielbrett" />
       {Array(48)
         .fill(0)
         .map((_, i) => (
@@ -101,7 +118,7 @@ export default function GameMap(props: GameProps) {
             }}
             ref={i.toString() == props.playerID ? ref : undefined}
           >
-            <img src={avatars[i]} />
+            <img src={avatars[i]} className="rounded-sm" />
           </div>
         ))}
     </div>

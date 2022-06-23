@@ -102,14 +102,14 @@ export const game: Game<GameState> = {
   },
   minPlayers: 2,
   maxPlayers: 6,
-  endIf: (G, ctx) =>
-    G.players[parseInt(ctx.currentPlayer)].position == G.board.length,
+  endIf: (G, _ctx) =>
+    G.players.some((player) => player.position >= G.board.length - 1),
   moves: {
     rollDice: (G, ctx) => {
       const player = G.players[parseInt(ctx.currentPlayer)];
       G.rolled = ctx.random!.D6();
 
-      if (player.position + G.rolled > G.board.length) {
+      if (player.position + G.rolled >= G.board.length) {
         ctx.events?.endTurn();
         return;
       }
@@ -171,7 +171,7 @@ export const game: Game<GameState> = {
         //TODO WIN!
         case 99:
           player.score += 10;
-          ctx.events?.endGame(true);
+          ctx.events?.endTurn();
           break;
       }
     },
