@@ -66,7 +66,7 @@ export const game: Game<GameState> = {
   setup(ctx) {
     const players: GameState["players"] = [];
     for (let i = 0; i < ctx.numPlayers; i++) {
-      players.push({ position: 0, score: 0 });
+      players.push({ position: 0, score: 10 });
     }
     return {
       /*
@@ -170,6 +170,7 @@ export const game: Game<GameState> = {
 
         //TODO WIN!
         case 99:
+          player.score += 10;
           ctx.events?.endGame(true);
           break;
       }

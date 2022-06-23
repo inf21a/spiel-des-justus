@@ -12,7 +12,9 @@ export default function GQuestion(props: GameProps) {
     if (!props.G.waitingForGroupAnswers) {
       fetch(`${apiUrl}/group-answers/${props.matchID}`)
         .then((res) => res.json())
-        .then(({ answers }) => setGroupQuestions(answers));
+        .then(({ answers }) =>
+          setGroupQuestions(shuffle([props.G.cGroupQuestion, ...answers]))
+        );
     }
   }, [props.G.waitingForGroupAnswers]);
 
@@ -34,7 +36,7 @@ export default function GQuestion(props: GameProps) {
             {question.question}
           </div>
           <div className="flex justify-center items-center mt-10 flex-column space-y-7">
-            {shuffle([question.options[0], ...groupQuestions]).map((option) => (
+            {groupQuestions.map((option) => (
               <QButton
                 key={option}
                 onClick={() => {
