@@ -79,8 +79,8 @@ export default function GameMap(props: GameProps) {
   });
 
   return (
-    <div className="border-yellow-500 border-8 rounded-3xl relative w-2/3 m-4 mr-2 shadow-l overflow-scroll">
-      <img className="rounded-2xl" src={board} alt="Spielbrett" />
+    <div className="border-yellow-500 border-8 rounded-3xl relative w-full md:w-2/3 md:m-4 md:mr-2 shadow-l md:overflow-scroll">
+      <img className="rounded-2xl sm:w-screen" src={board} alt="Spielbrett" />
       {Array(48)
         .fill(0)
         .map((_, i) => (

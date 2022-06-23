@@ -15,7 +15,7 @@ export default function PQuestion(props: {
         {props.question.question}
       </div>
       <div className="flex justify-center items-center mt-10">
-        <div className="">
+        <div className="w-1/3">
           <QButton onClick={() => props.answer(true)} text="Richtig👍" />
         </div>
         <div className="text-center m-6 text-white text-xl font-bold">
@@ -23,7 +23,7 @@ export default function PQuestion(props: {
           <br />
           Punkt
         </div>
-        <div className="">
+        <div className="w-1/3">
           <QButton onClick={() => props.answer(false)} text="Falsch👎" />
         </div>
       </div>

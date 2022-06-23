@@ -42,7 +42,7 @@ function createGameStateMessage(props: GameProps) {
 
 export default function Controls(props: GameProps) {
   return (
-    <div className="w-1/3 bg-white m-4 ml-2 border-8 rounded-3xl border-yellow-500">
+    <div className="w-full md:w-1/3 bg-white mt-4 md:m-4 md:ml-2 border-8 rounded-3xl border-yellow-500">
       <div className="h-full w-full flex-col flex">
         <div className="m-8 flex justify-end">
           <div className="bg-gray-300 p-2 rounded-2xl mr-3">
