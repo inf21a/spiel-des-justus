@@ -1,7 +1,7 @@
 import { Icon, loadIcons } from "@iconify/react";
 
 import { GameProps } from "../Game";
-import { QuitGameContext } from "../Context";
+import { QuitGameContext, AudioContext } from "../Context";
 import { avatars } from "../Constants";
 import WinPanel from "./WinPanel";
 
@@ -45,9 +45,22 @@ export default function Controls(props: GameProps) {
     <div className="w-full md:w-1/3 bg-white mt-4 md:m-4 md:ml-2 border-8 rounded-3xl border-yellow-500">
       <div className="h-full w-full flex-col flex">
         <div className="m-8 flex justify-end">
-          <div className="bg-gray-300 p-2 rounded-2xl mr-3">
-            <Icon icon="clarity:volume-mute-line" color="white" height="36" />
-          </div>
+          <AudioContext.Consumer>
+            {({ playAudio, setPlayAudio }) => (
+              <button
+                className={`${
+                  playAudio ? "bg-blue-300" : "bg-gray-300"
+                } p-2 rounded-2xl mr-3 transition duration-100 ease-in`}
+              >
+                <Icon
+                  icon={`clarity:volume-${playAudio ? "up" : "mute"}-line`}
+                  onClick={() => setPlayAudio(!playAudio)}
+                  color="white"
+                  height="36"
+                />
+              </button>
+            )}
+          </AudioContext.Consumer>
           <QuitGameContext.Consumer>
             {(quitGame) => (
               <button
