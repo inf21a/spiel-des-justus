@@ -190,16 +190,6 @@ export const game: Game<GameState> = {
       G.showGroupQuestion = false;
       G.showEvent = false;
     },
-
-    order: {
-      // Get the initial value of playOrderPos at the beginning of the phase.
-      first: (G, ctx) => 0,
-
-      // Get the next value of playOrderPos at the end of each turn.
-      next: (G, ctx) => {
-        return (ctx.playOrderPos + 1) % ctx.numPlayers;
-      },
-    },
     stages: {
       justusEvent: {
         moves: {
