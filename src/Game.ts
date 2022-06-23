@@ -100,6 +100,8 @@ export const game: Game<GameState> = {
   },
   minPlayers: 2,
   maxPlayers: 6,
+  endIf: (G, ctx) =>
+    G.players[parseInt(ctx.currentPlayer)].position == G.board.length,
   moves: {
     rollDice: (G, ctx) => {
       const player = G.players[parseInt(ctx.currentPlayer)];
