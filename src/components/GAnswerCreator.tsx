@@ -37,7 +37,9 @@ export default function GAnswerCreator(props: GameProps) {
           className="bg-transparent border-white border rounded-lg p-4 outline-none caret-white text-white placeholder:text-white font-medium placeholder:font-normal w-full"
           placeholder="Deine Antwort"
           value={answer}
-          onChange={(event) => setAnswer(event.target.value)}
+          onChange={({ target: { value } }) => {
+            if (value.length <= 50) setAnswer(value);
+          }}
           onKeyDown={(event) => event.key == "Enter" && submit()}
         />
         <button
