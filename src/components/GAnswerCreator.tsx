@@ -43,12 +43,17 @@ export default function GAnswerCreator(props: GameProps) {
           onChange={({ target: { value } }) => {
             if (value.length <= 50) setAnswer(value);
           }}
-          onKeyDown={(event) => event.key == "Enter" && answer && submit()}
+          onKeyDown={(event) =>
+            event.key == "Enter" &&
+            answer &&
+            answer != props.G.cGroupQuestion?.options[0] &&
+            submit()
+          }
           autoFocus
         />
         <button
           onClick={submit}
-          disabled={!answer}
+          disabled={!answer || answer == props.G.cGroupQuestion?.options[0]}
           className="text-white ml-4 bg-qCB p-4 rounded-lg hover:bg-qCBH transition duration-150 disabled:bg-qCBD"
         >
           Antwort hinzufügen
