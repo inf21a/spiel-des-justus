@@ -9,10 +9,9 @@ export function QButton(props: { text: string; onClick: any }) {
   return (
     <button
       style={{
-        width: "300px",
         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       }}
-      className="bg-qCB hover:bg-qCBH transition duration-150 p-4 rounded-xl h-28 flex items-center justify-center"
+      className="bg-qCB hover:bg-qCBH transition duration-150 p-4 rounded-xl h-28 flex items-center justify-center w-full max-w-xs"
       onClick={props.onClick}
     >
       <div className="text-white font-bold">{props.text}</div>

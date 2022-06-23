@@ -17,7 +17,7 @@ export default function CQuestion(props: {
         {props.question.question}
       </div>
       <div className="flex justify-center items-center mt-10">
-        <div className="space-y-7">
+        <div className="space-y-7 flex flex-col w-1/3">
           <QButton
             onClick={() => props.answer(options[0], correct)}
             text={options[0]}
@@ -32,7 +32,7 @@ export default function CQuestion(props: {
           <br />
           Punkte
         </div>
-        <div className="space-y-7">
+        <div className="space-y-7 flex flex-col w-1/3">
           <QButton
             onClick={() => props.answer(options[2], correct)}
             text={options[2]}
