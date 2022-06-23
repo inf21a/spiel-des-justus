@@ -1,13 +1,24 @@
+import { useContext } from "react";
 import { Icon, loadIcons } from "@iconify/react";
+
+import { AudioContext } from "../Context";
+import buzzer from "../../assets/sounds/wrong.wav";
+
+loadIcons([
+  "ant-design:check-circle-filled",
+  "ant-design:exclamation-circle-filled",
+]);
 
 export const ResultWrapper = (props: {
   showCorrect: boolean;
   text: string;
 }) => {
-  loadIcons([
-    "ant-design:check-circle-filled",
-    "ant-design:exclamation-circle-filled",
-  ]);
+  const { playAudio } = useContext(AudioContext);
+  if (playAudio && !props.showCorrect) {
+    const buzzerAudio = new Audio(buzzer);
+    buzzerAudio.play();
+  }
+
   return (
     <div className="w-11/12 mt-10 flex mx-auto">
       {props.showCorrect ? (
