@@ -26,6 +26,7 @@ export default function OQuestion(props: {
           value={input}
           onChange={(event) => setInput(event.target.value)}
           onKeyDown={(event) => event.key == "Enter" && submit()}
+          autoFocus
         />
         <button
           onClick={submit}

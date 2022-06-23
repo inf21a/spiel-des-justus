@@ -90,6 +90,7 @@ function NameSelect(
           value={name}
           onChange={(event) => handleNameChange(event.target.value)}
           onKeyDown={(ev) => ev.key == "Enter" && submit()}
+          autoFocus
         />
         <button
           className="text-white ml-4 bg-lButton px-3 rounded-xl font-normal hover:bg-lButtonH transition duration-150 disabled:bg-lButtonD"
