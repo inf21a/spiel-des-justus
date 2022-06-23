@@ -1,15 +1,12 @@
-import { GameProps } from "../Game";
 import { QButton } from "./CardWrapper";
-import questions from "../../assets/questions.json";
 import { shuffle } from "fast-shuffle";
 
 export default function CQuestion(props: {
-  random: any;
-  answer: (question: ChoiceQuestion, submittedAnswer: string) => void;
+  question: ChoiceQuestion;
+  answer: (submittedAnswer: string, correct: string) => void;
 }) {
-  let question: ChoiceQuestion = shuffle(questions.choice)[0];
-  question.answer = question.options[0];
-  question.options = shuffle(question.options);
+  let correct: string = props.question.options[0];
+  let options = shuffle(props.question.options);
 
   return (
     <div
@@ -17,17 +14,17 @@ export default function CQuestion(props: {
       className="bg-qCbg p-10 rounded-2xl w-2/3"
     >
       <div className="text-white font-bold mx-6 text-2xl text-center">
-        {question.question}
+        {props.question.question}
       </div>
       <div className="flex justify-center items-center mt-10">
         <div className="space-y-7">
           <QButton
-            onClick={() => props.answer(question, question.options[0])}
-            text={question.options[0]}
+            onClick={() => props.answer(options[0], correct)}
+            text={options[0]}
           />
           <QButton
-            onClick={() => props.answer(question, question.options[1])}
-            text={question.options[1]}
+            onClick={() => props.answer(options[1], correct)}
+            text={options[1]}
           />
         </div>
         <div className="text-center m-6 text-white text-xl font-bold">
@@ -37,12 +34,12 @@ export default function CQuestion(props: {
         </div>
         <div className="space-y-7">
           <QButton
-            onClick={() => props.answer(question, question.options[2])}
-            text={question.options[2]}
+            onClick={() => props.answer(options[2], correct)}
+            text={options[2]}
           />
           <QButton
-            onClick={() => props.answer(question, question.options[3])}
-            text={question.options[3]}
+            onClick={() => props.answer(options[3], correct)}
+            text={options[3]}
           />
         </div>
       </div>

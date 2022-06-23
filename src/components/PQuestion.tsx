@@ -1,13 +1,9 @@
 import { QButton } from "./CardWrapper";
-import questions from "../../assets/questions.json";
-import { shuffle } from "fast-shuffle";
 
 export default function PQuestion(props: {
-  random: any;
-  answer: (question: PolarQuestion, submittedAnswer: boolean) => void;
+  question: PolarQuestion;
+  answer: (submittedAnswer: boolean) => void;
 }) {
-  let question: PolarQuestion = shuffle(questions.polar)[0];
-
   return (
     <div
       style={{
@@ -16,14 +12,11 @@ export default function PQuestion(props: {
       className="bg-qCbg p-10 rounded-2xl w-2/3"
     >
       <div className="text-white font-bold mx-6 text-2xl text-center">
-        {question.question}
+        {props.question.question}
       </div>
       <div className="flex justify-center items-center mt-10">
         <div className="">
-          <QButton
-            onClick={() => props.answer(question, true)}
-            text="Richtig👍"
-          />
+          <QButton onClick={() => props.answer(true)} text="Richtig👍" />
         </div>
         <div className="text-center m-6 text-white text-xl font-bold">
           10
@@ -31,10 +24,7 @@ export default function PQuestion(props: {
           Punkte
         </div>
         <div className="">
-          <QButton
-            onClick={() => props.answer(question, false)}
-            text="Falsch👎"
-          />
+          <QButton onClick={() => props.answer(false)} text="Falsch👎" />
         </div>
       </div>
     </div>
