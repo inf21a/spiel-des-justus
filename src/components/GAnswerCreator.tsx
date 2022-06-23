@@ -43,7 +43,7 @@ export default function GAnswerCreator(props: GameProps) {
           onChange={({ target: { value } }) => {
             if (value.length <= 50) setAnswer(value);
           }}
-          onKeyDown={(event) => event.key == "Enter" && submit()}
+          onKeyDown={(event) => event.key == "Enter" && answer && submit()}
           autoFocus
         />
         <button
