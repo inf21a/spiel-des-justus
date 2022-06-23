@@ -109,7 +109,7 @@ export default function GameMap(props: GameProps) {
           <div
             id={`p${i + 1}`}
             key={i}
-            className="justus"
+            className="justus text-center flex items-center"
             style={{
               marginTop:
                 "calc(" + tiles[player.position].top + " + " + i * 0.2 + "%)",
@@ -119,6 +119,9 @@ export default function GameMap(props: GameProps) {
             ref={i.toString() == props.playerID ? ref : undefined}
           >
             <img src={avatars[i]} className="rounded-sm" />
+            <p className="text-sm bg-white shadow p-0.5 rounded ml-2 relative">
+              {props.matchData![i].name}
+            </p>
           </div>
         ))}
     </div>
