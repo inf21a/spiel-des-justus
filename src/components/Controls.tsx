@@ -89,6 +89,7 @@ export default function Controls(props: GameProps) {
                     props.G.showPolarQuestion,
                     props.G.showOpenQuestion,
                     props.G.showGroupQuestion,
+                    props.G.showEvent,
                   ].includes(true)
                 }
                 className="rounded-lg transition duration-150 text-green-500 hover:text-green-400 disabled:text-gray-400 disabled:hover:text-gray-400 text-6xl"
