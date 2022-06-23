@@ -1,11 +1,13 @@
+import { useState } from "react";
+
 export default function OQuestion(props: {
   question: OpenQuestion;
   answer: (submittedAnswer: string) => void;
 }) {
+  const [input, setInput] = useState("");
+
   function submit() {
-    props.answer(
-      (document.getElementById("open-question-answer") as any).value
-    );
+    props.answer(input);
   }
 
   return (
@@ -22,6 +24,9 @@ export default function OQuestion(props: {
           type="text"
           className="bg-transparent border-white border rounded-lg p-4 outline-none caret-white text-white placeholder:text-white font-medium placeholder:font-normal w-full"
           placeholder="Deine Antwort"
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+          onKeyDown={(event) => event.key == "Enter" && submit()}
         />
         <button
           onClick={submit}

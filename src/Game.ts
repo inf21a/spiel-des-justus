@@ -45,7 +45,7 @@ export type GameState = {
     answer?: string;
   };
   cPolarQuestion?: { question: string; answer: boolean };
-  cGroupQuestions?: {
+  cGroupQuestion?: {
     question: string;
     options: Array<string>;
     amount: number;
@@ -148,9 +148,9 @@ export const game: Game<GameState> = {
 
         //TODO GROUPQUESTIONS
         case 3:
-          G.cOpenQuestion = G.openQuestions.pop();
-          G.showOpenQuestion = true;
-          ctx.events?.setStage("openQuestion");
+          G.cGroupQuestion = G.groupQuestions.pop();
+          G.showGroupQuestion = true;
+          ctx.events?.setStage("groupQuestion");
           break;
 
         case 4:
@@ -237,15 +237,15 @@ export const game: Game<GameState> = {
       openQuestion: {
         moves: {
           answer: (G, ctx, submittedAnswer: string) => {
-            let result: number = 0;
-            let counter: number = 0;
+            let result = 0;
+            let counter = 0;
             let answers: Array<string> = submittedAnswer
               .replaceAll(" ", "")
               .split(",");
 
             for (let answer of answers) {
-              let highestSim: number = 0;
-              let highestIndex: number = -1;
+              let highestSim = 0;
+              let highestIndex = -1;
               for (let i = 0; i < G.cOpenQuestion!.options.length; i++) {
                 let currentSim = stringSimilarity(
                   answer.toLowerCase(),
@@ -268,6 +268,16 @@ export const game: Game<GameState> = {
             }
             if (result >= G.cOpenQuestion!.amount * 0.9) {
               G.players[parseInt(ctx.currentPlayer)].score += 3;
+            }
+            ctx.events?.endTurn();
+          },
+        },
+      },
+      groupQuestion: {
+        moves: {
+          answer: (G, ctx, submittedAnswer: string, correct: string) => {
+            if (submittedAnswer == correct) {
+              G.players[parseInt(ctx.currentPlayer)].score += 2;
             }
             ctx.events?.endTurn();
           },

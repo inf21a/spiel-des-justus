@@ -31,6 +31,7 @@ export default function Board(props: GameProps) {
         (props.G.showPolarQuestion ||
           props.G.showChoiceQuestion ||
           props.G.showOpenQuestion ||
+          props.G.showGroupQuestion ||
           props.G.showEvent) && <CardWrapper {...props} />}
     </div>
   );

@@ -2,6 +2,7 @@ import { GameProps } from "../Game";
 import CQuestion from "./CQuestion";
 import PQuestion from "./PQuestion";
 import OQuestion from "./OQuestion";
+import GQuestion from "./GQuestion";
 import EventCard from "./EventCard";
 
 export function QButton(props: { text: string; onClick: any }) {
@@ -45,6 +46,7 @@ export default function CardWrapper(props: GameProps) {
             answer={props.moves.answer}
           />
         )}
+        {props.G.showGroupQuestion && <GQuestion {...props} />}
         {props.G.showEvent && (
           <EventCard
             justusEvent={props.G.cEvent}

@@ -37,7 +37,7 @@ function createGameStateMessage(props: GameProps) {
 
   return `${
     props.matchData![parseInt(props.ctx.currentPlayer)].name
-  } ist am würfeln...`;
+  } ist am Zug...`;
 }
 
 export default function Controls(props: GameProps) {
