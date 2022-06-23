@@ -12,7 +12,7 @@ export default function GAnswerCreator(props: GameProps) {
     const res = await fetch(`${apiUrl}/group-answers/${props.matchID}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answer }),
+      body: JSON.stringify({ answer: answer.trim() }),
     });
     const { count }: { count: number } = await res.json();
     props.moves.create(count);
@@ -46,14 +46,16 @@ export default function GAnswerCreator(props: GameProps) {
           onKeyDown={(event) =>
             event.key == "Enter" &&
             answer &&
-            answer != props.G.cGroupQuestion?.options[0] &&
+            answer.trim() != props.G.cGroupQuestion?.options[0] &&
             submit()
           }
           autoFocus
         />
         <button
           onClick={submit}
-          disabled={!answer || answer == props.G.cGroupQuestion?.options[0]}
+          disabled={
+            !answer || answer.trim() == props.G.cGroupQuestion?.options[0]
+          }
           className="text-white ml-4 bg-qCB p-4 rounded-lg hover:bg-qCBH transition duration-150 disabled:bg-qCBD"
         >
           Antwort hinzufügen
