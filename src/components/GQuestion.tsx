@@ -26,9 +26,11 @@ export default function GQuestion(props: GameProps) {
       className="bg-qCbg p-10 rounded-2xl md:w-2/3 w-full"
     >
       {props.G.waitingForGroupAnswers ? (
-        <div className="text-white font-bold mx-6 md:text-3xl text-lg text-center">
-          <p>Gruppenfrage!</p>
-          <p>Warte auf Antworten der anderen Spieler...</p>
+        <div className="mx-6 md:text-3xl text-lg text-center">
+          <p className="font-bold text-white">Gruppenfrage!</p>
+          <p className="text-gray-200">
+            Warte auf Antworten der anderen Spieler...
+          </p>
         </div>
       ) : (
         <>

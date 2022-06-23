@@ -24,12 +24,15 @@ export default function GAnswerCreator(props: GameProps) {
       className="bg-qCbg p-10 rounded-2xl w-2/3 space-y-4"
       hidden={hidden}
     >
-      <div className="text-white font-bold mx-6 text-2xl text-center">
-        Frage für {props.matchData![parseInt(props.ctx.currentPlayer)].name}:{" "}
-        {question.question}
+      <div className="mx-6 text-2xl text-center">
+        <span className="text-gray-100">
+          Frage für {props.matchData![parseInt(props.ctx.currentPlayer)].name}:{" "}
+        </span>
+        <span className="text-white font-bold">{question.question}</span>
       </div>
-      <div className="text-white font-bold mx-6 text-2xl text-center">
-        Richtige Antwort: {question.options[0]}
+      <div className="mx-6 text-2xl text-center">
+        <span className="text-gray-100">Richtige Antwort:</span>{" "}
+        <span className="text-white font-bold">{question.options[0]}</span>
       </div>
       <div className="mx-6 flex">
         <input
