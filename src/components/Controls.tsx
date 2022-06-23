@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Icon, loadIcons } from "@iconify/react";
 
 import { GameProps } from "../Game";
@@ -6,6 +7,7 @@ import { avatars } from "../Constants";
 import WinPanel from "./WinPanel";
 
 import coin from "../../assets/coin.svg";
+import wood from "../../assets/sounds/wood.wav";
 
 // import singleStack from "../../assets/cards/single-stack.svg";
 // import groupStack from "../../assets/cards/group-stack.svg";
@@ -41,26 +43,33 @@ function createGameStateMessage(props: GameProps) {
 }
 
 export default function Controls(props: GameProps) {
+  const { playAudio, setPlayAudio } = useContext(AudioContext);
+
+  const woodAudio = new Audio(wood);
+
+  function playWoodAudio() {
+    if (playAudio) {
+      woodAudio.currentTime += 0.05;
+      woodAudio.play();
+    }
+  }
+
   return (
     <div className="w-full md:w-1/3 bg-white mt-4 md:m-4 md:ml-2 border-8 rounded-3xl border-yellow-500">
       <div className="h-full w-full flex-col flex">
         <div className="m-8 flex justify-end">
-          <AudioContext.Consumer>
-            {({ playAudio, setPlayAudio }) => (
-              <button
-                className={`${
-                  playAudio ? "bg-blue-300" : "bg-gray-300"
-                } p-2 rounded-2xl mr-3 transition duration-100 ease-in`}
-              >
-                <Icon
-                  icon={`clarity:volume-${playAudio ? "up" : "mute"}-line`}
-                  onClick={() => setPlayAudio(!playAudio)}
-                  color="white"
-                  height="36"
-                />
-              </button>
-            )}
-          </AudioContext.Consumer>
+          <button
+            className={`${
+              playAudio ? "bg-blue-300" : "bg-gray-300"
+            } p-2 rounded-2xl mr-3 transition duration-100 ease-in`}
+          >
+            <Icon
+              icon={`clarity:volume-${playAudio ? "up" : "mute"}-line`}
+              onClick={() => setPlayAudio(!playAudio)}
+              color="white"
+              height="36"
+            />
+          </button>
           <QuitGameContext.Consumer>
             {(quitGame) => (
               <button
@@ -107,6 +116,7 @@ export default function Controls(props: GameProps) {
                 }
                 className="rounded-lg transition duration-150 text-green-500 hover:text-green-400 disabled:text-gray-400 disabled:hover:text-gray-400 text-6xl"
                 onClick={() => {
+                  playWoodAudio();
                   props.moves.rollDice();
                 }}
               >
