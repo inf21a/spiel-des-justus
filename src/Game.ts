@@ -238,36 +238,7 @@ export const game: Game<GameState> = {
       },
       openQuestion: {
         moves: {
-          answer: (G, ctx, submittedAnswer: string) => {
-            let result = 0;
-            let counter = 0;
-            let answers: Array<string> = submittedAnswer
-              .replaceAll(" ", "")
-              .split(",");
-
-            for (let answer of answers) {
-              let highestSim = 0;
-              let highestIndex = -1;
-              for (let i = 0; i < G.cOpenQuestion!.options.length; i++) {
-                let currentSim = stringSimilarity(
-                  answer.toLowerCase(),
-                  G.cOpenQuestion!.options[i].replaceAll(" ", "").toLowerCase()
-                );
-                if (highestSim < currentSim) {
-                  highestSim = currentSim;
-                  highestIndex = i;
-                }
-              }
-
-              result += highestSim;
-
-              if (highestIndex != -1) {
-                G.cOpenQuestion!.options.splice(highestIndex, 1);
-              }
-              if (++counter == G.cOpenQuestion!.amount) {
-                break;
-              }
-            }
+          answer: (G, ctx, result: number) => {
             if (result >= G.cOpenQuestion!.amount * 0.9) {
               G.players[parseInt(ctx.currentPlayer)].score += 3;
             }
