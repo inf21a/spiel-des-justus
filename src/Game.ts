@@ -227,8 +227,6 @@ export const game: Game<GameState> = {
       choiceQuestion: {
         moves: {
           answer: (G, ctx, submittedAnswer: string, correct: string) => {
-            console.log("COrrect: " + correct);
-            console.log("given: " + submittedAnswer);
             if (submittedAnswer == correct) {
               G.players[parseInt(ctx.currentPlayer)].score += 10;
             }
@@ -244,11 +242,6 @@ export const game: Game<GameState> = {
             let answers: Array<string> = submittedAnswer
               .replaceAll(" ", "")
               .split(",");
-
-            G.cOpenQuestion!.options[0] = "test";
-            G.cOpenQuestion!.options[1] = "test";
-            G.cOpenQuestion!.options[2] = "test";
-            G.cOpenQuestion!.options[3] = "test";
 
             for (let answer of answers) {
               let highestSim: number = 0;
