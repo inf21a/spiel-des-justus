@@ -9,7 +9,7 @@ export const ResultWrapper = (props: {
     "ant-design:exclamation-circle-filled",
   ]);
   return (
-    <div className="w-2/3 mt-10 flex mx-auto">
+    <div className="w-11/12 mt-10 flex mx-auto">
       {props.showCorrect ? (
         <>
           <Icon
