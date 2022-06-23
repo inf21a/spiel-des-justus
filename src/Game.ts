@@ -109,7 +109,7 @@ export const game: Game<GameState> = {
       const player = G.players[parseInt(ctx.currentPlayer)];
       G.rolled = ctx.random!.D6();
 
-      if (player.position + G.rolled > G.board.length) {
+      if (player.position + G.rolled >= G.board.length) {
         ctx.events?.endTurn();
         return;
       }

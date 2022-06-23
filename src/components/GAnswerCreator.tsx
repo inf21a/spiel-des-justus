@@ -44,7 +44,7 @@ export default function GAnswerCreator(props: GameProps) {
         />
         <button
           onClick={submit}
-          disabled={!answer}
+          disabled={!answer || answer == question.options[0]}
           className="text-white ml-4 bg-qCB p-4 rounded-lg hover:bg-qCBH transition duration-150 disabled:bg-qCBD"
         >
           Antwort hinzufügen
