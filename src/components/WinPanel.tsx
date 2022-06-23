@@ -1,10 +1,13 @@
+import { useContext, useEffect } from "react";
 import Lottie from "react-lottie";
 
 import { GameProps } from "../Game";
 import { avatars } from "../Constants";
+import { AudioContext } from "../Context";
 
 import coin from "../../assets/coin.svg";
 import stars from "../../assets/animations/win-stars.json";
+import applause from "../../assets/sounds/applause.wav";
 
 export default function WinPanel(props: GameProps) {
   // determine winner
@@ -39,6 +42,17 @@ export default function WinPanel(props: GameProps) {
     winnersWithHighestPosition[
       Math.floor(Math.random() * winnersWithHighestPosition.length)
     ];
+
+  const { playAudio } = useContext(AudioContext);
+  const applauseAudio = new Audio(applause);
+  applauseAudio.currentTime += 1;
+
+  useEffect(() => {
+    if (playAudio) {
+      applauseAudio.play();
+      return () => applauseAudio.pause();
+    }
+  }, []);
 
   const defaultOptions = {
     loop: true,
