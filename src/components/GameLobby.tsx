@@ -83,7 +83,93 @@ function CreditsPage({
           Zurück
         </button>
       </p>
-      <p>TODO: Add Credits</p>
+      <p>Grafiken:</p>
+      <p>
+        Kanal: <a href="http://www.freepik.com">Designed by brgfx / Freepik</a>
+      </p>
+      <p>
+        Bahnstation:
+        <a href="http://www.freepik.com">Designed by macrovector / Freepik</a>
+      </p>
+      <p>
+        Industriegebäude:{" "}
+        <a href="https://www.freepik.com/vectors/industry">
+          Industry vector created by macrovector - www.freepik.com
+        </a>
+      </p>
+      <p>
+        Jet: <a href="http://www.freepik.com">Designed by sentavio / Freepik</a>
+      </p>
+      <p>
+        Militärhelikopter:{" "}
+        <a href="https://www.freepik.com/vectors/military">
+          Military vector created by brgfx - www.freepik.com
+        </a>
+      </p>
+      <p>
+        Skyscaper:{" "}
+        <a href="http://www.freepik.com">Designed by pch.vector / Freepik</a>
+      </p>
+      <p>
+        Clouds:{" "}
+        <a href="https://www.freepik.com/vectors/cloud-illustration">
+          Cloud illustration vector created by freepik - www.freepik.com
+        </a>
+      </p>
+      <p>
+        Grass:{" "}
+        <a href="https://www.freepik.com/vectors/camp">
+          Camp vector created by pch.vector - www.freepik.com
+        </a>
+      </p>
+      <p>
+        Avatars:
+        <a href="http://www.freepik.com">Designed by studiogstock / Freepik</a>
+      </p>
+      <p>
+        Cityscape:{" "}
+        <a href="http://www.freepik.com">Designed by tartila / Freepik</a>
+      </p>
+      <p>
+        Dollarcoin:{" "}
+        <a href="http://www.freepik.com">Designed by rawpixel.com / Freepik</a>
+      </p>
+      <p>
+        Slum:{" "}
+        <a href="http://www.freepik.com">Designed by macrovector / Freepik</a>
+      </p>
+      <p>
+        Metro:{" "}
+        <a href="http://www.freepik.com">Designed by upklyak / Freepik</a>
+      </p>
+      <p>Audio:</p>
+      <p>
+        Applause:{" "}
+        <a
+          href="https://bigsoundbank.com/detail-2363-applause-1.html
+"
+        >
+          Applause / bigsoundbank
+        </a>
+      </p>
+      <p>
+        Gravel:{" "}
+        <a
+          href="https://bigsoundbank.com/detail-1588-gavel-1-blow.html
+"
+        >
+          Gravel / bigsoundbank
+        </a>
+      </p>
+      <p>
+        Operation:{" "}
+        <a
+          href="https://bigsoundbank.com/detail-1684-operation-game-3.html
+"
+        >
+          Operation / bigsoundbank
+        </a>
+      </p>
     </div>
   );
 }
@@ -127,7 +213,7 @@ function NameSelect(
       </div>
       <button
         onClick={() => props.setLobbyStage(LobbyStage.showCredits)}
-        className="mt-24 bg-lButton hover:bg-lButtonH rounded-xl duration-150 transition text-white p-1.5 text-sm absolute bottom-6 right-6"
+        className="bg-lButton hover:bg-lButtonH rounded-xl duration-150 transition text-white p-1.5 text-sm absolute md:bottom-6 right-6 bottom-0"
       >
         Credits
       </button>
