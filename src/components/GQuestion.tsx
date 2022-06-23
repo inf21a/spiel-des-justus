@@ -13,7 +13,7 @@ export default function GQuestion(props: GameProps) {
       fetch(`${apiUrl}/group-answers/${props.matchID}`)
         .then((res) => res.json())
         .then(({ answers }) =>
-          setGroupQuestions(shuffle([question.question, ...answers]))
+          setGroupQuestions(shuffle([question.options[0], ...answers]))
         );
     }
   }, [props.G.waitingForGroupAnswers]);
