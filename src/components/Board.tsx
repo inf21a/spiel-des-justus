@@ -8,7 +8,9 @@ import Controls from "./Controls";
 import CardWrapper from "./CardWrapper";
 
 export default function Board(props: GameProps) {
-  const [playAudio, setPlayAudio] = useState(true);
+  const [playAudio, setPlayAudio] = useState(
+    localStorage.getItem("playAudio") == "true"
+  );
 
   window.addEventListener("beforeunload", () => {
     const blob = new Blob(

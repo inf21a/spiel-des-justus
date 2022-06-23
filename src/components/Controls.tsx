@@ -65,7 +65,10 @@ export default function Controls(props: GameProps) {
           >
             <Icon
               icon={`clarity:volume-${playAudio ? "up" : "mute"}-line`}
-              onClick={() => setPlayAudio(!playAudio)}
+              onClick={() => {
+                localStorage.setItem("playAudio", String(!playAudio));
+                setPlayAudio(!playAudio);
+              }}
               color="white"
               height="36"
             />
