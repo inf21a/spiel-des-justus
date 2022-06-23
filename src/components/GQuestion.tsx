@@ -4,9 +4,11 @@ import { apiUrl } from "../Constants";
 
 import { GameProps } from "../Game";
 import { QButton } from "./CardWrapper";
+import { ResultWrapper } from "./ResultWrapper";
 
 export default function GQuestion(props: GameProps) {
   const [groupQuestions, setGroupQuestions] = useState<Array<string>>([]);
+  const [showCorrect, setShowCorrect] = useState<boolean | null>(null);
 
   useEffect(() => {
     if (!props.G.waitingForGroupAnswers) {
@@ -17,6 +19,18 @@ export default function GQuestion(props: GameProps) {
         );
     }
   }, [props.G.waitingForGroupAnswers]);
+
+  const submit = (submittedAnswer: string) => {
+    if (submittedAnswer == question.options[0]) {
+      setShowCorrect(true);
+    } else {
+      setShowCorrect(false);
+    }
+    setTimeout(() => {
+      setShowCorrect(null);
+      props.moves.answer(submittedAnswer, question.options[0]);
+    }, 2500);
+  };
 
   const question = props.G.cGroupQuestion!;
 
@@ -37,20 +51,27 @@ export default function GQuestion(props: GameProps) {
           <div className="text-white font-bold mx-6 md:text-2xl text-center">
             {question.question}
           </div>
-          <div className="flex justify-center items-center mt-10 flex-column space-y-7">
-            {groupQuestions.map((option) => (
-              <QButton
-                key={option}
-                onClick={() => {
-                  props.moves.answer(option, question.options[0]);
-                  fetch(`${apiUrl}/group-answers/${props.matchID}`, {
-                    method: "DELETE",
-                  });
-                }}
-                text={option}
-              />
-            ))}
-          </div>
+          {showCorrect == null ? (
+            <div className="flex justify-center items-center mt-10 flex-column space-y-7">
+              {groupQuestions.map((option) => (
+                <QButton
+                  key={option}
+                  onClick={() => {
+                    fetch(`${apiUrl}/group-answers/${props.matchID}`, {
+                      method: "DELETE",
+                    });
+                    submit(option);
+                  }}
+                  text={option}
+                />
+              ))}
+            </div>
+          ) : (
+            <ResultWrapper
+              showCorrect={showCorrect}
+              text={question.options[0]}
+            ></ResultWrapper>
+          )}
         </>
       )}
     </div>
