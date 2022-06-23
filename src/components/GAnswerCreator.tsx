@@ -21,16 +21,16 @@ export default function GAnswerCreator(props: GameProps) {
   return (
     <div
       style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
-      className="bg-qCbg p-10 rounded-2xl w-2/3 space-y-4"
+      className="bg-qCbg p-10 rounded-2xl md:w-2/3 space-y-4"
       hidden={hidden}
     >
-      <div className="mx-6 text-2xl text-center">
+      <div className="mx-6 md:text-2xl text-center">
         <span className="text-gray-100">
           Frage für {props.matchData![parseInt(props.ctx.currentPlayer)].name}:{" "}
         </span>
         <span className="text-white font-bold">{question.question}</span>
       </div>
-      <div className="mx-6 text-2xl text-center">
+      <div className="mx-6 md:text-2xl text-center">
         <span className="text-gray-100">Richtige Antwort:</span>{" "}
         <span className="text-white font-bold">{question.options[0]}</span>
       </div>

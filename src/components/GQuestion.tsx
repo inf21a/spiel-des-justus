@@ -52,7 +52,7 @@ export default function GQuestion(props: GameProps) {
             {question.question}
           </div>
           {showCorrect == null ? (
-            <div className="flex justify-center items-center mt-10 flex-column space-y-7">
+            <div className="flex justify-center items-center mt-10 flex-col space-y-7">
               {groupQuestions.map((option) => (
                 <QButton
                   key={option}
