@@ -213,7 +213,7 @@ function NameSelect(
       </div>
       <button
         onClick={() => props.setLobbyStage(LobbyStage.showCredits)}
-        className="bg-lButton hover:bg-lButtonH rounded-xl duration-150 transition text-white p-1.5 text-sm absolute md:bottom-6 right-6 bottom-0"
+        className="bg-lButton hover:bg-lButtonH rounded-xl duration-150 transition text-white p-1.5 text-sm absolute md:bottom-6 right-6 md:block fixed top-0 md:top-auto mt-6 md:mt-auto"
       >
         Credits
       </button>
