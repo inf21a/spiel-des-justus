@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Icon, loadIcons } from "@iconify/react";
 
 import { AudioContext } from "../Context";
-import buzzer from "../../assets/sounds/wrong.wav";
+import buzzer from "../../assets/sounds/buzzer.wav";
 
 loadIcons([
   "ant-design:check-circle-filled",
