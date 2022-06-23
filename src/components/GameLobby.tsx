@@ -18,7 +18,7 @@ function LobbyWrapper({
 }) {
   return (
     <div className="min-h-screen w-screen justify-center items-center flex bg-justusbg">
-      <div className="flex flex-col items-center h-full">
+      <div className="md:flex flex-col items-center h-full hidden">
         <div
           className="leading-none text-justusfont mt-20"
           style={{
@@ -32,6 +32,27 @@ function LobbyWrapper({
           className="leading-none text-justusfont"
           style={{
             fontSize: "157pt",
+            fontFamily: "Bebas Neue",
+          }}
+        >
+          JUSTUS
+        </div>
+        <div className="mt-20">{children}</div>
+      </div>
+      <div className="flex flex-col items-center h-full md:hidden">
+        <div
+          className="leading-none text-justusfont mt-20"
+          style={{
+            fontSize: "50pt",
+            fontFamily: "Bebas Neue",
+          }}
+        >
+          DAS SPIEL DES
+        </div>
+        <div
+          className="leading-none text-justusfont"
+          style={{
+            fontSize: "95pt",
             fontFamily: "Bebas Neue",
           }}
         >
