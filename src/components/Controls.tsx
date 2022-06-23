@@ -51,7 +51,7 @@ export default function Controls(props: GameProps) {
           <QuitGameContext.Consumer>
             {(quitGame) => (
               <button
-                onClick={() => quitGame(props.matchID)}
+                onClick={quitGame}
                 className="bg-red-300 hover:bg-red-500 p-2 rounded-2xl transition duration-150 ease-in"
               >
                 <Icon icon="iconoir:cancel" color="white" height="36" />
