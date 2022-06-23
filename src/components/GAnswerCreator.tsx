@@ -45,7 +45,7 @@ export default function GAnswerCreator(props: GameProps) {
           }}
           onKeyDown={(event) =>
             event.key == "Enter" &&
-            answer &&
+            answer.trim() &&
             answer.trim() != props.G.cGroupQuestion?.options[0] &&
             submit()
           }
@@ -54,7 +54,8 @@ export default function GAnswerCreator(props: GameProps) {
         <button
           onClick={submit}
           disabled={
-            !answer || answer.trim() == props.G.cGroupQuestion?.options[0]
+            !answer.trim() ||
+            answer.trim() == props.G.cGroupQuestion?.options[0]
           }
           className="text-white ml-4 bg-qCB p-4 rounded-lg hover:bg-qCBH transition duration-150 disabled:bg-qCBD"
         >
