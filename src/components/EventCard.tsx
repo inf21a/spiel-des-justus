@@ -14,7 +14,7 @@ export default function EventCard(props: {
       <div className="text-white font-bold mx-6 text-2xl text-center">
         {props.justusEvent!.message}
       </div>
-      <div className="mx-6 mt-10 flex">
+      <div className="mx-6 mt-10 flex items-center justify-center">
         <button
           onClick={submit}
           className="text-white ml-4 bg-qCB p-4 rounded-lg hover:bg-qCBH transition duration-150 disabled:bg-qCBD"
