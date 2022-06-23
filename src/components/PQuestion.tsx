@@ -19,9 +19,9 @@ export default function PQuestion(props: {
           <QButton onClick={() => props.answer(true)} text="Richtig👍" />
         </div>
         <div className="text-center m-6 text-white text-xl font-bold">
-          10
+          1
           <br />
-          Punkte
+          Punkt
         </div>
         <div className="">
           <QButton onClick={() => props.answer(false)} text="Falsch👎" />
