@@ -11,10 +11,12 @@ export function QButton(props: { text: string; onClick: any }) {
       style={{
         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
       }}
-      className="bg-qCB hover:bg-qCBH transition duration-150 p-4 rounded-xl h-28 flex items-center justify-center w-full max-w-xs"
+      className="bg-qCB hover:bg-qCBH transition duration-150 p-4 rounded-xl md:h-28 flex items-center justify-center w-full max-w-xs"
       onClick={props.onClick}
     >
-      <div className="text-white font-bold">{props.text}</div>
+      <div className="text-white md:font-bold font-medium md:text-base text-sm">
+        {props.text}
+      </div>
     </button>
   );
 }
@@ -22,10 +24,10 @@ export function QButton(props: { text: string; onClick: any }) {
 export default function CardWrapper(props: GameProps) {
   return (
     <>
-      <div className="bg-white/10 fixed w-2/3 h-screen backdrop-blur-sm" />
+      <div className="bg-white/10 fixed md:w-2/3 w-full h-screen backdrop-blur-sm" />
       <div
         style={{ minWidth: "65.54%" }}
-        className="fixed flex h-screen w-2/3 items-center justify-center"
+        className="fixed flex md:h-screen md:w-2/3 w-full items-center justify-center"
       >
         {props.G.showPolarQuestion && (
           <PQuestion
