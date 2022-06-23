@@ -15,6 +15,7 @@ export type GameState = {
   showChoiceQuestion: boolean;
   showOpenQuestion: boolean;
   showGroupQuestion: boolean;
+  waitingForGroupAnswers: boolean;
   showEvent: boolean;
 
   choiceQuestions: Array<{
@@ -89,6 +90,7 @@ export const game: Game<GameState> = {
       showChoiceQuestion: false,
       showOpenQuestion: false,
       showGroupQuestion: false,
+      waitingForGroupAnswers: false,
       showEvent: false,
 
       events: ctx.random!.Shuffle(events),
@@ -150,7 +152,14 @@ export const game: Game<GameState> = {
         case 3:
           G.cGroupQuestion = G.groupQuestions.pop();
           G.showGroupQuestion = true;
+          G.waitingForGroupAnswers = true;
           ctx.events?.setStage("groupQuestion");
+          ctx.events?.setActivePlayers({
+            currentPlayer: "answerGroupQuestion",
+            others: "createGroupQuestion",
+            minMoves: 1,
+            maxMoves: 1,
+          });
           break;
 
         case 4:
@@ -173,6 +182,7 @@ export const game: Game<GameState> = {
       G.showChoiceQuestion = false;
       G.showOpenQuestion = false;
       G.showGroupQuestion = false;
+      G.waitingForGroupAnswers = false;
       G.showEvent = false;
 
       let pausedIndex = G.pausedPlayers.indexOf(parseInt(ctx.currentPlayer));
@@ -188,6 +198,7 @@ export const game: Game<GameState> = {
       G.showChoiceQuestion = false;
       G.showOpenQuestion = false;
       G.showGroupQuestion = false;
+      G.waitingForGroupAnswers = false;
       G.showEvent = false;
     },
     stages: {
@@ -263,13 +274,22 @@ export const game: Game<GameState> = {
           },
         },
       },
-      groupQuestion: {
+      answerGroupQuestion: {
         moves: {
           answer: (G, ctx, submittedAnswer: string, correct: string) => {
             if (submittedAnswer == correct) {
               G.players[parseInt(ctx.currentPlayer)].score += 2;
             }
             ctx.events?.endTurn();
+          },
+        },
+      },
+      createGroupQuestion: {
+        moves: {
+          create: (G, _ctx, count: number) => {
+            if (count == G.players.length - 1) {
+              G.waitingForGroupAnswers = false;
+            }
           },
         },
       },

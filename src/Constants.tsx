@@ -6,3 +6,7 @@ import avatar5 from "../assets/avatar5.svg";
 import avatar6 from "../assets/avatar6.svg";
 
 export const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
+
+export const apiUrl = `http${import.meta.env.DEV ? "" : "s"}://${
+  window.location.hostname
+}${import.meta.env.DEV ? ":3001" : ""}`;
