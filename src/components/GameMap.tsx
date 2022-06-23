@@ -96,7 +96,7 @@ export default function GameMap(props: GameProps) {
   );
 
   return (
-    <div className="border-yellow-500 border-8 rounded-3xl relative w-full md:w-2/3 md:m-4 md:mr-2 shadow-l md:overflow-scroll">
+    <div className="border-yellow-500 border-8 rounded-3xl relative w-full md:w-2/3 md:m-4 md:mr-2 shadow-l md:overflow-scroll no-scrollbar">
       <img className="rounded-2xl sm:w-screen" src={board} alt="Spielbrett" />
       {Array(48)
         .fill(0)
@@ -118,7 +118,7 @@ export default function GameMap(props: GameProps) {
             }}
             ref={i.toString() == props.playerID ? ref : undefined}
           >
-            <img src={avatars[i]} />
+            <img src={avatars[i]} className="rounded-sm" />
           </div>
         ))}
     </div>
