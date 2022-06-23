@@ -3,7 +3,7 @@ import { GameProps } from "../Game";
 
 import "./GameMap.css";
 
-import board from "../../assets/board.svg";
+import board from "../../assets/board_normal.png";
 
 import avatar1 from "../../assets/avatar1.svg";
 import avatar2 from "../../assets/avatar2.svg";
