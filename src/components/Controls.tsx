@@ -115,7 +115,7 @@ export default function Controls(props: GameProps) {
               .matchData!.filter(({ id }) => id.toString() !== props.playerID)
               .map(({ id, name }) => (
                 <div
-                  className="flex flex-col items-center ml-8 text-center"
+                  className="flex flex-col items-center text-center"
                   key={id}
                 >
                   <div className="flex">
