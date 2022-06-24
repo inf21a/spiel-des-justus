@@ -44,8 +44,8 @@ export default function OQuestion(props: {
       setShowCorrect(false);
     }
     setTimeout(() => {
-      props.answer(result);
       setShowCorrect(null);
+      props.answer(result);
     }, 2500);
   }
 
