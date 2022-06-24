@@ -236,8 +236,12 @@ function GameSelect(
   // auto-leave lobby on tab close
   useEffect(() => {
     function handleClose() {
-      props.handleLeaveMatch("justus", matchID!).catch();
-      return "Still in a lobby";
+      if (matchID) {
+        props.handleLeaveMatch("justus", matchID!).catch();
+        return "Still in a lobby";
+      } else {
+        return null;
+      }
     }
     window.onbeforeunload = handleClose;
     return () => {
