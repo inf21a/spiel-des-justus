@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { GameProps } from "../Game";
 import { apiUrl } from "../Constants";
@@ -12,18 +12,25 @@ export default function Board(props: GameProps) {
     localStorage.getItem("playAudio") == "true"
   );
 
-  window.addEventListener("beforeunload", () => {
-    const blob = new Blob(
-      [
-        JSON.stringify({
-          playerID: props.playerID,
-          credentials: props.credentials,
-        }),
-      ],
-      { type: "application/json" }
-    );
-    navigator.sendBeacon(`${apiUrl}/games/justus/${props.matchID}/leave`, blob);
-  });
+  useEffect(() => {
+    function handleClose() {
+      const blob = new Blob(
+        [
+          JSON.stringify({
+            playerID: props.playerID,
+            credentials: props.credentials,
+          }),
+        ],
+        { type: "application/json" }
+      );
+      navigator.sendBeacon(
+        `${apiUrl}/games/justus/${props.matchID}/leave`,
+        blob
+      );
+    }
+    window.addEventListener("beforeunload", handleClose);
+    return () => window.removeEventListener("beforeunload", handleClose);
+  }, []);
 
   return (
     <AudioContext.Provider value={{ playAudio, setPlayAudio }}>

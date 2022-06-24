@@ -233,30 +233,17 @@ function GameSelect(
 
   const match = props.matches.find((match) => match.matchID == matchID);
 
-  // auto join back matches
+  // auto-leave lobby on tab close
   useEffect(() => {
-    const existingMatch = props.matches.find((match) =>
-      match.players
-        .filter((player) => player.name)
-        .map((player) => player.name)
-        .includes(props.playerName)
-    );
-
-    (async () => {
-      if (existingMatch) {
-        const player = existingMatch.players.find(
-          (player) => player.name == props.playerName
-        );
-        await props.handleJoinMatch(
-          "justus",
-          existingMatch.matchID,
-          player!.id.toString()
-        );
-        setPlayerID(player!.id.toString());
-        setMatchID(existingMatch.matchID);
-      }
-    })();
-  }, []);
+    function handleClose() {
+      props.handleLeaveMatch("justus", matchID!).catch();
+      return "Still in a lobby";
+    }
+    window.onbeforeunload = handleClose;
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, [matchID]);
 
   // auto-start match if lobby is full
   useEffect(() => {
